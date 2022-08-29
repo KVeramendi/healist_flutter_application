@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/View/Register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,16 +20,16 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30.0),
             child: Center(
               child: Column(
                 children: <Widget>[
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
                   SizedBox(
                     height: 200.0,
                     child: Image.asset(_imageRoute),
                   ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 30)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
@@ -37,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                       prefixIcon: Icon(Icons.email),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
                   TextFormField(
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
@@ -52,27 +53,27 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 45)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 35.0)),
                   Container(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     width: double.infinity,
-                    height: 60,
+                    height: 60.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: MaterialButton(
                       onPressed: () {},
-                      color: Colors.greenAccent[700],
+                      color: Colors.greenAccent.shade700,
                       child: Text(
                         _loginButton,
                         style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.0,
                           color: Colors.white,
                         ),
                       ),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 20.0)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -85,14 +86,15 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const RegisterPage(),
-                          //     ));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterPage(),
+                              ));
                         },
                         child: Text(_registerButton,
-                            style: TextStyle(color: Colors.greenAccent[700])),
+                            style:
+                                TextStyle(color: Colors.greenAccent.shade700)),
                       )
                     ],
                   ),
