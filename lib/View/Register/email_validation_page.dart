@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/View/Form/input_form_page.dart';
 
 class EmailValidationPage extends StatefulWidget {
   const EmailValidationPage({Key? key}) : super(key: key);
@@ -77,11 +78,11 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => const EmailValidationPage(),
-                        //     ));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const InputFormPage(),
+                            ));
                       },
                       color: Colors.greenAccent.shade700,
                       child: Text(

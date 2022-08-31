@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
-import 'package:healist_flutter_application/View/Register/email_validation.dart';
+import 'package:healist_flutter_application/View/Register/email_validation_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
