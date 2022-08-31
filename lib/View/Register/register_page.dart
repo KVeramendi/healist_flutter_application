@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
+import 'package:healist_flutter_application/View/Register/email_validation.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -81,7 +82,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EmailValidationPage(),
+                          ));
+                    },
                     color: Colors.greenAccent.shade700,
                     child: Text(
                       _registerButton,
