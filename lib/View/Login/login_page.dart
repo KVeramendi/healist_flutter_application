@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/View/Menu/home_page.dart';
 import 'package:healist_flutter_application/View/Register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -62,7 +63,13 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ));
+                      },
                       color: Colors.greenAccent.shade700,
                       child: Text(
                         _loginButton,
