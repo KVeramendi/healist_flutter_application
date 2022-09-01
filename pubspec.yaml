@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   # El siguiente paquete agrega el Curved Navigation Bar para personalizar 'bottomNavigationBar' del Scafold
   curved_navigation_bar: ^1.0.3
+  # El siguiente paquete agrega barras de progreso personalizados (Barras, steppers, círculos, arcos, entre otros)
+  ai_progress: ^2.0.0
 
 dev_dependencies:
   flutter_test:
