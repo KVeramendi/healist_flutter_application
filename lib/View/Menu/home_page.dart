@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/View/Menu/Foods/food_list_page.dart';
 import 'package:healist_flutter_application/View/Menu/Progress/daily_progress_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   ];
   int indexPage = 2;
   final List<Widget> _pages = const [
-    Center(child: Text('Lista de comida')),
+    FoodListPage(),
     Center(child: Text('Seguimiento nutricional')),
     DailyProgressPage(),
     Center(child: Text('Recordatorios')),
