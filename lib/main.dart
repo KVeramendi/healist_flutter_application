@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Healist',
       theme: ThemeData(
-          // primarySwatch: Colors.lightGreen,
+          // primarySwatch: Colors.green,
           ),
       home: const LoginPage(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/View/Menu/home_page.dart';
 
 class InputFormPage extends StatefulWidget {
   const InputFormPage({Key? key}) : super(key: key);
@@ -132,11 +133,11 @@ class _InputFormPageState extends State<InputFormPage> {
                     ),
                     child: MaterialButton(
                       onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => const EmailValidationPage(),
-                        //     ));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ));
                       },
                       color: Colors.greenAccent.shade700,
                       child: Text(

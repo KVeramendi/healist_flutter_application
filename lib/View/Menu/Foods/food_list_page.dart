@@ -13,6 +13,7 @@ class FoodListPage extends StatefulWidget {
 class _FoodListPageState extends State<FoodListPage> {
   late List<Food> foods;
   String query = '';
+  String? _meals;
 
   @override
   void initState() {
@@ -22,21 +23,19 @@ class _FoodListPageState extends State<FoodListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Center(
-        child: Column(
-          children: [
-            buildSearch(),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: foods.length,
-                    itemBuilder: (context, index) {
-                      final food = foods[index];
-                      return buildFood(food);
-                    }))
-          ],
-        ),
+    return Center(
+      child: Column(
+        children: [
+          buildSearch(),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: foods.length,
+                  itemBuilder: (context, index) {
+                    final food = foods[index];
+                    food.hashCode;
+                    return buildFood(food);
+                  }))
+        ],
       ),
     );
   }
@@ -56,7 +55,10 @@ class _FoodListPageState extends State<FoodListPage> {
     });
   }
 
-  Widget buildFood(Food food) => ListTile(
+  Widget buildFood(Food food) {
+    final _kilocaloriesController =
+        TextEditingController(text: food.foodPortion.toString());
+    return ListTile(
       leading: Image.asset(food.foodIcon,
           fit: BoxFit.cover, width: 50.0, height: 50.0),
       title: Text(food.foodName, style: const TextStyle(fontSize: 22.0)),
@@ -83,5 +85,78 @@ class _FoodListPageState extends State<FoodListPage> {
             const Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
             Text('1 ración (' + food.foodPortion.toString() + ' g)',
                 style: const TextStyle(color: Colors.black45, fontSize: 12.0))
-          ]));
+          ]),
+      onTap: () {
+        showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(food.foodName),
+                          const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 4.0)),
+                          SizedBox(
+                              width: 25.0, child: Image.asset(food.foodIcon)),
+                        ],
+                      ),
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextFormField(
+                            controller: _kilocaloriesController,
+                            decoration: InputDecoration(
+                              labelText: 'Cantidad',
+                              border: const OutlineInputBorder(),
+                              helperText: '1 ración = ' +
+                                  food.foodPortion.toString() +
+                                  ' gramos',
+                            ),
+                            keyboardType: TextInputType.number,
+                          ),
+                          const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10.0)),
+                          DropdownButtonFormField(
+                            items: const [
+                              DropdownMenuItem<String>(
+                                value: 'D',
+                                child: Text('Desayuno'),
+                              ),
+                              DropdownMenuItem<String>(
+                                value: 'A',
+                                child: Text('Almuerzo'),
+                              ),
+                              DropdownMenuItem<String>(
+                                value: 'C',
+                                child: Text('Cena'),
+                              ),
+                            ].toList(),
+                            value: _meals,
+                            onChanged: (String? value) {
+                              setState(() {
+                                _meals = value;
+                              });
+                            },
+                            decoration: const InputDecoration(
+                              labelText: 'Comida',
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ],
+                      ),
+                      actions: [
+                        TextButton(
+                            onPressed: () => Navigator.pop(context, 'Cancelar'),
+                            child: const Text('Cancelar')),
+                        TextButton(
+                            onPressed: () => Navigator.pop(
+                                context, _kilocaloriesController.text),
+                            child: const Text('Agregar')),
+                      ],
+                    ),
+                barrierDismissible: false)
+            .then((result) => print(result));
+      },
+    );
+  }
 }

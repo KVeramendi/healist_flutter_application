@@ -6,10 +6,14 @@ class Food {
   final double proteins;
   final double carbohydrates;
   final double fats;
+  // final String foodSchedule;
+  // final int day;
+  // final int month;
+  // final int year;
   final String foodIcon;
   final String urlImage;
 
-  const Food({
+  Food({
     required this.id,
     required this.foodName,
     required this.foodPortion,
@@ -17,6 +21,10 @@ class Food {
     required this.proteins,
     required this.carbohydrates,
     required this.fats,
+    // required this.foodSchedule,
+    // required this.day,
+    // required this.month,
+    // required this.year,
     required this.foodIcon,
     required this.urlImage,
   });
@@ -29,6 +37,10 @@ class Food {
       proteins: json['proteins'],
       carbohydrates: json['carbohydrates'],
       fats: json['fats'],
+      // foodSchedule: json['foodSchedule'],
+      // day: json['day'],
+      // month: json['month'],
+      // year: json['year'],
       foodIcon: json['foodIcon'],
       urlImage: json['urlImage']);
 
@@ -40,6 +52,10 @@ class Food {
         'proteins': proteins,
         'carbohydrates': carbohydrates,
         'fats': fats,
+        // 'foodSchedule': foodSchedule,
+        // 'day': day,
+        // 'month': month,
+        // 'year': year,
         'foodIcon': foodIcon,
         'urlImage': urlImage
       };
