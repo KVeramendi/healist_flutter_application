@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:healist_flutter_application/Widget/kilocalories_consumption_widget.dart';
+import 'package:healist_flutter_application/Widget/fruits_vegetables_card_widget.dart';
+import 'package:healist_flutter_application/Widget/fruits_vegetables_chart_widget.dart';
+import 'package:healist_flutter_application/Widget/kilocalories_card_widget.dart';
+import 'package:healist_flutter_application/Widget/kilocalories_chart_widget.dart';
+import 'package:healist_flutter_application/Widget/macronutrients_card_widget.dart';
+import 'package:healist_flutter_application/Widget/macronutrients_chart_widget.dart';
+import 'package:healist_flutter_application/Widget/water_card_widget.dart';
+import 'package:healist_flutter_application/Widget/water_chart_widget.dart';
 
 class ReportsPage extends StatefulWidget {
   const ReportsPage({Key? key}) : super(key: key);
@@ -9,18 +16,14 @@ class ReportsPage extends StatefulWidget {
 }
 
 class _ReportsPageState extends State<ReportsPage> {
-  final items = [
+  final _items = [
     'Consumo de kilocalorías',
     'Ingesta de nutrientes',
     'Consumo de agua',
     'Ingesta de frutas y verduras'
   ];
-  String? initialItem = 'Consumo de kilocalorías';
+  String? _initialItem = 'Consumo de kilocalorías';
   final List<bool> _isSelected = [true, false];
-  final int _initialKilocaloriesValue = 2960;
-  final int _lastKilocaloriesValue = 2680;
-  final int _goalKilocaloriesValue = 2500;
-  int? value = 280;
   int _choiceButton = 0;
 
   @override
@@ -43,10 +46,10 @@ class _ReportsPageState extends State<ReportsPage> {
                       height: 40.0,
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
-                          items: items.map(buildMenuItem).toList(),
-                          value: initialItem,
+                          items: _items.map(buildMenuItem).toList(),
+                          value: _initialItem,
                           onChanged: (value) =>
-                              setState(() => initialItem = value),
+                              setState(() => _initialItem = value),
                           icon: const Icon(Icons.arrow_drop_down, size: 30.0),
                         ),
                       ),
@@ -148,114 +151,8 @@ class _ReportsPageState extends State<ReportsPage> {
                       shadowColor: Colors.transparent)
                 ],
               ),
-              const KilocaloriesConsumptionWidget(),
-              Row(
-                children: [
-                  Expanded(
-                    child: Card(
-                      elevation: 2.0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: SizedBox(
-                        height: 80.0,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('$_initialKilocaloriesValue kcal',
-                                      style: const TextStyle(fontSize: 22.0)),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 5.0)),
-                                  Text('Inicio',
-                                      style: TextStyle(
-                                          color: Colors.grey.shade600,
-                                          fontSize: 15.0))
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('$_lastKilocaloriesValue kcal',
-                                      style: const TextStyle(fontSize: 22.0)),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 5.0)),
-                                  Text('Último',
-                                      style: TextStyle(
-                                          color: Colors.grey.shade600,
-                                          fontSize: 15.0))
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('$_goalKilocaloriesValue kcal',
-                                      style: TextStyle(
-                                          color: Colors.greenAccent.shade700,
-                                          fontSize: 22.0)),
-                                  const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 5.0)),
-                                  Text('Objetivo',
-                                      style: TextStyle(
-                                          color: Colors.greenAccent.shade700,
-                                          fontSize: 15.0))
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
-              Row(
-                children: [
-                  Expanded(
-                    child: Card(
-                      elevation: 2.0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: SizedBox(
-                        height: 80.0,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              RichText(
-                                  text: TextSpan(
-                                      style: const TextStyle(
-                                          color: Colors.black87,
-                                          fontSize: 16.0),
-                                      children: [
-                                        const TextSpan(
-                                            text:
-                                                'Disminuyó el consumo calórico en '),
-                                        TextSpan(
-                                            text: '$value kilocalorías',
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold)),
-                                        const TextSpan(
-                                            text:
-                                                ' desde un inicio hasta la última fecha registrada.'),
-                                      ]),
-                                  textAlign: TextAlign.justify),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              chartSelection(_initialItem),
+              cardSelection(_initialItem),
             ],
           ),
         ),
@@ -265,4 +162,28 @@ class _ReportsPageState extends State<ReportsPage> {
 
   DropdownMenuItem<String> buildMenuItem(String item) =>
       DropdownMenuItem(value: item, child: Text(item));
+
+  Widget chartSelection(String? option) {
+    if (option == 'Consumo de kilocalorías') {
+      return const KilocaloriesChartWidget();
+    } else if (option == 'Ingesta de nutrientes') {
+      return const MacronutrientsChartWidget();
+    } else if (option == 'Consumo de agua') {
+      return const WaterChartWidget();
+    } else {
+      return const FruitsVegetablesChartWidget();
+    }
+  }
+
+  Widget cardSelection(String? option) {
+    if (option == 'Consumo de kilocalorías') {
+      return const KilocaloriesCardWidget();
+    } else if (option == 'Ingesta de nutrientes') {
+      return const MacronutrientsCardWidget();
+    } else if (option == 'Consumo de agua') {
+      return const WaterCardWidget();
+    } else {
+      return const FruitsVegetablesCardWidget();
+    }
+  }
 }
