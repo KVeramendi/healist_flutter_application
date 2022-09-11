@@ -75,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 35.0)),
                 Container(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  clipBehavior: Clip.antiAlias,
                   width: double.infinity,
                   height: 60.0,
                   decoration: BoxDecoration(

@@ -70,7 +70,7 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
                   Container(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    clipBehavior: Clip.antiAlias,
                     width: double.infinity,
                     height: 60.0,
                     decoration: BoxDecoration(

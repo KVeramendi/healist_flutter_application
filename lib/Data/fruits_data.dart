@@ -1,6 +1,6 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allFoods = <Food>[
+final allFruits = <Food>[
   Food(
       id: 1,
       foodName: 'Aguacate',

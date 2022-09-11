@@ -125,7 +125,7 @@ class _InputFormPageState extends State<InputFormPage> {
                   ),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
                   Container(
-                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    clipBehavior: Clip.antiAlias,
                     width: double.infinity,
                     height: 60.0,
                     decoration: BoxDecoration(

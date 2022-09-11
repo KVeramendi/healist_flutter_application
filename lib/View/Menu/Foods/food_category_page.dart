@@ -1,85 +1,110 @@
 import 'package:flutter/material.dart';
-import 'package:healist_flutter_application/Data/cereals_data.dart';
-import 'package:healist_flutter_application/Data/dairies_data.dart';
-import 'package:healist_flutter_application/Data/dried_fruits_data.dart';
-import 'package:healist_flutter_application/Data/fruits_data.dart';
-import 'package:healist_flutter_application/Data/legumes_data.dart';
-import 'package:healist_flutter_application/Data/vegetables_data.dart';
+import 'package:flutter/widgets.dart';
+import 'package:healist_flutter_application/Data/food_data.dart';
 import 'package:healist_flutter_application/Model/food_model.dart';
+import 'package:healist_flutter_application/Widget/category_card_button_widget.dart';
 import 'package:healist_flutter_application/Widget/search_widget.dart';
 
-class FoodListPage extends StatefulWidget {
-  final String title;
-  const FoodListPage({Key? key, required this.title}) : super(key: key);
+class FoodCategoryPage extends StatefulWidget {
+  const FoodCategoryPage({Key? key}) : super(key: key);
 
   @override
-  State<FoodListPage> createState() => _FoodListPageState();
+  State<FoodCategoryPage> createState() => _FoodCategoryPageState();
 }
 
-class _FoodListPageState extends State<FoodListPage> {
+class _FoodCategoryPageState extends State<FoodCategoryPage> {
   late List<Food> foodsData;
-  late List<Food> foodListSearching;
   String query = '';
   String? _meals;
+  bool isButtonsVisible = true;
+  bool isFoodsVisible = false;
 
   @override
   void initState() {
     super.initState();
-    if (widget.title == 'FRUTAS') {
-      foodsData = allFruits;
-      foodListSearching = allFruits;
-    } else if (widget.title == 'VERDURAS') {
-      foodsData = allVegetables;
-      foodListSearching = allVegetables;
-    } else if (widget.title == 'LEGUMBRES') {
-      foodsData = allLegumes;
-      foodListSearching = allLegumes;
-    } else if (widget.title == 'LÁCTEOS') {
-      foodsData = allDairies;
-      foodListSearching = allDairies;
-    } else if (widget.title == 'CEREALES') {
-      foodsData = allCereals;
-      foodListSearching = allCereals;
-    } else {
-      foodsData = allDriedFruits;
-      foodListSearching = allDriedFruits;
-    }
+    foodsData = allFoods;
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-            appBar: AppBar(
-                centerTitle: true,
-                backgroundColor: Colors.greenAccent.shade700,
-                title: Text(widget.title)),
-            body: Center(
-                child: Column(children: [
-              buildSearch(),
-              Expanded(
-                  child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        final food = foodsData[index];
-                        return buildFood(food);
-                      },
-                      itemCount: foodsData.length))
-            ]))));
+    return Center(
+      child: Column(
+        children: [
+          buildSearch(),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/fruits_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/fruits.png'),
+                text: 'FRUTAS'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/vegetables_background.jpg'),
+                iconImage:
+                    AssetImage('assets/images/categories/vegetables.png'),
+                text: 'VERDURAS'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/legumes_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/legumes.png'),
+                text: 'LEGUMBRES'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/dairies_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/dairies.png'),
+                text: 'LÁCTEOS'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/cereals_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/cereals.png'),
+                text: 'CEREALES'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/dried_fruits_background.jpg'),
+                iconImage:
+                    AssetImage('assets/images/categories/dried_fruits.png'),
+                text: 'FRUTOS SECOS'),
+          const Padding(padding: EdgeInsets.only(bottom: 8.0)),
+          if (isFoodsVisible)
+            Expanded(
+                child: ListView.builder(
+                    itemCount: foodsData.length,
+                    itemBuilder: (context, index) {
+                      final food = foodsData[index];
+                      return buildFood(food);
+                    }))
+        ],
+      ),
+    );
   }
 
   Widget buildSearch() => SearchWidget(
       text: query, hintText: 'Nombre del alimento', onChanged: searchFood);
 
   void searchFood(String query) {
-    final foods = foodListSearching.where((food) {
-      final foodNameLower = food.foodName.toLowerCase();
-      final searchLower = query.toLowerCase();
-      return foodNameLower.contains(searchLower);
-    }).toList();
-    setState(() {
-      this.query = query;
-      foodsData = foods;
-    });
+    if (query != '') {
+      final foods = allFoods.where((food) {
+        final foodNameLower = food.foodName.toLowerCase();
+        final searchLower = query.toLowerCase();
+        return foodNameLower.contains(searchLower);
+      }).toList();
+      setState(() {
+        this.query = query;
+        foodsData = foods;
+        isButtonsVisible = false;
+        isFoodsVisible = true;
+      });
+    } else {
+      setState(() {
+        isButtonsVisible = true;
+        isFoodsVisible = false;
+      });
+    }
   }
 
   Widget buildFood(Food food) {
@@ -146,7 +171,7 @@ class _FoodListPageState extends State<FoodListPage> {
                                   DropdownMenuItem<String>(
                                       value: 'A', child: Text('Almuerzo')),
                                   DropdownMenuItem<String>(
-                                      value: 'C', child: Text('Cena')),
+                                      value: 'C', child: Text('Cena'))
                                 ].toList(),
                                 value: _meals,
                                 onChanged: (String? value) {
