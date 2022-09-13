@@ -20,7 +20,7 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const styleActive = TextStyle(color: Colors.black54);
+    const styleActive = TextStyle(color: Colors.black87);
     const styleHint = TextStyle(color: Colors.black45);
     final style = widget.text.isEmpty ? styleHint : styleActive;
 
@@ -45,8 +45,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           _controller.clear();
                           widget.onChanged('');
                           FocusScope.of(context).requestFocus(FocusNode());
-                        },
-                      )
+                        })
                     : null,
                 border: InputBorder.none),
             style: style,

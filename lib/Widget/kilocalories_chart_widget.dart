@@ -31,21 +31,20 @@ class _KilocaloriesChartWidgetState extends State<KilocaloriesChartWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.0,
-      child: SfCartesianChart(
-        primaryXAxis:
-            DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
-        tooltipBehavior: _tooltipBehavior,
-        series: <CartesianSeries<KilocaloriesChartModel, DateTime>>[
-          SplineSeries<KilocaloriesChartModel, DateTime>(
-            dataSource: _kilocaloriesChartModelList,
-            xValueMapper: (KilocaloriesChartModel data, _) => data.dateTime,
-            yValueMapper: (KilocaloriesChartModel data, _) => data.kilocalories,
-            name: 'Kilocalorías',
-            markerSettings: const MarkerSettings(isVisible: true),
-          ),
-        ],
-      ),
-    );
+        height: 300.0,
+        child: SfCartesianChart(
+            primaryXAxis:
+                DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
+            tooltipBehavior: _tooltipBehavior,
+            series: <CartesianSeries<KilocaloriesChartModel, DateTime>>[
+              SplineSeries<KilocaloriesChartModel, DateTime>(
+                  dataSource: _kilocaloriesChartModelList,
+                  xValueMapper: (KilocaloriesChartModel data, _) =>
+                      data.dateTime,
+                  yValueMapper: (KilocaloriesChartModel data, _) =>
+                      data.kilocalories,
+                  name: 'Kilocalorías',
+                  markerSettings: const MarkerSettings(isVisible: true))
+            ]));
   }
 }

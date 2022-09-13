@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(25.0),
             child: Center(
               child: Column(
                 children: <Widget>[

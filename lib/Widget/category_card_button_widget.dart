@@ -6,12 +6,12 @@ class CategoryCardButtonWidget extends StatelessWidget {
   final AssetImage backgroundImage;
   final AssetImage iconImage;
   final String text;
-  const CategoryCardButtonWidget({
-    Key? key,
-    required this.backgroundImage,
-    required this.iconImage,
-    required this.text,
-  }) : super(key: key);
+  const CategoryCardButtonWidget(
+      {Key? key,
+      required this.backgroundImage,
+      required this.iconImage,
+      required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class CategoryCardButtonWidget extends StatelessWidget {
                     child: Stack(alignment: Alignment.center, children: [
                       Ink.image(
                           image: backgroundImage,
-                          width: double.infinity,
-                          fit: BoxFit.cover),
+                          fit: BoxFit.cover,
+                          width: double.infinity),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12.0),
                           child: Row(
@@ -40,11 +40,11 @@ class CategoryCardButtonWidget extends StatelessWidget {
                                 SizedBox(
                                     width: 250.0,
                                     child: Text(text,
-                                        textAlign: TextAlign.center,
                                         style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 28.0,
-                                            fontWeight: FontWeight.bold))),
+                                            fontWeight: FontWeight.bold),
+                                        textAlign: TextAlign.center)),
                                 const Icon(Icons.arrow_forward_ios_rounded,
                                     size: 28.0, color: Colors.white)
                               ]))

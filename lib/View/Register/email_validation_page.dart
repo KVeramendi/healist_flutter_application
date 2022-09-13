@@ -9,11 +9,7 @@ class EmailValidationPage extends StatefulWidget {
 }
 
 class _EmailValidationPageState extends State<EmailValidationPage> {
-  final String _tittlePage = 'VERIFICACIÓN DE CUENTA';
-  final String _textDescription =
-      'Confirmaremos que esta dirección de correo electrónico le pertenece. Ingrese el código de 5 digitos incluido en el mensaje que enviamos a:';
   final String _userEmail = 'user_email@gmail.com';
-  final String _confirmButton = 'Confirmar';
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +17,11 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(25.0),
             child: Center(
               child: Column(
                 children: <Widget>[
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
                   Container(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       decoration: BoxDecoration(
@@ -34,14 +30,15 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
                                 color: Colors.greenAccent.shade700,
                                 width: 2.0)),
                       ),
-                      child: Text(_tittlePage,
-                          style: const TextStyle(
+                      child: const Text('VALIDACIÓN DE CUENTA',
+                          style: TextStyle(
                               fontSize: 25.0, fontWeight: FontWeight.bold))),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 35.0)),
-                  SizedBox(
-                      width: 270.0,
-                      child: Text(_textDescription,
-                          style: const TextStyle(
+                  const SizedBox(
+                      width: 300.0,
+                      child: Text(
+                          'Confirmaremos que esta dirección de correo electrónico le pertenece. Ingrese el código de 5 digitos incluido en el mensaje que enviamos a:',
+                          style: TextStyle(
                               color: Colors.black87,
                               fontSize: 15.0,
                               height: 1.5),
@@ -68,7 +65,7 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
                       maxLength: 5,
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
                   Container(
                     clipBehavior: Clip.antiAlias,
                     width: double.infinity,
@@ -85,9 +82,9 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
                             ));
                       },
                       color: Colors.greenAccent.shade700,
-                      child: Text(
-                        _confirmButton,
-                        style: const TextStyle(
+                      child: const Text(
+                        'Confirmar',
+                        style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
                         ),

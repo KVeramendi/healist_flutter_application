@@ -30,7 +30,7 @@ class _ReportsPageState extends State<ReportsPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
         child: Center(
           child: Column(
             children: [
@@ -50,18 +50,18 @@ class _ReportsPageState extends State<ReportsPage> {
                           value: _initialItem,
                           onChanged: (value) =>
                               setState(() => _initialItem = value),
-                          icon: const Icon(Icons.arrow_drop_down, size: 30.0),
+                          icon: const Icon(Icons.arrow_drop_down, size: 26.0),
                         ),
                       ),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
+                  const Padding(padding: EdgeInsets.symmetric(horizontal: 3.0)),
                   SizedBox(
                     height: 38.0,
                     child: ToggleButtons(
                         children: const [
-                          Icon(Icons.show_chart_rounded, size: 20.0),
-                          Icon(Icons.stacked_line_chart_rounded, size: 16.0)
+                          Icon(Icons.show_chart_rounded, size: 18.0),
+                          Icon(Icons.stacked_line_chart_rounded, size: 18.0)
                         ],
                         isSelected: _isSelected,
                         onPressed: (newIndex) => setState(() {

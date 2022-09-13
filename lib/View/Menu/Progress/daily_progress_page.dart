@@ -55,7 +55,7 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
                       ),
                       const Padding(
                           padding: EdgeInsets.symmetric(vertical: 5.0)),
-                      Text('$_waterValue l')
+                      Text('$_waterValue L')
                     ],
                   ),
                   Stack(

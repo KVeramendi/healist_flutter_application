@@ -10,22 +10,17 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final String _tittlePage = 'CREAR CUENTA';
-  final String _registerButton = 'Registrarse';
-  final String _textDescription = '¿Ya tienes una cuenta?';
-  final String _loginButton = 'Ingresa aquí';
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(25.0),
           child: Center(
             child: Column(
               children: <Widget>[
-                const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
                 Container(
                     padding: const EdgeInsets.only(bottom: 10.0),
                     decoration: BoxDecoration(
@@ -33,8 +28,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           bottom: BorderSide(
                               color: Colors.greenAccent.shade700, width: 2.0)),
                     ),
-                    child: Text(_tittlePage,
-                        style: const TextStyle(
+                    child: const Text('CREAR CUENTA',
+                        style: TextStyle(
                             fontSize: 25.0, fontWeight: FontWeight.bold))),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 40.0)),
                 TextFormField(
@@ -90,9 +85,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           ));
                     },
                     color: Colors.greenAccent.shade700,
-                    child: Text(
-                      _registerButton,
-                      style: const TextStyle(
+                    child: const Text(
+                      'Registrarse',
+                      style: TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
                       ),
@@ -104,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      _textDescription,
+                      '¿Ya tienes una cuenta?',
                       style: TextStyle(
                         color: Colors.black.withOpacity(0.5),
                         fontSize: 16.0,
@@ -118,7 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               builder: (context) => const LoginPage(),
                             ));
                       },
-                      child: Text(_loginButton,
+                      child: Text('Ingresa aquí',
                           style: TextStyle(color: Colors.greenAccent.shade700)),
                     )
                   ],

@@ -28,25 +28,23 @@ class _FruitsVegetablesChartWidgetState
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.0,
-      child: SfCartesianChart(
-        primaryXAxis:
-            DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
-        primaryYAxis: NumericAxis(
-          labelFormat: '{value} g',
-        ),
-        tooltipBehavior: _tooltipBehavior,
-        series: <CartesianSeries<FruitsVegetablesChartModel, DateTime>>[
-          SplineSeries<FruitsVegetablesChartModel, DateTime>(
-            dataSource: _fruitsVegetablesChartModelList,
-            xValueMapper: (FruitsVegetablesChartModel data, _) => data.dateTime,
-            yValueMapper: (FruitsVegetablesChartModel data, _) =>
-                data.fruitsVegetables,
-            name: 'Frutas y verduras',
-            markerSettings: const MarkerSettings(isVisible: true),
-          ),
-        ],
-      ),
-    );
+        height: 300.0,
+        child: SfCartesianChart(
+            primaryXAxis:
+                DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
+            primaryYAxis: NumericAxis(
+              labelFormat: '{value} g',
+            ),
+            tooltipBehavior: _tooltipBehavior,
+            series: <CartesianSeries<FruitsVegetablesChartModel, DateTime>>[
+              SplineSeries<FruitsVegetablesChartModel, DateTime>(
+                  dataSource: _fruitsVegetablesChartModelList,
+                  xValueMapper: (FruitsVegetablesChartModel data, _) =>
+                      data.dateTime,
+                  yValueMapper: (FruitsVegetablesChartModel data, _) =>
+                      data.fruitsVegetables,
+                  name: 'Frutas y verduras',
+                  markerSettings: const MarkerSettings(isVisible: true))
+            ]));
   }
 }

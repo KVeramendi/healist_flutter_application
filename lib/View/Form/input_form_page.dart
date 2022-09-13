@@ -9,8 +9,6 @@ class InputFormPage extends StatefulWidget {
 }
 
 class _InputFormPageState extends State<InputFormPage> {
-  final String _tittlePage = 'FORMULARIO DE ENTRADA';
-  final String _acceptButton = 'Aceptar';
   String? _physicalActivity;
   String? _genre;
 
@@ -20,7 +18,7 @@ class _InputFormPageState extends State<InputFormPage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(25.0),
             child: Center(
               child: Column(
                 children: <Widget>[
@@ -33,14 +31,15 @@ class _InputFormPageState extends State<InputFormPage> {
                                 color: Colors.greenAccent.shade700,
                                 width: 2.0)),
                       ),
-                      child: Text(_tittlePage,
-                          style: const TextStyle(
+                      child: const Text('FORMULARIO',
+                          style: TextStyle(
                               fontSize: 25.0, fontWeight: FontWeight.bold))),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   TextFormField(
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                           helperText: 'Ingrese su peso en kilogramos (kg)',
+                          helperStyle: TextStyle(fontStyle: FontStyle.italic),
                           labelText: 'Peso',
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.monitor_weight_rounded))),
@@ -50,6 +49,7 @@ class _InputFormPageState extends State<InputFormPage> {
                           const TextInputType.numberWithOptions(decimal: true),
                       decoration: const InputDecoration(
                           helperText: 'Ingrese su altura en centímetros (cm)',
+                          helperStyle: TextStyle(fontStyle: FontStyle.italic),
                           labelText: 'Altura',
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.height_rounded))),
@@ -58,6 +58,7 @@ class _InputFormPageState extends State<InputFormPage> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                           helperText: 'Ingrese su edad',
+                          helperStyle: TextStyle(fontStyle: FontStyle.italic),
                           labelText: 'Edad',
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.person))),
@@ -93,6 +94,7 @@ class _InputFormPageState extends State<InputFormPage> {
                     },
                     decoration: const InputDecoration(
                       helperText: 'Ingrese su nivel de actividad física',
+                      helperStyle: TextStyle(fontStyle: FontStyle.italic),
                       labelText: 'Actividad física',
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.directions_run_rounded),
@@ -118,6 +120,7 @@ class _InputFormPageState extends State<InputFormPage> {
                     },
                     decoration: const InputDecoration(
                       helperText: 'Ingrese su género',
+                      helperStyle: TextStyle(fontStyle: FontStyle.italic),
                       labelText: 'Género',
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.group_rounded),
@@ -140,9 +143,9 @@ class _InputFormPageState extends State<InputFormPage> {
                             ));
                       },
                       color: Colors.greenAccent.shade700,
-                      child: Text(
-                        _acceptButton,
-                        style: const TextStyle(
+                      child: const Text(
+                        'Aceptar',
+                        style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
                         ),

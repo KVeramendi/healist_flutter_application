@@ -111,28 +111,27 @@ class _FoodCategoryPageState extends State<FoodCategoryPage> {
     final _kilocaloriesController =
         TextEditingController(text: food.foodPortion.toString());
     return ListTile(
-        leading: Image.asset(food.foodIcon,
-            fit: BoxFit.cover, width: 50.0, height: 50.0),
+        leading: Image.asset(food.foodIcon, width: 45.0, height: 45.0),
         title: Text(food.foodName, style: const TextStyle(fontSize: 22.0)),
         subtitle:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text('P: ' + food.proteins.toString() + ' g',
               style:
-                  TextStyle(color: Colors.blueAccent.shade700, fontSize: 14.0)),
+                  TextStyle(color: Colors.blueAccent.shade700, fontSize: 13.0)),
           Text('C: ' + food.carbohydrates.toString() + ' g',
               style:
-                  TextStyle(color: Colors.redAccent.shade700, fontSize: 14.0)),
+                  TextStyle(color: Colors.redAccent.shade700, fontSize: 13.0)),
           Text('G: ' + food.fats.toString() + ' g',
               style: TextStyle(
-                  color: Colors.orangeAccent.shade400, fontSize: 14.0))
+                  color: Colors.orangeAccent.shade400, fontSize: 13.0))
         ]),
         trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(food.kilocalories.toString() + ' kcal',
-                  style: const TextStyle(fontSize: 16.0)),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 4.0)),
+                  style: const TextStyle(fontSize: 17.0)),
+              const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
               Text('1 ración (' + food.foodPortion.toString() + ' g)',
                   style: const TextStyle(color: Colors.black45, fontSize: 12.0))
             ]),

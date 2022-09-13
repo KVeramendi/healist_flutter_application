@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/View/Menu/Foods/food_category_page.dart';
 import 'package:healist_flutter_application/View/Menu/Progress/daily_progress_page.dart';
+import 'package:healist_flutter_application/View/Menu/Reminders/reminders_page.dart';
 import 'package:healist_flutter_application/View/Menu/Reports/reports_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     FoodCategoryPage(),
     ReportsPage(),
     DailyProgressPage(),
-    Center(child: Text('Recordatorios')),
+    RemindersPage(),
     Center(child: Text('Portal Biotrendies')),
   ];
 

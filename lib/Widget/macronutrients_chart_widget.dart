@@ -27,39 +27,36 @@ class _MacronutrientsChartWidgetState extends State<MacronutrientsChartWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.0,
-      child: SfCartesianChart(
-        primaryXAxis:
-            DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
-        primaryYAxis: NumericAxis(
-          labelFormat: '{value} g',
-        ),
-        tooltipBehavior: _tooltipBehavior,
-        series: <CartesianSeries<MacronutrientsChartModel, DateTime>>[
-          StackedLineSeries<MacronutrientsChartModel, DateTime>(
-            dataSource: _macronutrientsChartModelList,
-            xValueMapper: (MacronutrientsChartModel data, _) => data.dateTime,
-            yValueMapper: (MacronutrientsChartModel data, _) => data.proteins,
-            name: 'Proteínas',
-            markerSettings: const MarkerSettings(isVisible: true),
-          ),
-          StackedLineSeries<MacronutrientsChartModel, DateTime>(
-            dataSource: _macronutrientsChartModelList,
-            xValueMapper: (MacronutrientsChartModel data, _) => data.dateTime,
-            yValueMapper: (MacronutrientsChartModel data, _) => data.fats,
-            name: 'Grasas',
-            markerSettings: const MarkerSettings(isVisible: true),
-          ),
-          StackedLineSeries<MacronutrientsChartModel, DateTime>(
-            dataSource: _macronutrientsChartModelList,
-            xValueMapper: (MacronutrientsChartModel data, _) => data.dateTime,
-            yValueMapper: (MacronutrientsChartModel data, _) =>
-                data.carbohydrates,
-            name: 'Carbohidratos',
-            markerSettings: const MarkerSettings(isVisible: true),
-          ),
-        ],
-      ),
-    );
+        height: 300.0,
+        child: SfCartesianChart(
+            primaryXAxis:
+                DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
+            primaryYAxis: NumericAxis(labelFormat: '{value} g'),
+            tooltipBehavior: _tooltipBehavior,
+            series: <CartesianSeries<MacronutrientsChartModel, DateTime>>[
+              StackedLineSeries<MacronutrientsChartModel, DateTime>(
+                  dataSource: _macronutrientsChartModelList,
+                  xValueMapper: (MacronutrientsChartModel data, _) =>
+                      data.dateTime,
+                  yValueMapper: (MacronutrientsChartModel data, _) =>
+                      data.proteins,
+                  markerSettings: const MarkerSettings(isVisible: true),
+                  name: 'Proteínas'),
+              StackedLineSeries<MacronutrientsChartModel, DateTime>(
+                  dataSource: _macronutrientsChartModelList,
+                  xValueMapper: (MacronutrientsChartModel data, _) =>
+                      data.dateTime,
+                  yValueMapper: (MacronutrientsChartModel data, _) => data.fats,
+                  markerSettings: const MarkerSettings(isVisible: true),
+                  name: 'Grasas'),
+              StackedLineSeries<MacronutrientsChartModel, DateTime>(
+                  dataSource: _macronutrientsChartModelList,
+                  xValueMapper: (MacronutrientsChartModel data, _) =>
+                      data.dateTime,
+                  yValueMapper: (MacronutrientsChartModel data, _) =>
+                      data.carbohydrates,
+                  markerSettings: const MarkerSettings(isVisible: true),
+                  name: 'Carbohidratos')
+            ]));
   }
 }

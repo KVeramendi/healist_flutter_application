@@ -26,24 +26,19 @@ class _WaterChartWidgetState extends State<WaterChartWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.0,
-      child: SfCartesianChart(
-        primaryXAxis:
-            DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
-        primaryYAxis: NumericAxis(
-          labelFormat: '{value} L',
-        ),
-        tooltipBehavior: _tooltipBehavior,
-        series: <CartesianSeries<WaterChartModel, DateTime>>[
-          SplineSeries<WaterChartModel, DateTime>(
-            dataSource: _waterChartModelList,
-            xValueMapper: (WaterChartModel data, _) => data.dateTime,
-            yValueMapper: (WaterChartModel data, _) => data.water,
-            name: 'Hidratación',
-            markerSettings: const MarkerSettings(isVisible: true),
-          ),
-        ],
-      ),
-    );
+        height: 300.0,
+        child: SfCartesianChart(
+            primaryXAxis:
+                DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
+            primaryYAxis: NumericAxis(labelFormat: '{value} L'),
+            tooltipBehavior: _tooltipBehavior,
+            series: <CartesianSeries<WaterChartModel, DateTime>>[
+              SplineSeries<WaterChartModel, DateTime>(
+                  dataSource: _waterChartModelList,
+                  xValueMapper: (WaterChartModel data, _) => data.dateTime,
+                  yValueMapper: (WaterChartModel data, _) => data.water,
+                  name: 'Hidratación',
+                  markerSettings: const MarkerSettings(isVisible: true))
+            ]));
   }
 }

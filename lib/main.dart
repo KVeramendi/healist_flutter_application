@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Healist',
-      theme: ThemeData(
-          // primarySwatch: Colors.green,
-          ),
+      theme: ThemeData(fontFamily: 'Mali'),
       home: const LoginPage(),
     );
   }
