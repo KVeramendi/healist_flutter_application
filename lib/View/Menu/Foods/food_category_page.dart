@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:healist_flutter_application/Data/food_data.dart';
+import 'package:healist_flutter_application/Data/foods_data.dart';
 import 'package:healist_flutter_application/Model/food_model.dart';
 import 'package:healist_flutter_application/Widget/category_card_button_widget.dart';
 import 'package:healist_flutter_application/Widget/search_widget.dart';
@@ -47,15 +46,16 @@ class _FoodCategoryPageState extends State<FoodCategoryPage> {
           if (isButtonsVisible)
             const CategoryCardButtonWidget(
                 backgroundImage: AssetImage(
-                    'assets/images/categories/legumes_background.jpg'),
-                iconImage: AssetImage('assets/images/categories/legumes.png'),
-                text: 'LEGUMBRES'),
+                    'assets/images/categories/dried_fruits_background.jpg'),
+                iconImage:
+                    AssetImage('assets/images/categories/dried_fruits.png'),
+                text: 'FRUTOS SECOS'),
           if (isButtonsVisible)
             const CategoryCardButtonWidget(
                 backgroundImage: AssetImage(
-                    'assets/images/categories/dairies_background.jpg'),
-                iconImage: AssetImage('assets/images/categories/dairies.png'),
-                text: 'LÁCTEOS'),
+                    'assets/images/categories/legumes_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/legumes.png'),
+                text: 'LEGUMBRES'),
           if (isButtonsVisible)
             const CategoryCardButtonWidget(
                 backgroundImage: AssetImage(
@@ -65,11 +65,30 @@ class _FoodCategoryPageState extends State<FoodCategoryPage> {
           if (isButtonsVisible)
             const CategoryCardButtonWidget(
                 backgroundImage: AssetImage(
-                    'assets/images/categories/dried_fruits_background.jpg'),
+                    'assets/images/categories/dairies_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/dairies.png'),
+                text: 'LÁCTEOS'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/meats_fish_background.jpg'),
                 iconImage:
-                    AssetImage('assets/images/categories/dried_fruits.png'),
-                text: 'FRUTOS SECOS'),
-          const Padding(padding: EdgeInsets.only(bottom: 8.0)),
+                    AssetImage('assets/images/categories/meats_fish.png'),
+                text: 'CARNES Y PESCADOS'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/drinks_background.jpg'),
+                iconImage: AssetImage('assets/images/categories/drinks.png'),
+                text: 'BEDIDAS'),
+          if (isButtonsVisible)
+            const CategoryCardButtonWidget(
+                backgroundImage: AssetImage(
+                    'assets/images/categories/other_foods_background.jpg'),
+                iconImage:
+                    AssetImage('assets/images/categories/other_foods.png'),
+                text: 'OTROS ALIMENTOS'),
+          const Padding(padding: EdgeInsets.only(bottom: 12.0)),
           if (isFoodsVisible)
             Expanded(
                 child: ListView.builder(
@@ -101,6 +120,7 @@ class _FoodCategoryPageState extends State<FoodCategoryPage> {
       });
     } else {
       setState(() {
+        this.query = query;
         isButtonsVisible = true;
         isFoodsVisible = false;
       });

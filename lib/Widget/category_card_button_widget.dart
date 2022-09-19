@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/View/Menu/Foods/food_list_page.dart';
 
@@ -17,7 +16,7 @@ class CategoryCardButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
             child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0)),
@@ -29,24 +28,24 @@ class CategoryCardButtonWidget extends StatelessWidget {
                           fit: BoxFit.cover,
                           width: double.infinity),
                       Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Image(
                                     image: iconImage,
-                                    width: 40.0,
+                                    width: 32.0,
                                     color: Colors.white),
                                 SizedBox(
-                                    width: 250.0,
+                                    width: 280.0,
                                     child: Text(text,
                                         style: const TextStyle(
                                             color: Colors.white,
-                                            fontSize: 28.0,
+                                            fontSize: 24.0,
                                             fontWeight: FontWeight.bold),
                                         textAlign: TextAlign.center)),
                                 const Icon(Icons.arrow_forward_ios_rounded,
-                                    size: 28.0, color: Colors.white)
+                                    color: Colors.white)
                               ]))
                     ]),
                     onTap: () {

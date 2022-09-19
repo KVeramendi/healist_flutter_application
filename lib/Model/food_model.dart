@@ -11,7 +11,7 @@ class Food {
   // final int month;
   // final int year;
   final String foodIcon;
-  final String urlImage;
+  final String imageUrl;
 
   Food({
     required this.id,
@@ -26,7 +26,7 @@ class Food {
     // required this.month,
     // required this.year,
     required this.foodIcon,
-    required this.urlImage,
+    required this.imageUrl,
   });
 
   factory Food.fromJson(Map<String, dynamic> json) => Food(
@@ -42,7 +42,7 @@ class Food {
       // month: json['month'],
       // year: json['year'],
       foodIcon: json['foodIcon'],
-      urlImage: json['urlImage']);
+      imageUrl: json['urlImage']);
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -57,6 +57,6 @@ class Food {
         // 'month': month,
         // 'year': year,
         'foodIcon': foodIcon,
-        'urlImage': urlImage
+        'urlImage': imageUrl
       };
 }

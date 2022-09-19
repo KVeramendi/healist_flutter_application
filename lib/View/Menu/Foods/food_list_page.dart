@@ -31,18 +31,27 @@ class _FoodListPageState extends State<FoodListPage> {
     } else if (widget.title == 'VERDURAS') {
       foodsData = allVegetables;
       foodListSearching = allVegetables;
+    } else if (widget.title == 'FRUTOS SECOS') {
+      foodsData = allDriedFruits;
+      foodListSearching = allDriedFruits;
     } else if (widget.title == 'LEGUMBRES') {
       foodsData = allLegumes;
       foodListSearching = allLegumes;
-    } else if (widget.title == 'LÁCTEOS') {
-      foodsData = allDairies;
-      foodListSearching = allDairies;
     } else if (widget.title == 'CEREALES') {
       foodsData = allCereals;
       foodListSearching = allCereals;
+    } else if (widget.title == 'LÁCTEOS') {
+      foodsData = allDairies;
+      foodListSearching = allDairies;
+    } else if (widget.title == 'CARNES Y PESCADOS') {
+      foodsData = allDairies;
+      foodListSearching = allDairies;
+    } else if (widget.title == 'BEBIDAS') {
+      foodsData = allDairies;
+      foodListSearching = allDairies;
     } else {
-      foodsData = allDriedFruits;
-      foodListSearching = allDriedFruits;
+      foodsData = allDairies;
+      foodListSearching = allDairies;
     }
   }
 

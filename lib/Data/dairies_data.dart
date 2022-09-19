@@ -10,6 +10,6 @@ final allDairies = <Food>[
       carbohydrates: 10.52,
       fats: 1.40,
       foodIcon: 'assets/images/foods/dairies/caramel_sauce.png',
-      urlImage:
+      imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/dulce-de-leche.jpg'),
 ];

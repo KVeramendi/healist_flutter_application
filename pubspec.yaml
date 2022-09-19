@@ -42,7 +42,17 @@ dependencies:
   intl: ^0.17.0
   # Gráficos personalizados (Cartesianos, circulares, piramidales, etc.) con visualización de datos en tiempo real
   syncfusion_flutter_charts: ^19.4.56
-
+  # Extrae información de fuentes HTML, permite manipular y generar elementos HTML
+  html: ^0.15.0
+  # Obtener y consumir datos de internet a través de solicitudes HTTP
+  http: ^0.13.5
+  # Parsing de flujos de contenidos RSS y Atom
+  webfeed: ^0.7.0
+  # Muestra imágenes de internet y los almacena en la memoria temporal del dispositivo
+  cached_network_image: ^3.2.0
+  # Permite abrir páginas web, aplicación de mapas, de marcador de números telefónicos, de correos electrónicos, etc.
+  url_launcher: ^6.1.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,10 +81,13 @@ flutter:
     - assets/images/categories/
     - assets/images/foods/fruits/
     - assets/images/foods/vegetables/
-    - assets/images/foods/legumes/
-    - assets/images/foods/dairies/
-    - assets/images/foods/cereals/
     - assets/images/foods/dried_fruits/
+    - assets/images/foods/legumes/
+    - assets/images/foods/cereals/
+    - assets/images/foods/dairies/
+    - assets/images/foods/meats_fish/
+    - assets/images/foods/drinks/
+    - assets/images/foods/other_foods/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
