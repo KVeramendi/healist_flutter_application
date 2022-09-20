@@ -5,6 +5,7 @@ import 'package:healist_flutter_application/View/Menu/Progress/daily_progress_pa
 import 'package:healist_flutter_application/View/Menu/RSS/rss_feed_page.dart';
 import 'package:healist_flutter_application/View/Menu/Reminders/reminders_page.dart';
 import 'package:healist_flutter_application/View/Menu/Reports/reports_page.dart';
+import 'package:healist_flutter_application/Widget/navigation_drawer_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -28,38 +29,37 @@ class _HomePageState extends State<HomePage> {
     'RECORDATORIOS',
     'PORTAL BIOTRENDIES'
   ];
-  int indexPage = 2;
+  int _pageIndex = 2;
   final List<Widget> _pages = const [
     FoodCategoryPage(),
     ReportsPage(),
     DailyProgressPage(),
     RemindersPage(),
-    RSSFeedPage(),
+    RSSFeedPage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            backgroundColor: Colors.greenAccent.shade700,
-            title: Text(
-              _titlePage[indexPage],
+        child: Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              backgroundColor: Colors.greenAccent.shade700,
+              title: Text(
+                _titlePage[_pageIndex],
+              ),
             ),
-          ),
-          body: _pages[indexPage],
-          bottomNavigationBar: CurvedNavigationBar(
-            items: _itemsNavigationBar,
-            index: indexPage,
-            color: Colors.greenAccent.shade700,
-            buttonBackgroundColor: Colors.greenAccent.shade700,
-            backgroundColor: Colors.transparent,
-            onTap: (indexPage) => setState(() => this.indexPage = indexPage),
-            animationCurve: Curves.linearToEaseOut,
-            animationDuration: const Duration(milliseconds: 325),
-            height: 60.0,
-          )),
-    );
+            body: _pages[_pageIndex],
+            drawer: const NavigationDrawerWidget(),
+            bottomNavigationBar: CurvedNavigationBar(
+                items: _itemsNavigationBar,
+                index: _pageIndex,
+                color: Colors.greenAccent.shade700,
+                buttonBackgroundColor: Colors.greenAccent.shade700,
+                backgroundColor: Colors.transparent,
+                onTap: (index) => setState(() => _pageIndex = index),
+                animationCurve: Curves.linearToEaseOut,
+                animationDuration: const Duration(milliseconds: 325),
+                height: 60.0)));
   }
 }

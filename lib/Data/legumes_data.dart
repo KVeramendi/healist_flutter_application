@@ -10,6 +10,7 @@ final allLegumes = <Food>[
       carbohydrates: 72.67,
       fats: 17.53,
       foodIcon: 'assets/images/foods/legumes/lupin.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/altramuces-800x600.png'),
   Food(
@@ -21,6 +22,7 @@ final allLegumes = <Food>[
       carbohydrates: 126.36,
       fats: 3.12,
       foodIcon: 'assets/images/foods/legumes/white_bean.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-blancas-1000x600.jpg'),
   Food(
@@ -32,6 +34,7 @@ final allLegumes = <Food>[
       carbohydrates: 116.38,
       fats: 1.66,
       foodIcon: 'assets/images/foods/legumes/black_bean.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-negras-800x600.jpg'),
   Food(
@@ -43,6 +46,7 @@ final allLegumes = <Food>[
       carbohydrates: 120.72,
       fats: 2.37,
       foodIcon: 'assets/images/foods/legumes/pinto_bean.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-pintas-800x600.jpg'),
   Food(
@@ -54,6 +58,7 @@ final allLegumes = <Food>[
       carbohydrates: 110.42,
       fats: 1.53,
       foodIcon: 'assets/images/foods/legumes/red_bean.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/frijoles-800x600.png'),
   Food(
@@ -65,6 +70,7 @@ final allLegumes = <Food>[
       carbohydrates: 125.90,
       fats: 12.08,
       foodIcon: 'assets/images/foods/legumes/chickpea.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/garbanzos.jpg'),
   Food(
@@ -76,6 +82,7 @@ final allLegumes = <Food>[
       carbohydrates: 39.25,
       fats: 0.71,
       foodIcon: 'assets/images/foods/legumes/garrofo.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/garrofon-1000x600.jpg'),
   Food(
@@ -87,6 +94,7 @@ final allLegumes = <Food>[
       carbohydrates: 20.95,
       fats: 0.58,
       foodIcon: 'assets/images/foods/legumes/pea.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/guisante.jpg'),
   Food(
@@ -98,6 +106,7 @@ final allLegumes = <Food>[
       carbohydrates: 22.21,
       fats: 0.92,
       foodIcon: 'assets/images/foods/legumes/broad_bean.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/habas.jpg'),
   Food(
       id: 10,
@@ -108,6 +117,7 @@ final allLegumes = <Food>[
       carbohydrates: 6.97,
       fats: 0.22,
       foodIcon: 'assets/images/foods/legumes/green_bean.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-verdes.jpg'),
   Food(
@@ -119,6 +129,7 @@ final allLegumes = <Food>[
       carbohydrates: 39.86,
       fats: 0.75,
       foodIcon: 'assets/images/foods/legumes/lentil.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/lentejas.jpg'),
   Food(
@@ -130,6 +141,7 @@ final allLegumes = <Food>[
       carbohydrates: 56.10,
       fats: 37.09,
       foodIcon: 'assets/images/foods/legumes/soy_bean.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/soja-1000x600.jpg'),
   Food(
@@ -141,6 +153,7 @@ final allLegumes = <Food>[
       carbohydrates: 12.68,
       fats: 17.93,
       foodIcon: 'assets/images/foods/legumes/tempeh.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/tempeh.jpg'),
   Food(
@@ -152,5 +165,6 @@ final allLegumes = <Food>[
       carbohydrates: 2.32,
       fats: 5.93,
       foodIcon: 'assets/images/foods/legumes/tofu.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2016/08/tofu.jpg'),
 ];

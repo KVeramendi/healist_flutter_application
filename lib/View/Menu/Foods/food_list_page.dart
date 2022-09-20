@@ -116,66 +116,82 @@ class _FoodListPageState extends State<FoodListPage> {
               Text(food.kilocalories.toString() + ' kcal',
                   style: const TextStyle(fontSize: 17.0)),
               const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
-              Text('1 ración (' + food.foodPortion.toString() + ' g)',
-                  style: const TextStyle(color: Colors.black45, fontSize: 12.0))
+              food.isDrink
+                  ? Text('ración (${food.foodPortion} ml)',
+                      style: const TextStyle(
+                          color: Colors.black45, fontSize: 12.0))
+                  : Text('ración (${food.foodPortion} g)',
+                      style: const TextStyle(
+                          color: Colors.black45, fontSize: 12.0))
             ]),
         onTap: () {
           showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                          title: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(food.foodName),
-                                const Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 4.0)),
-                                SizedBox(
-                                    width: 25.0,
-                                    child: Image.asset(food.foodIcon))
-                              ]),
-                          content:
-                              Column(mainAxisSize: MainAxisSize.min, children: [
-                            TextFormField(
-                                controller: _kilocaloriesController,
-                                decoration: InputDecoration(
-                                    labelText: 'Cantidad',
-                                    helperText: '1 ración = ' +
-                                        food.foodPortion.toString() +
-                                        ' gramos',
-                                    border: const OutlineInputBorder()),
-                                keyboardType: TextInputType.number),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(vertical: 10.0)),
-                            DropdownButtonFormField(
-                                items: const [
-                                  DropdownMenuItem<String>(
-                                      value: 'D', child: Text('Desayuno')),
-                                  DropdownMenuItem<String>(
-                                      value: 'A', child: Text('Almuerzo')),
-                                  DropdownMenuItem<String>(
-                                      value: 'C', child: Text('Cena')),
-                                ].toList(),
-                                value: _meals,
-                                onChanged: (String? value) {
-                                  setState(() {
-                                    _meals = value;
-                                  });
-                                },
-                                decoration: const InputDecoration(
-                                    labelText: 'Comida',
-                                    border: OutlineInputBorder()))
+                      title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(food.foodName,
+                                style: const TextStyle(fontSize: 18.0)),
+                            Image.asset(
+                              food.foodIcon,
+                              width: 20.0,
+                            )
                           ]),
-                          actions: [
-                            TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(context, 'Cancelar'),
-                                child: const Text('Cancelar')),
-                            TextButton(
-                                onPressed: () => Navigator.pop(
-                                    context, _kilocaloriesController.text),
-                                child: const Text('Agregar'))
-                          ]),
+                      titlePadding: const EdgeInsets.all(16.0),
+                      content: SizedBox(
+                        width: double.maxFinite,
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          TextFormField(
+                              controller: _kilocaloriesController,
+                              decoration: InputDecoration(
+                                  labelText: 'Cantidad',
+                                  helperText: food.isDrink
+                                      ? '1 ración = ${food.foodPortion} ml'
+                                      : '1 ración = ${food.foodPortion} g',
+                                  counterText: food.isDrink
+                                      ? '1 vaso ≈ 250 ml'
+                                      : '1 porción ≈ 175 g',
+                                  border: const OutlineInputBorder()),
+                              keyboardType: TextInputType.number),
+                          const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10.0)),
+                          DropdownButtonFormField(
+                              items: const [
+                                DropdownMenuItem<String>(
+                                    value: 'D', child: Text('Desayuno')),
+                                DropdownMenuItem<String>(
+                                    value: 'A', child: Text('Almuerzo')),
+                                DropdownMenuItem<String>(
+                                    value: 'C', child: Text('Cena')),
+                              ].toList(),
+                              value: _meals,
+                              onChanged: (String? value) {
+                                setState(() {
+                                  _meals = value;
+                                });
+                              },
+                              decoration: const InputDecoration(
+                                  labelText: 'Comida',
+                                  helperText:
+                                      'Seleccione el tipo de comida del día',
+                                  border: OutlineInputBorder()))
+                        ]),
+                      ),
+                      contentPadding: const EdgeInsets.all(16.0),
+                      actions: [
+                        TextButton(
+                            onPressed: () => Navigator.pop(context, 'Cancelar'),
+                            child: const Text('Cancelar')),
+                        TextButton(
+                            onPressed: () => Navigator.pop(
+                                context, _kilocaloriesController.text),
+                            child: const Text('Agregar'))
+                      ],
+                      shape: const RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0)))),
                   barrierDismissible: false)
               .then((result) => print(result));
         });

@@ -10,6 +10,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 30.82,
       fats: 71.40,
       foodIcon: 'assets/images/foods/dried_fruits/almond.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/almendras-1000x600.jpg'),
   Food(
@@ -21,6 +22,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 8.56,
       fats: 12.43,
       foodIcon: 'assets/images/foods/dried_fruits/cashew.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/anacardos.jpg'),
   Food(
@@ -32,6 +34,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 19.20,
       fats: 69.86,
       foodIcon: 'assets/images/foods/dried_fruits/hazelnut.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/avellanas.png'),
   Food(
@@ -43,6 +46,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 4.57,
       fats: 13.96,
       foodIcon: 'assets/images/foods/dried_fruits/peanut.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/cacahuetes.jpg'),
   Food(
@@ -54,6 +58,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 12.52,
       fats: 0.35,
       foodIcon: 'assets/images/foods/dried_fruits/chestnut.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/castanyas.jpg'),
   Food(
@@ -65,6 +70,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 17.99,
       fats: 0.04,
       foodIcon: 'assets/images/foods/dried_fruits/datil.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Datiles.jpg'),
   Food(
@@ -76,6 +82,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 27.07,
       fats: 76.15,
       foodIcon: 'assets/images/foods/dried_fruits/walnut.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/nueces.jpg'),
   Food(
@@ -87,6 +94,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 18.52,
       fats: 101.53,
       foodIcon: 'assets/images/foods/dried_fruits/macadamia_nut.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/nueces-macadamia-800x600.png'),
   Food(
@@ -98,6 +106,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 33.84,
       fats: 55.83,
       foodIcon: 'assets/images/foods/dried_fruits/pistachio.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/pistachos.jpg'),
   Food(
@@ -109,6 +118,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 34.40,
       fats: 12.42,
       foodIcon: 'assets/images/foods/dried_fruits/pumpkin_seed.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/12/semillas-de-calabaza-1000x600.jpg'),
   Food(
@@ -120,6 +130,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 11.94,
       fats: 8.71,
       foodIcon: 'assets/images/foods/dried_fruits/chia_seed.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/12/semillas-de-chia-1000x600.jpg'),
   Food(
@@ -131,6 +142,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 9.20,
       fats: 23.67,
       foodIcon: 'assets/images/foods/dried_fruits/sunflower_seed.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/pipas-girasol.jpg'),
   Food(
@@ -142,6 +154,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 33.77,
       fats: 71.52,
       foodIcon: 'assets/images/foods/dried_fruits/sesame_seed.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/12/semillas-de-sesamo-1000x600.jpg'),
   Food(
@@ -153,6 +166,7 @@ final allDriedFruits = <Food>[
       carbohydrates: 17.28,
       fats: 0.53,
       foodIcon: 'assets/images/foods/dried_fruits/lotus_flower_seed.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2017/09/semillas-flor-loto.jpg'),
 ];

@@ -10,6 +10,7 @@ final allFoods = <Food>[
       carbohydrates: 12.80,
       fats: 21.99,
       foodIcon: 'assets/images/foods/fruits/avocado.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/aguacate.jpg'),
   Food(
@@ -21,6 +22,7 @@ final allFoods = <Food>[
       carbohydrates: 17.24,
       fats: 0.60,
       foodIcon: 'assets/images/foods/fruits/apricot.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Albaricoque.jpg'),
   Food(
@@ -32,6 +34,7 @@ final allFoods = <Food>[
       carbohydrates: 21.45,
       fats: 0.49,
       foodIcon: 'assets/images/foods/fruits/blueberry.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arandanos.jpg'),
   Food(
@@ -43,6 +46,7 @@ final allFoods = <Food>[
       carbohydrates: 13.42,
       fats: 0.14,
       foodIcon: 'assets/images/foods/fruits/cranberry.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Arandano-Rojo.jpg'),
   Food(
@@ -54,6 +58,7 @@ final allFoods = <Food>[
       carbohydrates: 6.00,
       fats: 5.00,
       foodIcon: 'assets/images/foods/fruits/acai_berry.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/asa%C3%AD.jpg'),
   Food(
@@ -65,6 +70,7 @@ final allFoods = <Food>[
       carbohydrates: 8.38,
       fats: 0.10,
       foodIcon: 'assets/images/foods/fruits/persimmon.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/11/caqui-propiedades.jpg'),
   Food(
@@ -76,6 +82,7 @@ final allFoods = <Food>[
       carbohydrates: 8.88,
       fats: 0.44,
       foodIcon: 'assets/images/foods/fruits/star_fruit.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Carmabola.jpg'),
   Food(
@@ -87,6 +94,7 @@ final allFoods = <Food>[
       carbohydrates: 18.88,
       fats: 0.46,
       foodIcon: 'assets/images/foods/fruits/cherry.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/cereza.jpg'),
   Food(
@@ -98,6 +106,7 @@ final allFoods = <Food>[
       carbohydrates: 18.84,
       fats: 0.46,
       foodIcon: 'assets/images/foods/fruits/plum.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/ciruela.jpg'),
   Food(
@@ -109,6 +118,7 @@ final allFoods = <Food>[
       carbohydrates: 12.18,
       fats: 26.79,
       foodIcon: 'assets/images/foods/fruits/coconut.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/08/coco.jpg'),
   Food(
       id: 11,
@@ -119,6 +129,7 @@ final allFoods = <Food>[
       carbohydrates: 14.69,
       fats: 0.80,
       foodIcon: 'assets/images/foods/fruits/raspberry.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Frambuesas.jpg'),
   Food(
@@ -130,6 +141,7 @@ final allFoods = <Food>[
       carbohydrates: 11.67,
       fats: 0.46,
       foodIcon: 'assets/images/foods/fruits/strawberry.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Fresa.jpg'),
   Food(
       id: 13,
@@ -140,6 +152,7 @@ final allFoods = <Food>[
       carbohydrates: 16.27,
       fats: 1.02,
       foodIcon: 'assets/images/foods/fruits/pomegranate.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Granada.jpg'),
   Food(
@@ -151,6 +164,7 @@ final allFoods = <Food>[
       carbohydrates: 17.23,
       fats: 0.46,
       foodIcon: 'assets/images/foods/fruits/black_currant.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Grosella-negra.jpg'),
   Food(
@@ -162,6 +176,7 @@ final allFoods = <Food>[
       carbohydrates: 23.63,
       fats: 1.57,
       foodIcon: 'assets/images/foods/fruits/guava.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/guayaba.jpg'),
   Food(
@@ -173,6 +188,7 @@ final allFoods = <Food>[
       carbohydrates: 12.28,
       fats: 0.19,
       foodIcon: 'assets/images/foods/fruits/fig.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/Higos.jpg'),
   Food(
       id: 17,
@@ -183,6 +199,7 @@ final allFoods = <Food>[
       carbohydrates: 26.39,
       fats: 0.94,
       foodIcon: 'assets/images/foods/fruits/kiwi.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/kiwi.jpg'),
   Food(
       id: 18,
@@ -193,6 +210,7 @@ final allFoods = <Food>[
       carbohydrates: 7.10,
       fats: 0.10,
       foodIcon: 'assets/images/foods/fruits/lime.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Lima.jpg'),
   Food(
       id: 19,
@@ -203,6 +221,7 @@ final allFoods = <Food>[
       carbohydrates: 19.76,
       fats: 0.64,
       foodIcon: 'assets/images/foods/fruits/lemon.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Lim%C3%B3n.png'),
   Food(
@@ -214,6 +233,7 @@ final allFoods = <Food>[
       carbohydrates: 31.41,
       fats: 0.84,
       foodIcon: 'assets/images/foods/fruits/lychee.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/01/litchi.jpg'),
   Food(
@@ -225,6 +245,7 @@ final allFoods = <Food>[
       carbohydrates: 26.01,
       fats: 0.60,
       foodIcon: 'assets/images/foods/fruits/mandarin.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/mandarina.jpg'),
   Food(
@@ -236,6 +257,7 @@ final allFoods = <Food>[
       carbohydrates: 24.72,
       fats: 0.63,
       foodIcon: 'assets/images/foods/fruits/mango.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/mango1.jpg'),
   Food(
@@ -247,6 +269,7 @@ final allFoods = <Food>[
       carbohydrates: 14.04,
       fats: 0.14,
       foodIcon: 'assets/images/foods/fruits/apple.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/manzana.jpg'),
   Food(
@@ -258,6 +281,7 @@ final allFoods = <Food>[
       carbohydrates: 14.69,
       fats: 0.38,
       foodIcon: 'assets/images/foods/fruits/peach.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Melocot%C3%B3n.jpg'),
   Food(
@@ -269,6 +293,7 @@ final allFoods = <Food>[
       carbohydrates: 14.44,
       fats: 0.34,
       foodIcon: 'assets/images/foods/fruits/cantaloupe.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Mel%C3%B3n.jpg'),
   Food(
@@ -280,6 +305,7 @@ final allFoods = <Food>[
       carbohydrates: 14.08,
       fats: 0.09,
       foodIcon: 'assets/images/foods/fruits/quince.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/membrillo-859x600.jpg'),
   Food(
@@ -291,6 +317,7 @@ final allFoods = <Food>[
       carbohydrates: 13.84,
       fats: 0.71,
       foodIcon: 'assets/images/foods/fruits/blackberry.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/moras.jpg'),
   Food(
       id: 28,
@@ -301,6 +328,7 @@ final allFoods = <Food>[
       carbohydrates: 21.15,
       fats: 0.22,
       foodIcon: 'assets/images/foods/fruits/orange.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Naranja1.jpg'),
   Food(
@@ -312,6 +340,7 @@ final allFoods = <Food>[
       carbohydrates: 15.09,
       fats: 0.46,
       foodIcon: 'assets/images/foods/fruits/nectarine.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Nectarina.jpg'),
   Food(
@@ -323,6 +352,7 @@ final allFoods = <Food>[
       carbohydrates: 18.09,
       fats: 0.30,
       foodIcon: 'assets/images/foods/fruits/medlar.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/01/nisperos.jpg'),
   Food(
@@ -334,6 +364,7 @@ final allFoods = <Food>[
       carbohydrates: 15.69,
       fats: 0.38,
       foodIcon: 'assets/images/foods/fruits/papaya.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Papaya.jpg'),
   Food(
@@ -345,6 +376,7 @@ final allFoods = <Food>[
       carbohydrates: 21.32,
       fats: 0.20,
       foodIcon: 'assets/images/foods/fruits/pear.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Pera.jpg'),
   Food(
       id: 33,
@@ -355,6 +387,7 @@ final allFoods = <Food>[
       carbohydrates: 21.65,
       fats: 0.20,
       foodIcon: 'assets/images/foods/fruits/pineapple.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Pi%C3%B1a-700x600.jpg'),
   Food(
@@ -366,6 +399,7 @@ final allFoods = <Food>[
       carbohydrates: 51.39,
       fats: 0.74,
       foodIcon: 'assets/images/foods/fruits/banana.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Pl%C3%A1tano.jpg'),
   Food(
@@ -377,6 +411,7 @@ final allFoods = <Food>[
       carbohydrates: 24.52,
       fats: 0.32,
       foodIcon: 'assets/images/foods/fruits/grapefruit.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/POMELO.jpg'),
   Food(
@@ -388,6 +423,7 @@ final allFoods = <Food>[
       carbohydrates: 5.54,
       fats: 0.24,
       foodIcon: 'assets/images/foods/fruits/rhubarb.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Ruibarbo.jpg'),
   Food(
@@ -399,6 +435,7 @@ final allFoods = <Food>[
       carbohydrates: 11.63,
       fats: 0.23,
       foodIcon: 'assets/images/foods/fruits/watermelon.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Sandia.jpg'),
   Food(
@@ -410,6 +447,7 @@ final allFoods = <Food>[
       carbohydrates: 15.78,
       fats: 0.32,
       foodIcon: 'assets/images/foods/fruits/grape.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/uva.jpg'),
   Food(
       id: 39,
@@ -420,6 +458,7 @@ final allFoods = <Food>[
       carbohydrates: 15.27,
       fats: 0.87,
       foodIcon: 'assets/images/foods/fruits/currant.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/uva-espina.jpg'),
 ];

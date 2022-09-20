@@ -10,6 +10,7 @@ final allCereals = <Food>[
       carbohydrates: 121.55,
       fats: 5.78,
       foodIcon: 'assets/images/foods/cereals/buckwheat.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-alforfon.jpg'),
   Food(
@@ -21,6 +22,7 @@ final allCereals = <Food>[
       carbohydrates: 125.93,
       fats: 13.55,
       foodIcon: 'assets/images/foods/cereals/amaranth.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/amaranto.jpg'),
   Food(
@@ -32,6 +34,7 @@ final allCereals = <Food>[
       carbohydrates: 36.40,
       fats: 5.27,
       foodIcon: 'assets/images/foods/cereals/arepa.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arepas.jpg'),
   Food(
@@ -43,6 +46,7 @@ final allCereals = <Food>[
       carbohydrates: 44.51,
       fats: 0.44,
       foodIcon: 'assets/images/foods/cereals/rice.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arroz-1000x600.jpg'),
   Food(
@@ -54,6 +58,7 @@ final allCereals = <Food>[
       carbohydrates: 44.77,
       fats: 1.76,
       foodIcon: 'assets/images/foods/cereals/brown_rice.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arroz-integral.jpg'),
   Food(
@@ -65,6 +70,7 @@ final allCereals = <Food>[
       carbohydrates: 62.25,
       fats: 6.61,
       foodIcon: 'assets/images/foods/cereals/oatmeal.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-avena.jpg'),
   Food(
@@ -76,6 +82,7 @@ final allCereals = <Food>[
       carbohydrates: 47.91,
       fats: 1.50,
       foodIcon: 'assets/images/foods/cereals/bagel.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/bagel-800x600.jpg'),
   Food(
@@ -87,6 +94,7 @@ final allCereals = <Food>[
       carbohydrates: 155.44,
       fats: 2.32,
       foodIcon: 'assets/images/foods/cereals/barley.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-cebada.jpg'),
   Food(
@@ -98,6 +106,7 @@ final allCereals = <Food>[
       carbohydrates: 128.20,
       fats: 2.75,
       foodIcon: 'assets/images/foods/cereals/rye.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-centeno.jpg'),
   Food(
@@ -109,6 +118,7 @@ final allCereals = <Food>[
       carbohydrates: 54.84,
       fats: 5.28,
       foodIcon: 'assets/images/foods/cereals/oat_flakes.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/copos-avena.jpg'),
   Food(
@@ -120,6 +130,7 @@ final allCereals = <Food>[
       carbohydrates: 43.20,
       fats: 1.30,
       foodIcon: 'assets/images/foods/cereals/Spaghetti.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/espaguetis-800x600.jpg'),
   Food(
@@ -131,6 +142,7 @@ final allCereals = <Food>[
       carbohydrates: 122.13,
       fats: 4.23,
       foodIcon: 'assets/images/foods/cereals/spelt.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-espelta.jpg'),
   Food(
@@ -142,6 +154,7 @@ final allCereals = <Food>[
       carbohydrates: 7.34,
       fats: 0.25,
       foodIcon: 'assets/images/foods/cereals/rice_cookie.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/galletas-de-arroz.jpg'),
   Food(
@@ -153,6 +166,7 @@ final allCereals = <Food>[
       carbohydrates: 93.81,
       fats: 4.38,
       foodIcon: 'assets/images/foods/cereals/cornmeal.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/harina-de-maiz.jpg'),
   Food(
@@ -164,6 +178,7 @@ final allCereals = <Food>[
       carbohydrates: 86.36,
       fats: 3.00,
       foodIcon: 'assets/images/foods/cereals/wheat_flour.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/harina-trigo.jpg'),
   Food(
@@ -175,6 +190,7 @@ final allCereals = <Food>[
       carbohydrates: 78.40,
       fats: 1.59,
       foodIcon: 'assets/images/foods/cereals/macaroni.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/macarrones.jpg'),
   Food(
@@ -186,6 +202,7 @@ final allCereals = <Food>[
       carbohydrates: 116.83,
       fats: 0.06,
       foodIcon: 'assets/images/foods/cereals/cornstarch.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/maicena-755x600.jpg'),
   Food(
@@ -197,6 +214,7 @@ final allCereals = <Food>[
       carbohydrates: 123.27,
       fats: 7.87,
       foodIcon: 'assets/images/foods/cereals/corn.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-maiz.jpg'),
   Food(
@@ -208,6 +226,7 @@ final allCereals = <Food>[
       carbohydrates: 145.70,
       fats: 8.44,
       foodIcon: 'assets/images/foods/cereals/millet.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-mijo.jpg'),
   Food(
@@ -219,6 +238,7 @@ final allCereals = <Food>[
       carbohydrates: 14.33,
       fats: 0.97,
       foodIcon: 'assets/images/foods/cereals/bread.png',
+      isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/pan.png'),
   Food(
       id: 21,
@@ -229,6 +249,7 @@ final allCereals = <Food>[
       carbohydrates: 13.69,
       fats: 0.94,
       foodIcon: 'assets/images/foods/cereals/rye_bread.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/pan-de-centeno.jpg'),
   Food(
@@ -240,6 +261,7 @@ final allCereals = <Food>[
       carbohydrates: 15.79,
       fats: 0.34,
       foodIcon: 'assets/images/foods/cereals/pita_bread.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/11/pan-de-pita-.jpg'),
   Food(
@@ -251,6 +273,7 @@ final allCereals = <Food>[
       carbohydrates: 109.07,
       fats: 10.32,
       foodIcon: 'assets/images/foods/cereals/quinoa.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/quinoa.jpg'),
   Food(
@@ -262,6 +285,7 @@ final allCereals = <Food>[
       carbohydrates: 62.25,
       fats: 6.61,
       foodIcon: 'assets/images/foods/cereals/bran.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/10/salvado-avena-1000x600.jpg'),
   Food(
@@ -273,6 +297,7 @@ final allCereals = <Food>[
       carbohydrates: 13.79,
       fats: 1.85,
       foodIcon: 'assets/images/foods/cereals/seitan.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/seitan_1000-1000x600.jpg'),
   Food(
@@ -284,6 +309,7 @@ final allCereals = <Food>[
       carbohydrates: 2.97,
       fats: 4.34,
       foodIcon: 'assets/images/foods/cereals/ground_flaxseed.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/semillas-de-linaza.jpg'),
   Food(
@@ -295,6 +321,7 @@ final allCereals = <Food>[
       carbohydrates: 138.41,
       fats: 6.64,
       foodIcon: 'assets/images/foods/cereals/Sorghum.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-sorgo.jpg'),
   Food(
@@ -306,6 +333,7 @@ final allCereals = <Food>[
       carbohydrates: 141.14,
       fats: 4.59,
       foodIcon: 'assets/images/foods/cereals/teff.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-teff.jpg'),
   Food(
@@ -317,6 +345,7 @@ final allCereals = <Food>[
       carbohydrates: 98.38,
       fats: 1.87,
       foodIcon: 'assets/images/foods/cereals/wheat_flour_tortilla.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/tortilla-trigo.jpg'),
   Food(
@@ -328,6 +357,7 @@ final allCereals = <Food>[
       carbohydrates: 12.66,
       fats: 0.81,
       foodIcon: 'assets/images/foods/cereals/corn_tortilla.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/tortilla-maiz.jpg'),
   Food(
@@ -339,6 +369,7 @@ final allCereals = <Food>[
       carbohydrates: 7.51,
       fats: 0.22,
       foodIcon: 'assets/images/foods/cereals/corn_pancakes.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/08/tortitas-maiz-928x600.jpg'),
   Food(
@@ -350,6 +381,7 @@ final allCereals = <Food>[
       carbohydrates: 136.57,
       fats: 4.74,
       foodIcon: 'assets/images/foods/cereals/wheat.png',
+      isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-trigo-1000x600.jpg'),
 ];

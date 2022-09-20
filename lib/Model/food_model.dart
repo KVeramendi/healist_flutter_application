@@ -11,6 +11,7 @@ class Food {
   // final int month;
   // final int year;
   final String foodIcon;
+  final bool isDrink;
   final String imageUrl;
 
   Food({
@@ -26,6 +27,7 @@ class Food {
     // required this.month,
     // required this.year,
     required this.foodIcon,
+    required this.isDrink,
     required this.imageUrl,
   });
 
@@ -42,6 +44,7 @@ class Food {
       // month: json['month'],
       // year: json['year'],
       foodIcon: json['foodIcon'],
+      isDrink: json['isDrink'],
       imageUrl: json['urlImage']);
 
   Map<String, dynamic> toJson() => {
@@ -57,6 +60,7 @@ class Food {
         // 'month': month,
         // 'year': year,
         'foodIcon': foodIcon,
+        'isDrink': isDrink,
         'urlImage': imageUrl
       };
 }
