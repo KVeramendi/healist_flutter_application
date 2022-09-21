@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
+import 'package:healist_flutter_application/View/Sidebar/Profile/user_profile_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   const NavigationDrawerWidget({Key? key}) : super(key: key);
@@ -38,38 +39,38 @@ class NavigationDrawerWidget extends StatelessWidget {
         ]));
   }
 
-  Widget buildMenuItems(BuildContext context) {
-    return Expanded(
-        child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Wrap(runSpacing: 15.0, children: [
-          ListTile(
-              leading: const Icon(Icons.account_circle_rounded),
-              title: const Text('Perfil', style: TextStyle(fontSize: 16.0)),
-              onTap: () {}),
-          ListTile(
-              leading: const Icon(Icons.settings_rounded),
-              title:
-                  const Text('Configuración', style: TextStyle(fontSize: 16.0)),
-              onTap: () {}),
-          ListTile(
-              leading: const Icon(Icons.info_rounded),
-              title:
-                  const Text('Sobre Healist', style: TextStyle(fontSize: 16.0)),
-              onTap: () {})
-        ]),
-        Wrap(children: [
-          const Divider(thickness: 1.0, color: Colors.black38),
-          ListTile(
-              leading: const Icon(Icons.logout_rounded),
-              title:
-                  const Text('Cerrar sesión', style: TextStyle(fontSize: 16.0)),
-              onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const LoginPage())))
-        ])
-      ]),
-    ));
-  }
+  Widget buildMenuItems(BuildContext context) => Expanded(
+      child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Wrap(runSpacing: 15.0, children: [
+                  ListTile(
+                      leading: const Icon(Icons.account_circle_rounded),
+                      title: const Text('Perfil',
+                          style: TextStyle(fontSize: 16.0)),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const UserProfilePage()))),
+                  ListTile(
+                      leading: const Icon(Icons.settings_rounded),
+                      title: const Text('Configuración',
+                          style: TextStyle(fontSize: 16.0)),
+                      onTap: () {}),
+                  ListTile(
+                      leading: const Icon(Icons.info_rounded),
+                      title: const Text('Sobre Healist',
+                          style: TextStyle(fontSize: 16.0)),
+                      onTap: () {})
+                ]),
+                Wrap(children: [
+                  const Divider(thickness: 1.0, color: Colors.black38),
+                  ListTile(
+                      leading: const Icon(Icons.logout_rounded),
+                      title: const Text('Cerrar sesión',
+                          style: TextStyle(fontSize: 16.0)),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const LoginPage())))
+                ])
+              ])));
 }

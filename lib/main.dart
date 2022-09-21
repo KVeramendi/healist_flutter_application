@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserPreferences.init();
   runApp(const MyApp());
 }
 
@@ -10,12 +13,9 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+  Widget build(BuildContext context) => MaterialApp(
+      home: const LoginPage(),
       title: 'Healist',
       theme: ThemeData(fontFamily: 'Mali'),
-      home: const LoginPage(),
-    );
-  }
+      debugShowCheckedModeBanner: false);
 }
