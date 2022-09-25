@@ -2,32 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/Widget/custom_appbar_widget.dart';
-import 'package:healist_flutter_application/Widget/custom_dropdownbutton_widget.dart';
 import 'package:healist_flutter_application/Widget/custom_textfield_widget.dart';
 
-class UserProfileEditPage extends StatefulWidget {
-  const UserProfileEditPage({Key? key}) : super(key: key);
+class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({Key? key}) : super(key: key);
 
   @override
-  State<UserProfileEditPage> createState() => _UserProfileEditPageState();
+  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
 }
 
-class _UserProfileEditPageState extends State<UserProfileEditPage> {
+class _ChangePasswordPageState extends State<ChangePasswordPage> {
   late User user, userInitialState;
-  final _physicalActivityItems = [
-    'Muy ligera',
-    'Ligera',
-    'Regular',
-    'Activa',
-    'Muy Activa'
-  ];
-  final _genderItems = ['Femenino', 'Masculino'];
+  final TextEditingController _currentPasswordController =
+      TextEditingController();
+  final TextEditingController _newPasswordController1 = TextEditingController();
+  final TextEditingController _newPasswordController2 = TextEditingController();
+  late String oldPassword;
 
   @override
   void initState() {
     super.initState();
     user = UserPreferences.getUser();
     userInitialState = user;
+    oldPassword = user.password;
   }
 
   @override
@@ -40,48 +37,37 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
                     vertical: 10.0, horizontal: 40.0),
                 children: [
                   CustomTextFieldWidget(
-                      label: 'Peso',
-                      text: '${user.weight}',
-                      onChanged: (value) => user =
-                          user.copy(weight: num.tryParse(value)?.toDouble()),
-                      keyboardType: TextInputType.number),
+                      controller: _currentPasswordController,
+                      label: 'Contraseña anterior',
+                      isPassword: true,
+                      keyboardType: TextInputType.visiblePassword),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   CustomTextFieldWidget(
-                      label: 'Altura',
-                      text: '${user.height}',
-                      onChanged: (value) => user =
-                          user.copy(height: num.tryParse(value)?.toDouble()),
-                      keyboardType: TextInputType.number),
+                      controller: _newPasswordController1,
+                      label: 'Nueva contraseña',
+                      isPassword: true,
+                      keyboardType: TextInputType.visiblePassword),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
                   CustomTextFieldWidget(
-                      label: 'Edad',
-                      text: '${user.age}',
-                      onChanged: (value) =>
-                          user = user.copy(age: num.tryParse(value)?.toInt()),
-                      keyboardType: TextInputType.number),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
-                  CustomDropDownButtonWidget(
-                      label: 'Nivel de actividad física',
-                      items: _physicalActivityItems,
-                      value: user.physicalActivity,
-                      onChanged: (value) {
-                        setState(() {});
-                        user = user.copy(physicalActivity: value);
-                      }),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
-                  CustomDropDownButtonWidget(
-                      label: 'Género',
-                      items: _genderItems,
-                      value: user.gender,
-                      onChanged: (value) {
-                        setState(() {});
-                        user = user.copy(gender: value);
-                      }),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
+                      controller: _newPasswordController2,
+                      label: 'Confirmar nueva contraseña',
+                      isPassword: true,
+                      keyboardType: TextInputType.visiblePassword),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
                   ElevatedButton(
                       onPressed: () {
-                        UserPreferences.setUser(user);
-                        Navigator.of(context).pop();
+                        if (oldPassword == _currentPasswordController.text &&
+                            _newPasswordController1.text ==
+                                _newPasswordController2.text) {
+                          user =
+                              user.copy(password: _newPasswordController2.text);
+                          UserPreferences.setUser(user);
+                          Navigator.of(context).pop();
+                        } else {
+                          print('Las contraseñas no son iguales');
+                          print(
+                              '$oldPassword != ${_currentPasswordController.text}');
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                           primary: Colors.greenAccent.shade700,

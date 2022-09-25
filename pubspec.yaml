@@ -54,6 +54,10 @@ dependencies:
   url_launcher: ^6.1.2
   # Almacena y manipula persistentemente los datos en pares simples (clave: valor)
   shared_preferences: ^2.0.15
+  # Permite seleccionar imágenes de la librería o mediante la cámara de fotos del SO
+  image_picker: ^0.8.5+3
+  # Obtiene los directorios de datos temporales y de aplicaciones de los sistemas de archivos del SO
+  path_provider: ^2.0.10
   
 dev_dependencies:
   flutter_test:

@@ -15,13 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _itemsNavigationBar = const [
-    Icon(Icons.dining_outlined, size: 30.0, color: Colors.white),
-    Icon(Icons.pie_chart_outlined, size: 30.0, color: Colors.white),
-    Icon(Icons.dashboard_outlined, size: 30.0, color: Colors.white),
-    Icon(Icons.notifications_outlined, size: 30.0, color: Colors.white),
-    Icon(Icons.rss_feed_outlined, size: 30.0, color: Colors.white)
-  ];
   final List<String> _titlePage = [
     'LISTA DE ALIMENTOS',
     'SEGUIMIENTO NUTRICIONAL',
@@ -37,29 +30,72 @@ class _HomePageState extends State<HomePage> {
     RemindersPage(),
     RSSFeedPage()
   ];
+  late List<bool> _isItemSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    _isItemSelected = [false, false, true, false, false];
+  }
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _navigationBarItems = [
+      Icon(_isItemSelected[0] ? Icons.dining_rounded : Icons.dining_outlined,
+          size: _isItemSelected[0] ? 36.0 : 28.0,
+          color:
+              _isItemSelected[0] ? Colors.greenAccent.shade700 : Colors.white),
+      Icon(
+          _isItemSelected[1]
+              ? Icons.pie_chart_rounded
+              : Icons.pie_chart_outlined,
+          size: _isItemSelected[1] ? 36.0 : 28.0,
+          color:
+              _isItemSelected[1] ? Colors.greenAccent.shade700 : Colors.white),
+      Icon(
+          _isItemSelected[2]
+              ? Icons.dashboard_rounded
+              : Icons.dashboard_outlined,
+          size: _isItemSelected[2] ? 36.0 : 28.0,
+          color:
+              _isItemSelected[2] ? Colors.greenAccent.shade700 : Colors.white),
+      Icon(
+          _isItemSelected[3]
+              ? Icons.notifications_rounded
+              : Icons.notifications_outlined,
+          size: _isItemSelected[3] ? 36.0 : 28.0,
+          color:
+              _isItemSelected[3] ? Colors.greenAccent.shade700 : Colors.white),
+      Icon(
+          _isItemSelected[4] ? Icons.rss_feed_rounded : Icons.rss_feed_outlined,
+          size: _isItemSelected[4] ? 36.0 : 28.0,
+          color:
+              _isItemSelected[4] ? Colors.greenAccent.shade700 : Colors.white)
+    ];
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              centerTitle: true,
-              backgroundColor: Colors.greenAccent.shade700,
-              title: Text(
-                _titlePage[_pageIndex],
-              ),
-            ),
+                title: Text(_titlePage[_pageIndex]),
+                backgroundColor: Colors.greenAccent.shade700,
+                centerTitle: true),
             body: _pages[_pageIndex],
             drawer: const NavigationDrawerWidget(),
             bottomNavigationBar: CurvedNavigationBar(
-                items: _itemsNavigationBar,
+                items: _navigationBarItems,
                 index: _pageIndex,
                 color: Colors.greenAccent.shade700,
-                buttonBackgroundColor: Colors.greenAccent.shade700,
+                buttonBackgroundColor: Colors.transparent,
                 backgroundColor: Colors.transparent,
-                onTap: (index) => setState(() => _pageIndex = index),
+                onTap: (index) {
+                  for (int i = 0; i < _navigationBarItems.length; i++) {
+                    i == index
+                        ? _isItemSelected[i] = true
+                        : _isItemSelected[i] = false;
+                  }
+                  setState(() => _pageIndex = index);
+                },
                 animationCurve: Curves.linearToEaseOut,
                 animationDuration: const Duration(milliseconds: 325),
-                height: 60.0)));
+                height: 56.0)));
   }
 }

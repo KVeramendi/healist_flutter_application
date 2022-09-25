@@ -1,41 +1,44 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
 import 'package:healist_flutter_application/View/Sidebar/Profile/user_profile_page.dart';
+import 'package:healist_flutter_application/View/Sidebar/Setting/setting_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   const NavigationDrawerWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final user = UserPreferences.getUser();
     return Drawer(
-        child:
-            Column(children: [buildHeader(context), buildMenuItems(context)]));
+        child: Column(children: [
+      buildHeader(user.userImagePath, user.fullName, user.email),
+      buildMenuItems(context)
+    ]));
   }
 
-  Widget buildHeader(BuildContext context) {
-    String _initialsOfName = 'KV';
-    String _fullName = 'Kevin Veramendi';
-    String _userEmail = 'kveramendi18@gmail.com';
+  Widget buildHeader(String image, String name, String email) {
+    final imageUrl = image.contains('assets/')
+        ? AssetImage(image)
+        : FileImage(File(image)) as ImageProvider;
     return Container(
         padding: const EdgeInsets.all(25.0),
         color: Colors.greenAccent.shade700,
         width: double.maxFinite,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CircleAvatar(
-              backgroundColor: Colors.red,
-              child: Text(_initialsOfName,
-                  style: const TextStyle(color: Colors.white, fontSize: 30.0)),
-              radius: 42.0),
-          const Padding(padding: EdgeInsets.symmetric(vertical: 8.0)),
-          Text(_fullName,
+          CircleAvatar(backgroundImage: imageUrl, radius: 50.0),
+          const Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
+          Text(name,
               style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 19.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold)),
           const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
-          Text(_userEmail,
-              style: const TextStyle(color: Colors.white, fontSize: 13.0))
+          Text(email,
+              style: const TextStyle(color: Colors.white, fontSize: 14.0))
         ]));
   }
 
@@ -50,13 +53,20 @@ class NavigationDrawerWidget extends StatelessWidget {
                       leading: const Icon(Icons.account_circle_rounded),
                       title: const Text('Perfil',
                           style: TextStyle(fontSize: 16.0)),
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const UserProfilePage()))),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const UserProfilePage()));
+                      }),
                   ListTile(
                       leading: const Icon(Icons.settings_rounded),
                       title: const Text('Configuración',
                           style: TextStyle(fontSize: 16.0)),
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SettingPage()));
+                      }),
                   ListTile(
                       leading: const Icon(Icons.info_rounded),
                       title: const Text('Sobre Healist',

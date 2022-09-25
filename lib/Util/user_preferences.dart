@@ -15,8 +15,7 @@ class UserPreferences {
       age: 28,
       physicalActivity: 'Regular',
       gender: 'Masculino',
-      userImagePath:
-          'https://adscvcongreso2022.onsitevents.com/assets/imgs/default/default-logo.jpg');
+      userImagePath: 'assets/images/user_profile_logo.jpg');
 
   static Future init() async =>
       _sharedPreferences = await SharedPreferences.getInstance();

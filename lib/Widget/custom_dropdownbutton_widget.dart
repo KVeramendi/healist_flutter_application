@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class UserProfileDropDownButtonWidget extends StatefulWidget {
+class CustomDropDownButtonWidget extends StatefulWidget {
   final String label;
   final List<String> items;
   final String value;
   final ValueChanged onChanged;
-  const UserProfileDropDownButtonWidget(
+  const CustomDropDownButtonWidget(
       {Key? key,
       required this.label,
       required this.items,
@@ -14,12 +14,12 @@ class UserProfileDropDownButtonWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<UserProfileDropDownButtonWidget> createState() =>
-      _UserProfileDropDownButtonWidgetState();
+  State<CustomDropDownButtonWidget> createState() =>
+      _CustomDropDownButtonWidgetState();
 }
 
-class _UserProfileDropDownButtonWidgetState
-    extends State<UserProfileDropDownButtonWidget> {
+class _CustomDropDownButtonWidgetState
+    extends State<CustomDropDownButtonWidget> {
   @override
   Widget build(BuildContext context) =>
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
