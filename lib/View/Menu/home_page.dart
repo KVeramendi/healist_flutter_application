@@ -43,47 +43,42 @@ class _HomePageState extends State<HomePage> {
     final List<Widget> _navigationBarItems = [
       Icon(_isItemSelected[0] ? Icons.dining_rounded : Icons.dining_outlined,
           size: _isItemSelected[0] ? 36.0 : 28.0,
-          color:
-              _isItemSelected[0] ? Colors.greenAccent.shade700 : Colors.white),
+          color: _isItemSelected[0] ? const Color(0xFF1ECF6C) : Colors.white),
       Icon(
           _isItemSelected[1]
               ? Icons.pie_chart_rounded
               : Icons.pie_chart_outlined,
           size: _isItemSelected[1] ? 36.0 : 28.0,
-          color:
-              _isItemSelected[1] ? Colors.greenAccent.shade700 : Colors.white),
+          color: _isItemSelected[1] ? const Color(0xFF1ECF6C) : Colors.white),
       Icon(
           _isItemSelected[2]
               ? Icons.dashboard_rounded
               : Icons.dashboard_outlined,
           size: _isItemSelected[2] ? 36.0 : 28.0,
-          color:
-              _isItemSelected[2] ? Colors.greenAccent.shade700 : Colors.white),
+          color: _isItemSelected[2] ? const Color(0xFF1ECF6C) : Colors.white),
       Icon(
           _isItemSelected[3]
               ? Icons.notifications_rounded
               : Icons.notifications_outlined,
           size: _isItemSelected[3] ? 36.0 : 28.0,
-          color:
-              _isItemSelected[3] ? Colors.greenAccent.shade700 : Colors.white),
+          color: _isItemSelected[3] ? const Color(0xFF1ECF6C) : Colors.white),
       Icon(
           _isItemSelected[4] ? Icons.rss_feed_rounded : Icons.rss_feed_outlined,
           size: _isItemSelected[4] ? 36.0 : 28.0,
-          color:
-              _isItemSelected[4] ? Colors.greenAccent.shade700 : Colors.white)
+          color: _isItemSelected[4] ? const Color(0xFF1ECF6C) : Colors.white)
     ];
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
                 title: Text(_titlePage[_pageIndex]),
-                backgroundColor: Colors.greenAccent.shade700,
+                backgroundColor: const Color(0xFF1ECF6C),
                 centerTitle: true),
             body: _pages[_pageIndex],
             drawer: const NavigationDrawerWidget(),
             bottomNavigationBar: CurvedNavigationBar(
                 items: _navigationBarItems,
                 index: _pageIndex,
-                color: Colors.greenAccent.shade700,
+                color: const Color(0xFF1ECF6C),
                 buttonBackgroundColor: Colors.transparent,
                 backgroundColor: Colors.transparent,
                 onTap: (index) {

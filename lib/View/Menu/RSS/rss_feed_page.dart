@@ -30,8 +30,8 @@ class _RSSFeedPageState extends State<RSSFeedPage> {
             future: dataFuture,
             builder: (context, AsyncSnapshot<List<RSSFeedModel>> snapshot) {
               if (!(snapshot.connectionState == ConnectionState.done)) {
-                return CircularProgressIndicator(
-                    color: Colors.greenAccent.shade700);
+                return const CircularProgressIndicator(
+                    color: Color(0xFF1ECF6C));
               } else {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),

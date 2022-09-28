@@ -25,8 +25,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                     builder: (context) => const UserProfileEditPage()));
                 setState(() {});
               },
-              icon:
-                  Icon(Icons.edit_rounded, color: Colors.greenAccent.shade700))
+              icon: const Icon(Icons.edit_rounded, color: Color(0xFF1ECF6C)))
         ]),
         body: ListView(
             physics: const BouncingScrollPhysics(),

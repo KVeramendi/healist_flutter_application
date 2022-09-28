@@ -21,7 +21,7 @@ class _MacronutrientsChartWidgetState extends State<MacronutrientsChartWidget> {
     super.initState();
     _macronutrientsChartModelList = data;
     _tooltipBehavior =
-        TooltipBehavior(enable: true, color: Colors.greenAccent.shade700);
+        TooltipBehavior(enable: true, color: const Color(0xFF1ECF6C));
   }
 
   @override

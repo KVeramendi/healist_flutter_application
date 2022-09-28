@@ -24,7 +24,7 @@ class _KilocaloriesChartWidgetState extends State<KilocaloriesChartWidget> {
     _kilocaloriesChartModelList = data;
     _tooltipBehavior = TooltipBehavior(
         enable: true,
-        color: Colors.greenAccent.shade700,
+        color: const Color(0xFF1ECF6C),
         format: 'point.x : point.y kcal');
   }
 

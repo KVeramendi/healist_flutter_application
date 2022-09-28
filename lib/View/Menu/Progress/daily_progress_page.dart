@@ -50,7 +50,7 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
                             child: LinearProgressIndicator(
                                 value: 0.6,
                                 backgroundColor: Colors.grey.shade200,
-                                color: Colors.greenAccent.shade700,
+                                color: const Color(0xFF1ECF6C),
                                 minHeight: 5.5)),
                       ),
                       const Padding(
@@ -67,7 +67,7 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
                           max: 100.0,
                           value: (_kilocaloriesValue / 2500) * 100, //1~100
                           pathColor: Colors.grey.shade200,
-                          valueColor: Colors.greenAccent.shade700,
+                          valueColor: const Color(0xFF1ECF6C),
                           pathStrokeWidth: 12.0,
                           valueStrokeWidth: 6.0,
                           gapDegree: 50,
@@ -75,18 +75,16 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
                       Column(
                         children: [
                           Text('$_kilocaloriesValueText',
-                              style: TextStyle(
-                                  color: Colors.greenAccent.shade700,
-                                  fontSize: 32.0)),
+                              style: const TextStyle(
+                                  color: Color(0xFF1ECF6C), fontSize: 32.0)),
                           const Text('/ 2500',
                               style: TextStyle(
                                   color: Colors.black54, fontSize: 12.0)),
                           const Padding(
                               padding: EdgeInsets.symmetric(vertical: 6.0)),
-                          Text('kcal',
+                          const Text('kcal',
                               style: TextStyle(
-                                  color: Colors.greenAccent.shade700,
-                                  fontSize: 16.0)),
+                                  color: Color(0xFF1ECF6C), fontSize: 16.0)),
                           const Padding(padding: EdgeInsets.only(bottom: 15.0)),
                         ],
                       ),
@@ -96,7 +94,7 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
                             width: 65.0,
                             child: Image.asset(
                               _goalImageRoute,
-                              // color: Colors.greenAccent.shade700,
+                              // color: const Color(0xFF1ECF6C),
                             )),
                       )
                     ],
@@ -115,7 +113,7 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
                           child: LinearProgressIndicator(
                               value: 0.6,
                               backgroundColor: Colors.grey.shade200,
-                              color: Colors.greenAccent.shade700,
+                              color: const Color(0xFF1ECF6C),
                               minHeight: 5.5),
                         ),
                       ),
@@ -196,10 +194,10 @@ class _DailyProgressPageState extends State<DailyProgressPage> {
               const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
               Container(
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     border: Border(
-                        bottom: BorderSide(
-                            color: Colors.greenAccent.shade700, width: 2.0)),
+                        bottom:
+                            BorderSide(color: Color(0xFF1ECF6C), width: 2.0)),
                   ),
                   child: const Text('ALIMENTOS',
                       style: TextStyle(

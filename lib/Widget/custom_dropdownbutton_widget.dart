@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomDropDownButtonWidget extends StatefulWidget {
+class CustomDropDownButtonWidget extends StatelessWidget {
   final String label;
   final List<String> items;
   final String value;
@@ -14,16 +14,9 @@ class CustomDropDownButtonWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<CustomDropDownButtonWidget> createState() =>
-      _CustomDropDownButtonWidgetState();
-}
-
-class _CustomDropDownButtonWidgetState
-    extends State<CustomDropDownButtonWidget> {
-  @override
   Widget build(BuildContext context) =>
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(widget.label,
+        Text(label,
             style:
                 const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
         const Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
@@ -35,9 +28,9 @@ class _CustomDropDownButtonWidgetState
             height: 48.0,
             child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
-                    items: widget.items.map(buildMenuItem).toList(),
-                    value: widget.value,
-                    onChanged: widget.onChanged,
+                    items: items.map(buildMenuItem).toList(),
+                    value: value,
+                    onChanged: onChanged,
                     icon: const Icon(Icons.arrow_drop_down, size: 26.0),
                     isExpanded: true,
                     borderRadius: BorderRadius.circular(12.0))))

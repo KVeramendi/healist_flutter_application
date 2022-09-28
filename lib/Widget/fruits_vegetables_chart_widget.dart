@@ -22,7 +22,7 @@ class _FruitsVegetablesChartWidgetState
     super.initState();
     _fruitsVegetablesChartModelList = data;
     _tooltipBehavior =
-        TooltipBehavior(enable: true, color: Colors.greenAccent.shade700);
+        TooltipBehavior(enable: true, color: const Color(0xFF1ECF6C));
   }
 
   @override

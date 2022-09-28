@@ -20,7 +20,7 @@ class _WaterChartWidgetState extends State<WaterChartWidget> {
     super.initState();
     _waterChartModelList = data;
     _tooltipBehavior =
-        TooltipBehavior(enable: true, color: Colors.greenAccent.shade700);
+        TooltipBehavior(enable: true, color: const Color(0xFF1ECF6C));
   }
 
   @override

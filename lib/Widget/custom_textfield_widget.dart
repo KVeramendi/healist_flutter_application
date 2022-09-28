@@ -49,7 +49,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                           : const Icon(Icons.visibility_rounded))
                   : null,
               focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.greenAccent.shade700),
+                  borderSide: const BorderSide(color: Color(0xFF1ECF6C)),
                   borderRadius: BorderRadius.circular(12.0)),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.0))),

@@ -37,7 +37,7 @@ class _RemindersPageState extends State<RemindersPage> {
                           _dinnerToggle = false;
                         }
                       }),
-                  activeColor: Colors.greenAccent.shade700,
+                  activeColor: const Color(0xFF1ECF6C),
                   title: const Text('Activar recordatorios',
                       style: TextStyle(fontSize: 20.0)),
                   subtitle: const Text(
@@ -53,7 +53,7 @@ class _RemindersPageState extends State<RemindersPage> {
                     _breakfastToggle = false;
                   }
                 }),
-                activeColor: Colors.greenAccent.shade700,
+                activeColor: const Color(0xFF1ECF6C),
                 inactiveTrackColor:
                     !_remindersToggle ? Colors.grey.shade300 : null,
                 title: Text('Desayuno',
@@ -69,7 +69,7 @@ class _RemindersPageState extends State<RemindersPage> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _breakfastToggle
-                                    ? Colors.greenAccent.shade700
+                                    ? const Color(0xFF1ECF6C)
                                     : Colors.grey.shade300,
                                 width: 2.0),
                             borderRadius: BorderRadius.circular(8.0)),
@@ -115,7 +115,7 @@ class _RemindersPageState extends State<RemindersPage> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _breakfastToggle
-                                    ? Colors.greenAccent.shade700
+                                    ? const Color(0xFF1ECF6C)
                                     : Colors.grey.shade300,
                                 width: 2.0),
                             borderRadius: BorderRadius.circular(8.0)),
@@ -159,7 +159,7 @@ class _RemindersPageState extends State<RemindersPage> {
                           _lunchToggle = false;
                         }
                       }),
-                  activeColor: Colors.greenAccent.shade700,
+                  activeColor: const Color(0xFF1ECF6C),
                   inactiveTrackColor:
                       !_remindersToggle ? Colors.grey.shade300 : null,
                   title: Text('Almuerzo',
@@ -174,7 +174,7 @@ class _RemindersPageState extends State<RemindersPage> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _lunchToggle
-                                    ? Colors.greenAccent.shade700
+                                    ? const Color(0xFF1ECF6C)
                                     : Colors.grey.shade300,
                                 width: 2.0),
                             borderRadius: BorderRadius.circular(8.0)),
@@ -219,7 +219,7 @@ class _RemindersPageState extends State<RemindersPage> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _lunchToggle
-                                    ? Colors.greenAccent.shade700
+                                    ? const Color(0xFF1ECF6C)
                                     : Colors.grey.shade300,
                                 width: 2.0),
                             borderRadius: BorderRadius.circular(8.0)),
@@ -262,7 +262,7 @@ class _RemindersPageState extends State<RemindersPage> {
                           _dinnerToggle = false;
                         }
                       }),
-                  activeColor: Colors.greenAccent.shade700,
+                  activeColor: const Color(0xFF1ECF6C),
                   inactiveTrackColor:
                       !_remindersToggle ? Colors.grey.shade300 : null,
                   title: Text('Cena',
@@ -277,7 +277,7 @@ class _RemindersPageState extends State<RemindersPage> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _dinnerToggle
-                                    ? Colors.greenAccent.shade700
+                                    ? const Color(0xFF1ECF6C)
                                     : Colors.grey.shade300,
                                 width: 2.0),
                             borderRadius: BorderRadius.circular(8.0)),
@@ -323,7 +323,7 @@ class _RemindersPageState extends State<RemindersPage> {
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: _dinnerToggle
-                                    ? Colors.greenAccent.shade700
+                                    ? const Color(0xFF1ECF6C)
                                     : Colors.grey.shade300,
                                 width: 2.0),
                             borderRadius: BorderRadius.circular(8.0)),

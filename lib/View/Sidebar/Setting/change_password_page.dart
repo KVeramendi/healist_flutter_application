@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/Widget/custom_appbar_widget.dart';
+import 'package:healist_flutter_application/Widget/custom_elevatebutton_widget.dart';
 import 'package:healist_flutter_application/Widget/custom_textfield_widget.dart';
 
 class ChangePasswordPage extends StatefulWidget {
@@ -54,31 +55,36 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                       isPassword: true,
                       keyboardType: TextInputType.visiblePassword),
                   const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
-                  ElevatedButton(
+                  CustomElevateButtonWidget(
+                      height: 50,
                       onPressed: () {
-                        if (oldPassword == _currentPasswordController.text &&
+                        final _oldPasswordValidation =
+                            oldPassword == _currentPasswordController.text;
+                        final _newPasswordsValidation =
                             _newPasswordController1.text ==
-                                _newPasswordController2.text) {
+                                _newPasswordController2.text;
+                        if ((!_oldPasswordValidation &&
+                                !_newPasswordsValidation) ||
+                            _currentPasswordController.text.isEmpty &&
+                                (_newPasswordController1.text.isEmpty &&
+                                    _newPasswordController2.text.isEmpty)) {
+                          buildSnackBar(
+                              false, 'Los valores ingresados son incorrectos.');
+                        } else if (!_oldPasswordValidation) {
+                          buildSnackBar(
+                              false, 'La contraseña anterior no coincide.');
+                        } else if (!_newPasswordsValidation) {
+                          buildSnackBar(
+                              false, 'Las nuevas contraseñas no coinciden.');
+                        } else {
                           user =
                               user.copy(password: _newPasswordController2.text);
                           UserPreferences.setUser(user);
+                          buildSnackBar(true, null);
                           Navigator.of(context).pop();
-                        } else {
-                          print('Las contraseñas no son iguales');
-                          print(
-                              '$oldPassword != ${_currentPasswordController.text}');
                         }
                       },
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.greenAccent.shade700,
-                          shadowColor: Colors.transparent,
-                          elevation: 0,
-                          padding: const EdgeInsets.all(12.0),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.0))),
-                      child: const Text('Guardar cambios',
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold)))
+                      text: 'Guardar cambios'),
                 ])),
         onWillPop: () async {
           final isEditedPage = user.hashCode != userInitialState.hashCode;
@@ -91,17 +97,36 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
         },
       );
 
+  ScaffoldMessengerState buildSnackBar(bool isValid, String? text) =>
+      ScaffoldMessenger.of(context)
+        ..removeCurrentSnackBar()
+        ..showSnackBar(SnackBar(
+            content: Row(children: [
+              Icon(isValid ? Icons.check_circle_rounded : Icons.error_rounded,
+                  color: Colors.white),
+              const Padding(padding: EdgeInsets.symmetric(horizontal: 6.0)),
+              Expanded(
+                  child: Text(
+                      isValid ? 'Contraseña actualizada con éxito.' : text!,
+                      style: const TextStyle(fontSize: 18.0)))
+            ]),
+            backgroundColor:
+                isValid ? const Color(0xFF1ECF6C) : Colors.red.shade700,
+            elevation: 0,
+            shape: const StadiumBorder(),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 3)));
+
   Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-            title: const Text('¿Deseas descartar los cambios realizados?'),
-            actions: [
-              TextButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: const Text('No')),
-              TextButton(
-                  onPressed: () => Navigator.pop(context, true),
-                  child: const Text('Sí'))
-            ],
-          ));
+              title: const Text('¿Deseas descartar los cambios realizados?'),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: const Text('No')),
+                TextButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: const Text('Sí'))
+              ]));
 }

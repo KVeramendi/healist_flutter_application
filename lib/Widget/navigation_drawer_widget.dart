@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
+import 'package:healist_flutter_application/View/Sidebar/About/about_healist_page.dart';
 import 'package:healist_flutter_application/View/Sidebar/Profile/user_profile_page.dart';
 import 'package:healist_flutter_application/View/Sidebar/Setting/setting_page.dart';
 
@@ -26,7 +26,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         : FileImage(File(image)) as ImageProvider;
     return Container(
         padding: const EdgeInsets.all(25.0),
-        color: Colors.greenAccent.shade700,
+        color: const Color(0xFF1ECF6C),
         width: double.maxFinite,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           CircleAvatar(backgroundImage: imageUrl, radius: 50.0),
@@ -71,7 +71,11 @@ class NavigationDrawerWidget extends StatelessWidget {
                       leading: const Icon(Icons.info_rounded),
                       title: const Text('Sobre Healist',
                           style: TextStyle(fontSize: 16.0)),
-                      onTap: () {})
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const AboutHealistPage()));
+                      })
                 ]),
                 Wrap(children: [
                   const Divider(thickness: 1.0, color: Colors.black38),

@@ -4,6 +4,7 @@ import 'package:healist_flutter_application/Data/dairies_data.dart';
 import 'package:healist_flutter_application/Data/dried_fruits_data.dart';
 import 'package:healist_flutter_application/Data/fruits_data.dart';
 import 'package:healist_flutter_application/Data/legumes_data.dart';
+import 'package:healist_flutter_application/Data/meats_fish_data.dart';
 import 'package:healist_flutter_application/Data/vegetables_data.dart';
 import 'package:healist_flutter_application/Model/food_model.dart';
 import 'package:healist_flutter_application/Widget/search_widget.dart';
@@ -44,8 +45,8 @@ class _FoodListPageState extends State<FoodListPage> {
       foodsData = allDairies;
       foodListSearching = allDairies;
     } else if (widget.title == 'CARNES Y PESCADOS') {
-      foodsData = allDairies;
-      foodListSearching = allDairies;
+      foodsData = allMeatsFish;
+      foodListSearching = allMeatsFish;
     } else if (widget.title == 'BEBIDAS') {
       foodsData = allDairies;
       foodListSearching = allDairies;
@@ -61,7 +62,7 @@ class _FoodListPageState extends State<FoodListPage> {
         child: Scaffold(
             appBar: AppBar(
                 centerTitle: true,
-                backgroundColor: Colors.greenAccent.shade700,
+                backgroundColor: const Color(0xFF1ECF6C),
                 title: Text(widget.title)),
             body: Center(
                 child: Column(children: [
@@ -126,74 +127,71 @@ class _FoodListPageState extends State<FoodListPage> {
             ]),
         onTap: () {
           showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                      title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(food.foodName,
-                                style: const TextStyle(fontSize: 18.0)),
-                            Image.asset(
-                              food.foodIcon,
-                              width: 20.0,
-                            )
-                          ]),
-                      titlePadding: const EdgeInsets.all(16.0),
-                      content: SizedBox(
-                        width: double.maxFinite,
-                        child:
-                            Column(mainAxisSize: MainAxisSize.min, children: [
-                          TextFormField(
-                              controller: _kilocaloriesController,
-                              decoration: InputDecoration(
-                                  labelText: 'Cantidad',
-                                  helperText: food.isDrink
-                                      ? '1 ración = ${food.foodPortion} ml'
-                                      : '1 ración = ${food.foodPortion} g',
-                                  counterText: food.isDrink
-                                      ? '1 vaso ≈ 250 ml'
-                                      : '1 porción ≈ 175 g',
-                                  border: const OutlineInputBorder()),
-                              keyboardType: TextInputType.number),
-                          const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 10.0)),
-                          DropdownButtonFormField(
-                              items: const [
-                                DropdownMenuItem<String>(
-                                    value: 'D', child: Text('Desayuno')),
-                                DropdownMenuItem<String>(
-                                    value: 'A', child: Text('Almuerzo')),
-                                DropdownMenuItem<String>(
-                                    value: 'C', child: Text('Cena')),
-                              ].toList(),
-                              value: _meals,
-                              onChanged: (String? value) {
-                                setState(() {
-                                  _meals = value;
-                                });
-                              },
-                              decoration: const InputDecoration(
-                                  labelText: 'Comida',
-                                  helperText:
-                                      'Seleccione el tipo de comida del día',
-                                  border: OutlineInputBorder()))
-                        ]),
-                      ),
-                      contentPadding: const EdgeInsets.all(16.0),
-                      actions: [
-                        TextButton(
-                            onPressed: () => Navigator.pop(context, 'Cancelar'),
-                            child: const Text('Cancelar')),
-                        TextButton(
-                            onPressed: () => Navigator.pop(
-                                context, _kilocaloriesController.text),
-                            child: const Text('Agregar'))
-                      ],
-                      shape: const RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0)))),
-                  barrierDismissible: false)
-              .then((result) => print(result));
+              context: context,
+              builder: (context) => AlertDialog(
+                  title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(food.foodName,
+                            style: const TextStyle(fontSize: 18.0)),
+                        Image.asset(
+                          food.foodIcon,
+                          width: 20.0,
+                        )
+                      ]),
+                  titlePadding: const EdgeInsets.all(16.0),
+                  content: SizedBox(
+                    width: double.maxFinite,
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      TextFormField(
+                          controller: _kilocaloriesController,
+                          decoration: InputDecoration(
+                              labelText: 'Cantidad',
+                              helperText: food.isDrink
+                                  ? '1 ración = ${food.foodPortion} ml'
+                                  : '1 ración = ${food.foodPortion} g',
+                              counterText: food.isDrink
+                                  ? '1 vaso ≈ 250 ml'
+                                  : '1 porción ≈ 175 g',
+                              border: const OutlineInputBorder()),
+                          keyboardType: TextInputType.number),
+                      const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10.0)),
+                      DropdownButtonFormField(
+                          items: const [
+                            DropdownMenuItem<String>(
+                                value: 'D', child: Text('Desayuno')),
+                            DropdownMenuItem<String>(
+                                value: 'A', child: Text('Almuerzo')),
+                            DropdownMenuItem<String>(
+                                value: 'C', child: Text('Cena')),
+                          ].toList(),
+                          value: _meals,
+                          onChanged: (String? value) {
+                            setState(() {
+                              _meals = value;
+                            });
+                          },
+                          decoration: const InputDecoration(
+                              labelText: 'Comida',
+                              helperText:
+                                  'Seleccione el tipo de comida del día',
+                              border: OutlineInputBorder()))
+                    ]),
+                  ),
+                  contentPadding: const EdgeInsets.all(16.0),
+                  actions: [
+                    TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancelar'),
+                        child: const Text('Cancelar')),
+                    TextButton(
+                        onPressed: () => Navigator.pop(
+                            context, _kilocaloriesController.text),
+                        child: const Text('Agregar'))
+                  ],
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)))),
+              barrierDismissible: false);
         });
   }
 }

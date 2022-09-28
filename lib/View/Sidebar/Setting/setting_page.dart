@@ -6,6 +6,7 @@ import 'package:healist_flutter_application/View/Login/login_page.dart';
 import 'package:healist_flutter_application/View/Sidebar/Setting/change_password_page.dart';
 import 'package:healist_flutter_application/View/Sidebar/Setting/setting_edit_page.dart';
 import 'package:healist_flutter_application/Widget/custom_appbar_widget.dart';
+import 'package:healist_flutter_application/Widget/custom_elevatebutton_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingPage extends StatefulWidget {
@@ -61,7 +62,7 @@ class _SettingPageState extends State<SettingPage> {
                     child: ClipOval(
                         child: Container(
                             padding: const EdgeInsets.all(8.0),
-                            color: Colors.greenAccent.shade700,
+                            color: const Color(0xFF1ECF6C),
                             child: const Icon(Icons.edit_rounded,
                                 color: Colors.white))))))
       ]),
@@ -74,70 +75,57 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   Widget buildSettingButtons() => Column(children: [
-        SizedBox(
-          width: double.maxFinite,
-          child: ElevatedButton(
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ChangePasswordPage())),
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.black87,
-                  shadowColor: Colors.transparent,
-                  elevation: 0,
-                  padding: const EdgeInsets.all(12.0),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0))),
-              child: const Text('Cambiar contraseña',
-                  style:
-                      TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold))),
-        ),
+        CustomElevateButtonWidget(
+            height: 50,
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const ChangePasswordPage())),
+            backgroundColor: Colors.black87,
+            text: 'Cambiar contraseña',
+            textSize: 20.0),
         const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
-        ElevatedButton(
-            onPressed: () {
-              showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                          title: const Text('Borrar cuenta de usuario',
-                              style: TextStyle(fontSize: 18.0)),
-                          titlePadding: const EdgeInsets.all(16.0),
-                          content: Text(
-                              'Todos los datos serán borrados permanentemente (Perfil de usuario, las imágenes e información de los alimentos).',
-                              style: TextStyle(color: Colors.red.shade400)),
-                          contentPadding: const EdgeInsets.all(16.0),
-                          actions: [
-                            TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(context, 'Cancelar'),
-                                autofocus: true,
-                                child: const Text('Cancelar')),
-                            TextButton(
-                                onPressed: () async {
-                                  SharedPreferences preferences =
-                                      await SharedPreferences.getInstance();
-                                  await preferences.clear();
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => const LoginPage()));
-                                },
-                                child: Text('Borrar ahora',
-                                    style:
-                                        TextStyle(color: Colors.red.shade400)))
-                          ],
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0)))),
-                      barrierDismissible: false)
-                  .then((result) => print(result));
-            },
-            style: ElevatedButton.styleFrom(
-                primary: Colors.grey.shade300,
-                shadowColor: Colors.transparent,
-                elevation: 0,
-                padding: const EdgeInsets.all(12.0),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0))),
-            child: Text('Borrar cuenta',
-                style: TextStyle(
-                  color: Colors.redAccent.shade700,
-                  fontSize: 18.0,
-                )))
+        CustomElevateButtonWidget(
+            width: 200.0,
+            height: 50.0,
+            onPressed: () async => await buildShowDialog(),
+            backgroundColor: Colors.grey.shade300,
+            text: 'Borrar cuenta',
+            textColor: Colors.redAccent.shade700,
+            textSize: 20.0)
       ]);
+
+  buildShowDialog() async => showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+          title: const Text('Borrar cuenta de usuario',
+              style: TextStyle(fontSize: 18.0)),
+          titlePadding: const EdgeInsets.all(16.0),
+          content: Text(
+              '* Todos los datos serán borrados permanentemente (Perfil de usuario, las imágenes e información de los alimentos).',
+              style: TextStyle(color: Colors.redAccent.shade700)),
+          contentPadding: const EdgeInsets.all(16.0),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(context, 'Cancelar'),
+                autofocus: true,
+                child: const Text('Cancelar')),
+            TextButton(
+                onPressed: () async {
+                  SharedPreferences preferences =
+                      await SharedPreferences.getInstance();
+                  await preferences.clear();
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const LoginPage()));
+                },
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.redAccent.shade700),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0)))),
+                child: const Text('Borrar ahora',
+                    style: TextStyle(color: Colors.white)))
+          ],
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12.0)))),
+      barrierDismissible: false);
 }

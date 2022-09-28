@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/Widget/custom_appbar_widget.dart';
+import 'package:healist_flutter_application/Widget/custom_elevatebutton_widget.dart';
 import 'package:healist_flutter_application/Widget/custom_textfield_widget.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -34,80 +35,71 @@ class _SettingEditPageState extends State<SettingEditPage> {
         ? AssetImage(user.userImagePath)
         : FileImage(File(user.userImagePath)) as ImageProvider;
     return WillPopScope(
-      child: Scaffold(
-          appBar: const CustomAppBarWidget(),
-          body: ListView(
-              physics: const BouncingScrollPhysics(),
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
-              children: [
-                Center(
-                    child: Stack(children: [
-                  CircleAvatar(
-                      child: ClipOval(
-                          child: Material(
-                              color: Colors.transparent,
-                              child: Ink.image(
-                                  image: imageUrl,
-                                  fit: BoxFit.cover,
-                                  child: InkWell(onTap: () => pickImge())))),
-                      backgroundColor: Colors.transparent,
-                      radius: 100.0),
-                  Positioned(
-                      right: 0.0,
-                      bottom: 0,
-                      child: ClipOval(
-                          child: Container(
-                              padding: const EdgeInsets.all(3.0),
-                              color: Colors.white,
-                              child: ClipOval(
-                                  child: Container(
-                                      padding: const EdgeInsets.all(8.0),
-                                      color: Colors.greenAccent.shade700,
-                                      child: const Icon(
-                                          Icons.add_a_photo_rounded,
-                                          size: 36.0,
-                                          color: Colors.white))))))
+        child: Scaffold(
+            appBar: const CustomAppBarWidget(),
+            body: ListView(
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 40.0),
+                children: [
+                  Center(
+                      child: Stack(children: [
+                    CircleAvatar(
+                        child: ClipOval(
+                            child: Material(
+                                color: Colors.transparent,
+                                child: Ink.image(
+                                    image: imageUrl,
+                                    fit: BoxFit.cover,
+                                    child: InkWell(onTap: () => pickImge())))),
+                        backgroundColor: Colors.transparent,
+                        radius: 100.0),
+                    Positioned(
+                        right: 0.0,
+                        bottom: 0,
+                        child: ClipOval(
+                            child: Container(
+                                padding: const EdgeInsets.all(3.0),
+                                color: Colors.white,
+                                child: ClipOval(
+                                    child: Container(
+                                        padding: const EdgeInsets.all(8.0),
+                                        color: const Color(0xFF1ECF6C),
+                                        child: const Icon(
+                                            Icons.add_a_photo_rounded,
+                                            size: 36.0,
+                                            color: Colors.white))))))
+                  ])),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
+                  CustomTextFieldWidget(
+                      label: 'Nombre completo',
+                      text: user.fullName,
+                      onChanged: (value) => user = user.copy(fullName: value),
+                      keyboardType: TextInputType.name),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
+                  CustomTextFieldWidget(
+                      label: 'Correo electrónico',
+                      text: user.email,
+                      onChanged: (value) => user = user.copy(email: value),
+                      keyboardType: TextInputType.emailAddress),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
+                  CustomElevateButtonWidget(
+                      height: 50,
+                      onPressed: () {
+                        UserPreferences.setUser(user);
+                        Navigator.of(context).pop();
+                      },
+                      text: 'Guardar cambios')
                 ])),
-                const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
-                CustomTextFieldWidget(
-                    label: 'Nombre completo',
-                    text: user.fullName,
-                    onChanged: (value) => user = user.copy(fullName: value),
-                    keyboardType: TextInputType.name),
-                const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
-                CustomTextFieldWidget(
-                    label: 'Correo electrónico',
-                    text: user.email,
-                    onChanged: (value) => user = user.copy(email: value),
-                    keyboardType: TextInputType.emailAddress),
-                const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
-                ElevatedButton(
-                    onPressed: () {
-                      UserPreferences.setUser(user);
-                      Navigator.of(context).pop();
-                    },
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.greenAccent.shade700,
-                        shadowColor: Colors.transparent,
-                        elevation: 0,
-                        padding: const EdgeInsets.all(12.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.0))),
-                    child: const Text('Guardar cambios',
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold)))
-              ])),
-      onWillPop: () async {
-        final isEditedPage = user.hashCode != userInitialState.hashCode;
-        if (isEditedPage) {
-          final shoulPop = await showWarning(context);
-          return shoulPop ?? false;
-        } else {
-          return true;
-        }
-      },
-    );
+        onWillPop: () async {
+          final isEditedPage = user.hashCode != userInitialState.hashCode;
+          if (isEditedPage) {
+            final shoulPop = await showWarning(context);
+            return shoulPop ?? false;
+          } else {
+            return true;
+          }
+        });
   }
 
   Future pickImge() async {
@@ -135,14 +127,14 @@ class _SettingEditPageState extends State<SettingEditPage> {
   Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-            title: const Text('¿Deseas descartar los cambios realizados?'),
-            actions: [
-              TextButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: const Text('No')),
-              TextButton(
-                  onPressed: () => Navigator.pop(context, true),
-                  child: const Text('Sí'))
-            ],
-          ));
+              title: const Text('¿Deseas descartar los cambios realizados?'),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    autofocus: true,
+                    child: const Text('No', style: TextStyle(fontSize: 18.0))),
+                TextButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: const Text('Sí', style: TextStyle(fontSize: 18.0)))
+              ]));
 }

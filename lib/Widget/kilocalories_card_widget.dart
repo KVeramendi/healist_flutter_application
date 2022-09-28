@@ -59,15 +59,15 @@ class _KilocaloriesCardWidgetState extends State<KilocaloriesCardWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('$_goalKilocaloriesValue kcal',
-                                        style: TextStyle(
-                                            color: Colors.greenAccent.shade700,
+                                        style: const TextStyle(
+                                            color: Color(0xFF1ECF6C),
                                             fontSize: 22.0)),
                                     const Padding(
                                         padding: EdgeInsets.symmetric(
                                             vertical: 5.0)),
-                                    Text('Objetivo',
+                                    const Text('Objetivo',
                                         style: TextStyle(
-                                            color: Colors.greenAccent.shade700,
+                                            color: Color(0xFF1ECF6C),
                                             fontSize: 15.0))
                                   ]),
                             ])))))

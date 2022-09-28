@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/View/Menu/home_page.dart';
+import 'package:healist_flutter_application/Widget/custom_elevatebutton_widget.dart';
 
 class InputFormPage extends StatefulWidget {
   const InputFormPage({Key? key}) : super(key: key);
@@ -13,151 +14,95 @@ class _InputFormPageState extends State<InputFormPage> {
   String? _genre;
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
+  Widget build(BuildContext context) => SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
-                  Container(
-                      padding: const EdgeInsets.only(bottom: 10.0),
-                      decoration: BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(
-                                color: Colors.greenAccent.shade700,
-                                width: 2.0)),
-                      ),
-                      child: const Text('FORMULARIO',
-                          style: TextStyle(
-                              fontSize: 25.0, fontWeight: FontWeight.bold))),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
-                  TextFormField(
-                      keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                          helperText: 'Ingrese su peso en kilogramos (kg)',
-                          helperStyle: TextStyle(fontStyle: FontStyle.italic),
-                          labelText: 'Peso',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.monitor_weight_rounded))),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
-                  TextFormField(
-                      keyboardType:
-                          const TextInputType.numberWithOptions(decimal: true),
-                      decoration: const InputDecoration(
-                          helperText: 'Ingrese su altura en centímetros (cm)',
-                          helperStyle: TextStyle(fontStyle: FontStyle.italic),
-                          labelText: 'Altura',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.height_rounded))),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
-                  TextFormField(
-                      keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                          helperText: 'Ingrese su edad',
-                          helperStyle: TextStyle(fontStyle: FontStyle.italic),
-                          labelText: 'Edad',
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.person))),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
-                  DropdownButtonFormField(
+          body: SingleChildScrollView(
+              padding: const EdgeInsets.all(25.0),
+              child: Center(
+                  child: Column(children: <Widget>[
+                const Padding(padding: EdgeInsets.symmetric(vertical: 5.0)),
+                Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    decoration: const BoxDecoration(
+                      border: Border(
+                          bottom:
+                              BorderSide(color: Color(0xFF1ECF6C), width: 2.0)),
+                    ),
+                    child: const Text('FORMULARIO',
+                        style: TextStyle(
+                            fontSize: 25.0, fontWeight: FontWeight.bold))),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
+                TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Peso',
+                        helperText: 'Ingrese su peso en kilogramos (kg)',
+                        helperStyle: TextStyle(fontStyle: FontStyle.italic),
+                        prefixIcon: Icon(Icons.monitor_weight_rounded),
+                        border: OutlineInputBorder()),
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true)),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+                TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Altura',
+                        helperText: 'Ingrese su altura en centímetros (cm)',
+                        helperStyle: TextStyle(fontStyle: FontStyle.italic),
+                        prefixIcon: Icon(Icons.height_rounded),
+                        border: OutlineInputBorder()),
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true)),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+                TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Edad',
+                        helperText: 'Ingrese su edad',
+                        helperStyle: TextStyle(fontStyle: FontStyle.italic),
+                        prefixIcon: Icon(Icons.person_rounded),
+                        border: OutlineInputBorder()),
+                    keyboardType: TextInputType.number),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+                DropdownButtonFormField(
                     items: const [
                       DropdownMenuItem<String>(
-                        child: Text('Muy ligera'),
-                        value: '1',
-                      ),
+                          value: 'Muy ligera', child: Text('Muy ligera')),
                       DropdownMenuItem<String>(
-                        child: Text('Ligera'),
-                        value: '2',
-                      ),
+                          value: 'Ligera', child: Text('Ligera')),
                       DropdownMenuItem<String>(
-                        child: Text('Regular'),
-                        value: '3',
-                      ),
+                          value: 'Regular', child: Text('Regular')),
                       DropdownMenuItem<String>(
-                        child: Text('Activa'),
-                        value: '4',
-                      ),
+                          value: 'Activa', child: Text('Activa')),
                       DropdownMenuItem<String>(
-                        child: Text('Muy activa'),
-                        value: '5',
-                      ),
+                          value: 'Muy activa', child: Text('Muy activa')),
                     ].toList(),
                     value: _physicalActivity,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _physicalActivity = value;
-                      });
-                    },
+                    onChanged: (value) {},
                     decoration: const InputDecoration(
-                      helperText: 'Ingrese su nivel de actividad física',
-                      helperStyle: TextStyle(fontStyle: FontStyle.italic),
-                      labelText: 'Actividad física',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.directions_run_rounded),
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
-                  DropdownButtonFormField(
+                        labelText: 'Actividad física',
+                        helperText: 'Ingrese su nivel de actividad física',
+                        helperStyle: TextStyle(fontStyle: FontStyle.italic),
+                        prefixIcon: Icon(Icons.directions_run_rounded),
+                        border: OutlineInputBorder())),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+                DropdownButtonFormField(
                     items: const [
                       DropdownMenuItem<String>(
-                        child: Text('Femenino'),
-                        value: 'F',
-                      ),
+                          value: 'Femenino', child: Text('Femenino')),
                       DropdownMenuItem<String>(
-                        child: Text('Masculino'),
-                        value: 'M',
-                      ),
+                          value: 'Masculino', child: Text('Masculino')),
                     ].toList(),
                     value: _genre,
-                    onChanged: (String? value) {
-                      setState(() {
-                        _genre = value;
-                      });
-                    },
+                    onChanged: (value) {},
                     decoration: const InputDecoration(
-                      helperText: 'Ingrese su género',
-                      helperStyle: TextStyle(fontStyle: FontStyle.italic),
-                      labelText: 'Género',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.group_rounded),
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
-                  Container(
-                    clipBehavior: Clip.antiAlias,
-                    width: double.infinity,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: MaterialButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomePage(),
-                            ));
-                      },
-                      color: Colors.greenAccent.shade700,
-                      child: const Text(
-                        'Aceptar',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+                        labelText: 'Género',
+                        helperText: 'Ingrese su género',
+                        helperStyle: TextStyle(fontStyle: FontStyle.italic),
+                        prefixIcon: Icon(Icons.group_rounded),
+                        border: OutlineInputBorder())),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
+                CustomElevateButtonWidget(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage())),
+                    text: 'Aceptar')
+              ])))));
 }
