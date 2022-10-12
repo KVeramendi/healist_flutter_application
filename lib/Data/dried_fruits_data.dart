@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allDriedFruits = <Food>[
-  Food(
+final allDriedFruits = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Almendras',
       foodPortion: 143,
@@ -13,7 +13,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/almendras-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Anacardos',
       foodPortion: 28,
@@ -25,7 +25,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/anacardos.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Avellanas',
       foodPortion: 115,
@@ -37,7 +37,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/avellanas.png'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Cacahuetes',
       foodPortion: 28,
@@ -49,7 +49,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/cacahuetes.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Castañas',
       foodPortion: 28,
@@ -61,7 +61,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/castanyas.jpg'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Dátiles',
       foodPortion: 24,
@@ -73,7 +73,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Datiles.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Nueces',
       foodPortion: 145,
@@ -85,7 +85,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/nueces.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Nueces de Macadamia',
       foodPortion: 134,
@@ -97,7 +97,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/nueces-macadamia-800x600.png'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Pistachos',
       foodPortion: 123,
@@ -109,7 +109,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/pistachos.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Semillas de calabaza',
       foodPortion: 64,
@@ -121,7 +121,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/12/semillas-de-calabaza-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Semillas de chía',
       foodPortion: 28,
@@ -133,7 +133,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/12/semillas-de-chia-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Semillas de girasol',
       foodPortion: 46,
@@ -145,7 +145,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/pipas-girasol.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Semillas de sésamo',
       foodPortion: 144,
@@ -157,7 +157,7 @@ final allDriedFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/12/semillas-de-sesamo-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Semillas de flor de loto',
       foodPortion: 100,

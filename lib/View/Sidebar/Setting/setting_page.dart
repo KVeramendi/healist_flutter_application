@@ -110,9 +110,9 @@ class _SettingPageState extends State<SettingPage> {
                 child: const Text('Cancelar')),
             TextButton(
                 onPressed: () async {
-                  SharedPreferences preferences =
+                  SharedPreferences userPreferences =
                       await SharedPreferences.getInstance();
-                  await preferences.clear();
+                  await userPreferences.clear();
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const LoginPage()));
                 },

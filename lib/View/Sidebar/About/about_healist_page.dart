@@ -24,7 +24,33 @@ class AboutHealistPage extends StatelessWidget {
                             'Healist es una aplicación móvil orientado en la nutrición, que sirve como herramienta de control y seguimiento nutricional. Este aplicativo le brindará toda la información de la ingesta calórica y de macronutrientes (proteínas, carbohidratos y grasas) de los alimentos ingeridos a través de gráficos estadísticos. Además, tendrá al alcance distintas publicaciones de alimentación y estilo de vida saludable para que pueda estar más informados en el campo de la nutrición.',
                             textAlign: TextAlign.justify)),
                     const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 30.0)),
+                        padding: EdgeInsets.symmetric(vertical: 15.0)),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text('Autor',
+                                    style: TextStyle(
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold)),
+                                Text('Kevin Veramendi Veramendi',
+                                    style: TextStyle(fontSize: 11.0))
+                              ]),
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text('Contacto',
+                                    style: TextStyle(
+                                        fontSize: 12.0,
+                                        fontWeight: FontWeight.bold)),
+                                Text('kveramendi18@gmail.com',
+                                    style: TextStyle(fontSize: 11.0))
+                              ])
+                        ]),
+                    const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 15.0)),
                     CustomElevateButtonWidget(
                         height: 50.0,
                         onPressed: () => Navigator.of(context).push(

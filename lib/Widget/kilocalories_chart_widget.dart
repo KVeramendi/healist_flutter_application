@@ -5,9 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class KilocaloriesChartWidget extends StatefulWidget {
-  const KilocaloriesChartWidget({
-    Key? key,
-  }) : super(key: key);
+  final int option;
+  const KilocaloriesChartWidget({Key? key, required this.option})
+      : super(key: key);
 
   @override
   State<KilocaloriesChartWidget> createState() =>
@@ -15,13 +15,11 @@ class KilocaloriesChartWidget extends StatefulWidget {
 }
 
 class _KilocaloriesChartWidgetState extends State<KilocaloriesChartWidget> {
-  late List<KilocaloriesChartModel> _kilocaloriesChartModelList;
   late TooltipBehavior _tooltipBehavior;
 
   @override
   void initState() {
     super.initState();
-    _kilocaloriesChartModelList = data;
     _tooltipBehavior = TooltipBehavior(
         enable: true,
         color: const Color(0xFF1ECF6C),
@@ -29,22 +27,33 @@ class _KilocaloriesChartWidgetState extends State<KilocaloriesChartWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        height: 300.0,
-        child: SfCartesianChart(
-            primaryXAxis:
-                DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
-            tooltipBehavior: _tooltipBehavior,
-            series: <CartesianSeries<KilocaloriesChartModel, DateTime>>[
-              SplineSeries<KilocaloriesChartModel, DateTime>(
-                  dataSource: _kilocaloriesChartModelList,
-                  xValueMapper: (KilocaloriesChartModel data, _) =>
-                      data.dateTime,
-                  yValueMapper: (KilocaloriesChartModel data, _) =>
-                      data.kilocalories,
-                  name: 'Kilocalorías',
-                  markerSettings: const MarkerSettings(isVisible: true))
-            ]));
+  Widget build(BuildContext context) => SizedBox(
+      height: 300.0,
+      child: SfCartesianChart(
+          primaryXAxis:
+              DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
+          tooltipBehavior: _tooltipBehavior,
+          series: <CartesianSeries<KilocaloriesChartModel, DateTime>>[
+            SplineSeries<KilocaloriesChartModel, DateTime>(
+                dataSource: dataSourceSelection,
+                xValueMapper: (KilocaloriesChartModel data, _) => data.dateTime,
+                yValueMapper: (KilocaloriesChartModel data, _) =>
+                    data.kilocalories,
+                name: 'Kilocalorías',
+                markerSettings: const MarkerSettings(isVisible: true))
+          ]));
+
+  List<KilocaloriesChartModel> get dataSourceSelection {
+    if (widget.option == 0) {
+      return oneWeekKilocaloriesData;
+    } else if (widget.option == 1) {
+      return oneMonthKilocaloriesData;
+    } else if (widget.option == 2) {
+      return threeMonthsKilocaloriesData;
+    } else if (widget.option == 3) {
+      return sixMonthsKilocaloriesData;
+    } else {
+      return oneYearKilocaloriesData;
+    }
   }
 }

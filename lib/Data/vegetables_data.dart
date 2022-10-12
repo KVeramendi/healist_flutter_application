@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allVegetables = <Food>[
-  Food(
+final allVegetables = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Acelga',
       foodPortion: 36,
@@ -13,7 +13,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Acelga.jpg'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Alcachofa',
       foodPortion: 128,
@@ -25,7 +25,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/alcachofa.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Apio',
       foodPortion: 101,
@@ -36,7 +36,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/celery.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/Apio.jpg'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Berenjena',
       foodPortion: 82,
@@ -48,7 +48,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Berenjena.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Berro',
       foodPortion: 34,
@@ -59,7 +59,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/watercress.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Berro.jpg'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Kale',
       foodPortion: 89,
@@ -71,7 +71,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/berzas-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Camote',
       foodPortion: 133,
@@ -83,7 +83,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/boniato-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Brócoli',
       foodPortion: 91,
@@ -95,7 +95,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Brocoli.jpg'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Calabacín',
       foodPortion: 124,
@@ -107,7 +107,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/calabacin.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Calabaza',
       foodPortion: 116,
@@ -119,7 +119,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/calabaza.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Canónigos',
       foodPortion: 56,
@@ -131,7 +131,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/08/canonigos-1-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Cebolla',
       foodPortion: 160,
@@ -143,7 +143,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/cebolla.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Champiñón',
       foodPortion: 70,
@@ -155,7 +155,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/champinon-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Chayote',
       foodPortion: 132,
@@ -167,7 +167,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/chayote.jpg'),
-  Food(
+  FoodModel(
       id: 15,
       foodName: 'Chile',
       foodPortion: 90,
@@ -178,7 +178,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/chili.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/chile.jpg'),
-  Food(
+  FoodModel(
       id: 16,
       foodName: 'Chirivía',
       foodPortion: 133,
@@ -190,7 +190,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/chirivia.jpg'),
-  Food(
+  FoodModel(
       id: 17,
       foodName: 'Col',
       foodPortion: 89,
@@ -201,7 +201,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/cabbage.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/col.jpg'),
-  Food(
+  FoodModel(
       id: 18,
       foodName: 'Col de Bruselas',
       foodPortion: 88,
@@ -213,7 +213,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/col-de-bruselas.jpg'),
-  Food(
+  FoodModel(
       id: 19,
       foodName: 'Col verde',
       foodPortion: 16,
@@ -225,7 +225,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/col-verde1.jpg'),
-  Food(
+  FoodModel(
       id: 20,
       foodName: 'Coliflor',
       foodPortion: 135,
@@ -237,7 +237,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/colifor.jpg'),
-  Food(
+  FoodModel(
       id: 21,
       foodName: 'Espárrago',
       foodPortion: 134,
@@ -249,7 +249,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/esparrago.jpg'),
-  Food(
+  FoodModel(
       id: 22,
       foodName: 'Espinaca',
       foodPortion: 30,
@@ -261,7 +261,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/espinaca.jpg'),
-  Food(
+  FoodModel(
       id: 23,
       foodName: 'Hinojo dulce',
       foodPortion: 87,
@@ -273,7 +273,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/hinojo-dulce.jpg'),
-  Food(
+  FoodModel(
       id: 24,
       foodName: 'Hojas de mostaza',
       foodPortion: 56,
@@ -285,7 +285,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/hojas-mostaza1.jpg'),
-  Food(
+  FoodModel(
       id: 25,
       foodName: 'Hojas de nabos',
       foodPortion: 40,
@@ -297,7 +297,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/hojas-de-nabos1.jpg'),
-  Food(
+  FoodModel(
       id: 26,
       foodName: 'Lechuga',
       foodPortion: 36,
@@ -309,7 +309,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/lechuga-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 27,
       foodName: 'Maíz',
       foodPortion: 145,
@@ -320,7 +320,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/corn.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/maiz.jpg'),
-  Food(
+  FoodModel(
       id: 28,
       foodName: 'Nabo',
       foodPortion: 130,
@@ -331,7 +331,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/turnip.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/nabo.jpg'),
-  Food(
+  FoodModel(
       id: 29,
       foodName: 'Patata',
       foodPortion: 75,
@@ -343,7 +343,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/patata.jpg'),
-  Food(
+  FoodModel(
       id: 30,
       foodName: 'Pepino',
       foodPortion: 52,
@@ -355,7 +355,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/pepino.jpg'),
-  Food(
+  FoodModel(
       id: 31,
       foodName: 'Pimiento verde',
       foodPortion: 149,
@@ -367,7 +367,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/pimiento-verde.jpg'),
-  Food(
+  FoodModel(
       id: 32,
       foodName: 'Pimiento amarillo',
       foodPortion: 186,
@@ -379,7 +379,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/pimiento-amarillo.png'),
-  Food(
+  FoodModel(
       id: 33,
       foodName: 'Pimiento rojo',
       foodPortion: 149,
@@ -391,7 +391,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/pimiento-rojo-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 34,
       foodName: 'Puerro',
       foodPortion: 89,
@@ -403,7 +403,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/puerro.jpg'),
-  Food(
+  FoodModel(
       id: 35,
       foodName: 'Rábano',
       foodPortion: 116,
@@ -415,7 +415,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/10/rabanos-990x600.jpg'),
-  Food(
+  FoodModel(
       id: 36,
       foodName: 'Remolacha',
       foodPortion: 136,
@@ -427,7 +427,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/remolacha.jpg'),
-  Food(
+  FoodModel(
       id: 37,
       foodName: 'Rúcula',
       foodPortion: 100,
@@ -439,7 +439,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/11/propiedades-de-la-rucula.jpg'),
-  Food(
+  FoodModel(
       id: 38,
       foodName: 'Setas shitakee',
       foodPortion: 19,
@@ -451,7 +451,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/09/setas-shitakee-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 39,
       foodName: 'Tomate',
       foodPortion: 149,
@@ -463,7 +463,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/tomate.jpg'),
-  Food(
+  FoodModel(
       id: 40,
       foodName: 'Tomate seco',
       foodPortion: 110,
@@ -475,7 +475,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/09/tomate-seco-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 41,
       foodName: 'Topinambur',
       foodPortion: 150,
@@ -487,7 +487,7 @@ final allVegetables = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/topinambur.jpg'),
-  Food(
+  FoodModel(
       id: 42,
       foodName: 'Yuca',
       foodPortion: 206,
@@ -498,7 +498,7 @@ final allVegetables = <Food>[
       foodIcon: 'assets/images/foods/vegetables/yucca.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/yuca.jpg'),
-  Food(
+  FoodModel(
       id: 43,
       foodName: 'Zanahoria',
       foodPortion: 128,

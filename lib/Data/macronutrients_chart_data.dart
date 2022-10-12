@@ -1,11 +1,33 @@
 import 'package:healist_flutter_application/Model/macronutrients_chart_model.dart';
+import 'package:healist_flutter_application/Util/chart_nutrition_preferences.dart';
 
-final data = <MacronutrientsChartModel>[
-  MacronutrientsChartModel(DateTime(2022, 9, 1), 45.6, 210.6, 96.7),
-  MacronutrientsChartModel(DateTime(2022, 9, 2), 49.7, 223.8, 94.2),
-  MacronutrientsChartModel(DateTime(2022, 9, 3), 52.4, 219.8, 89.7),
-  MacronutrientsChartModel(DateTime(2022, 9, 4), 48.1, 227.6, 90.1),
-  MacronutrientsChartModel(DateTime(2022, 9, 5), 53.6, 229.4, 84.7),
-  MacronutrientsChartModel(DateTime(2022, 9, 6), 55.4, 242.1, 81.3),
-  MacronutrientsChartModel(DateTime(2022, 9, 7), 51.8, 232.9, 85.5),
-];
+final _chartNutrition = ChartNutritionPreferences.getChartNutrition();
+final oneWeekMacronutrientsData = _setDataList(7);
+final oneMonthMacronutrientsData = _setDataList(31);
+final threeMonthsMacronutrientsData = _setDataList(91);
+final sixMonthsMacronutrientsData = _setDataList(182);
+final oneYearMacronutrientsData = _setDataList(365);
+
+List<MacronutrientsChartModel> _setDataList(int days) {
+  final _data = <MacronutrientsChartModel>[];
+  if (_chartNutrition.length < days) {
+    for (int i = 0; i < _chartNutrition.length; i++) {
+      _data.add(MacronutrientsChartModel(
+          _chartNutrition[i].dateTime,
+          _chartNutrition[i].proteinsIntake,
+          _chartNutrition[i].carbohydratesIntake,
+          _chartNutrition[i].fatsIntake));
+    }
+  } else {
+    for (int i = _chartNutrition.length - days;
+        i < _chartNutrition.length;
+        i++) {
+      _data.add(MacronutrientsChartModel(
+          _chartNutrition[i].dateTime,
+          _chartNutrition[i].proteinsIntake,
+          _chartNutrition[i].carbohydratesIntake,
+          _chartNutrition[i].fatsIntake));
+    }
+  }
+  return _data;
+}

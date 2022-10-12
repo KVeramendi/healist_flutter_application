@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allFruits = <Food>[
-  Food(
+final allFruits = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Aguacate',
       foodPortion: 150,
@@ -13,7 +13,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/aguacate.jpg'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Albaricoque',
       foodPortion: 155,
@@ -25,7 +25,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Albaricoque.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Arándano',
       foodPortion: 148,
@@ -37,7 +37,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arandanos.jpg'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Arándano rojo',
       foodPortion: 110,
@@ -49,7 +49,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Arandano-Rojo.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Asaí',
       foodPortion: 100,
@@ -61,7 +61,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/asa%C3%AD.jpg'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Caqui',
       foodPortion: 25,
@@ -73,7 +73,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/11/caqui-propiedades.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Carambola',
       foodPortion: 132,
@@ -85,7 +85,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Carmabola.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Cereza',
       foodPortion: 155,
@@ -97,7 +97,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/cereza.jpg'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Ciruela',
       foodPortion: 165,
@@ -109,7 +109,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/ciruela.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Coco',
       foodPortion: 80,
@@ -120,7 +120,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/coconut.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/08/coco.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Frambuesa',
       foodPortion: 123,
@@ -132,7 +132,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Frambuesas.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Fresa',
       foodPortion: 152,
@@ -143,7 +143,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/strawberry.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Fresa.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Granada',
       foodPortion: 87,
@@ -155,7 +155,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Granada.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Grosella negra',
       foodPortion: 112,
@@ -167,7 +167,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Grosella-negra.jpg'),
-  Food(
+  FoodModel(
       id: 15,
       foodName: 'Guayaba',
       foodPortion: 165,
@@ -179,7 +179,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/guayaba.jpg'),
-  Food(
+  FoodModel(
       id: 16,
       foodName: 'Higo',
       foodPortion: 64,
@@ -190,7 +190,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/fig.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/Higos.jpg'),
-  Food(
+  FoodModel(
       id: 17,
       foodName: 'Kiwi',
       foodPortion: 180,
@@ -201,7 +201,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/kiwi.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/kiwi.jpg'),
-  Food(
+  FoodModel(
       id: 18,
       foodName: 'Lima',
       foodPortion: 67,
@@ -212,7 +212,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/lime.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Lima.jpg'),
-  Food(
+  FoodModel(
       id: 19,
       foodName: 'Limón',
       foodPortion: 212,
@@ -224,7 +224,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Lim%C3%B3n.png'),
-  Food(
+  FoodModel(
       id: 20,
       foodName: 'Litchi',
       foodPortion: 190,
@@ -236,7 +236,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/01/litchi.jpg'),
-  Food(
+  FoodModel(
       id: 21,
       foodName: 'Mandarina',
       foodPortion: 195,
@@ -248,7 +248,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/mandarina.jpg'),
-  Food(
+  FoodModel(
       id: 22,
       foodName: 'Mango',
       foodPortion: 165,
@@ -260,7 +260,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/mango1.jpg'),
-  Food(
+  FoodModel(
       id: 23,
       foodName: 'Manzana',
       foodPortion: 110,
@@ -272,7 +272,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/manzana.jpg'),
-  Food(
+  FoodModel(
       id: 24,
       foodName: 'Melocotón',
       foodPortion: 154,
@@ -284,7 +284,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Melocot%C3%B3n.jpg'),
-  Food(
+  FoodModel(
       id: 25,
       foodName: 'Melón',
       foodPortion: 177,
@@ -296,7 +296,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Mel%C3%B3n.jpg'),
-  Food(
+  FoodModel(
       id: 26,
       foodName: 'Membrillo',
       foodPortion: 92,
@@ -308,7 +308,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/membrillo-859x600.jpg'),
-  Food(
+  FoodModel(
       id: 27,
       foodName: 'Zarzamora',
       foodPortion: 144,
@@ -319,7 +319,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/blackberry.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/06/moras.jpg'),
-  Food(
+  FoodModel(
       id: 28,
       foodName: 'Naranja',
       foodPortion: 180,
@@ -331,7 +331,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Naranja1.jpg'),
-  Food(
+  FoodModel(
       id: 29,
       foodName: 'Nectarina',
       foodPortion: 143,
@@ -343,7 +343,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Nectarina.jpg'),
-  Food(
+  FoodModel(
       id: 30,
       foodName: 'Níspero',
       foodPortion: 149,
@@ -355,7 +355,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/01/nisperos.jpg'),
-  Food(
+  FoodModel(
       id: 31,
       foodName: 'Papaya',
       foodPortion: 145,
@@ -367,7 +367,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Papaya.jpg'),
-  Food(
+  FoodModel(
       id: 32,
       foodName: 'Pera',
       foodPortion: 140,
@@ -378,7 +378,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/pear.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/Pera.jpg'),
-  Food(
+  FoodModel(
       id: 33,
       foodName: 'Piña',
       foodPortion: 165,
@@ -390,7 +390,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/Pi%C3%B1a-700x600.jpg'),
-  Food(
+  FoodModel(
       id: 34,
       foodName: 'Plátano',
       foodPortion: 225,
@@ -402,7 +402,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Pl%C3%A1tano.jpg'),
-  Food(
+  FoodModel(
       id: 35,
       foodName: 'Pomelo',
       foodPortion: 230,
@@ -414,7 +414,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/POMELO.jpg'),
-  Food(
+  FoodModel(
       id: 36,
       foodName: 'Ruibarbo',
       foodPortion: 122,
@@ -426,7 +426,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Ruibarbo.jpg'),
-  Food(
+  FoodModel(
       id: 37,
       foodName: 'Sandia',
       foodPortion: 154,
@@ -438,7 +438,7 @@ final allFruits = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Sandia.jpg'),
-  Food(
+  FoodModel(
       id: 38,
       foodName: 'Uva',
       foodPortion: 92,
@@ -449,7 +449,7 @@ final allFruits = <Food>[
       foodIcon: 'assets/images/foods/fruits/grape.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/uva.jpg'),
-  Food(
+  FoodModel(
       id: 39,
       foodName: 'Uva espina',
       foodPortion: 150,

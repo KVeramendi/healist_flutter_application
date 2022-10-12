@@ -29,11 +29,11 @@ class _ReportsPageState extends State<ReportsPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-        child: Center(
-          child: Column(
-            children: [
+        child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+            child: Center(
+                child: Column(children: [
               Row(
                 children: [
                   Expanded(
@@ -94,7 +94,12 @@ class _ReportsPageState extends State<ReportsPage> {
                       labelStyle: _choiceButton == 0
                           ? const TextStyle(color: Colors.white)
                           : const TextStyle(color: Colors.black45),
-                      onSelected: (_) => setState(() => _choiceButton = 0),
+                      onSelected: (_) {
+                        setState(() {
+                          _choiceButton = 0;
+                        });
+                        // chartSelection(_initialItem, _choiceButton);
+                      },
                       selected: _choiceButton == 0 ? true : false,
                       selectedColor: const Color(0xFF1ECF6C),
                       side: const BorderSide(color: Color(0xFF1ECF6C)),
@@ -151,27 +156,23 @@ class _ReportsPageState extends State<ReportsPage> {
                       shadowColor: Colors.transparent)
                 ],
               ),
-              chartSelection(_initialItem),
+              chartSelection(_initialItem, _choiceButton),
               cardSelection(_initialItem),
-            ],
-          ),
-        ),
-      ),
-    );
+            ]))));
   }
 
   DropdownMenuItem<String> buildMenuItem(String item) =>
       DropdownMenuItem(value: item, child: Text(item));
 
-  Widget chartSelection(String? option) {
-    if (option == 'Consumo de kilocalorías') {
-      return const KilocaloriesChartWidget();
-    } else if (option == 'Ingesta de nutrientes') {
-      return const MacronutrientsChartWidget();
-    } else if (option == 'Consumo de agua') {
-      return const WaterChartWidget();
+  Widget chartSelection(String? chartOption, int choiceChip) {
+    if (chartOption == 'Consumo de kilocalorías') {
+      return KilocaloriesChartWidget(option: choiceChip);
+    } else if (chartOption == 'Ingesta de nutrientes') {
+      return MacronutrientsChartWidget(option: choiceChip);
+    } else if (chartOption == 'Consumo de agua') {
+      return WaterChartWidget(option: choiceChip);
     } else {
-      return const FruitsVegetablesChartWidget();
+      return FruitsVegetablesChartWidget(option: choiceChip);
     }
   }
 

@@ -1,11 +1,27 @@
 import 'package:healist_flutter_application/Model/kilocalories_chart_model.dart';
+import 'package:healist_flutter_application/Util/chart_nutrition_preferences.dart';
 
-final data = <KilocaloriesChartModel>[
-  KilocaloriesChartModel(DateTime(2022, 8, 30), 2930),
-  KilocaloriesChartModel(DateTime(2022, 8, 31), 2915),
-  KilocaloriesChartModel(DateTime(2022, 9, 1), 2886),
-  KilocaloriesChartModel(DateTime(2022, 9, 2), 2906),
-  KilocaloriesChartModel(DateTime(2022, 9, 3), 2855),
-  KilocaloriesChartModel(DateTime(2022, 9, 4), 2792),
-  KilocaloriesChartModel(DateTime(2022, 9, 5), 2788),
-];
+final _chartNutrition = ChartNutritionPreferences.getChartNutrition();
+final oneWeekKilocaloriesData = _setDataList(7);
+final oneMonthKilocaloriesData = _setDataList(31);
+final threeMonthsKilocaloriesData = _setDataList(91);
+final sixMonthsKilocaloriesData = _setDataList(182);
+final oneYearKilocaloriesData = _setDataList(365);
+
+List<KilocaloriesChartModel> _setDataList(int days) {
+  final _data = <KilocaloriesChartModel>[];
+  if (_chartNutrition.length < days) {
+    for (int i = 0; i < _chartNutrition.length; i++) {
+      _data.add(KilocaloriesChartModel(_chartNutrition[i].dateTime,
+          _chartNutrition[i].kilocaloriesConsumption));
+    }
+  } else {
+    for (int i = _chartNutrition.length - days;
+        i < _chartNutrition.length;
+        i++) {
+      _data.add(KilocaloriesChartModel(_chartNutrition[i].dateTime,
+          _chartNutrition[i].kilocaloriesConsumption));
+    }
+  }
+  return _data;
+}

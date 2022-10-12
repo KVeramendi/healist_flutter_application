@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allCereals = <Food>[
-  Food(
+final allCereals = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Alforfón',
       foodPortion: 170,
@@ -13,7 +13,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-alforfon.jpg'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Amaranto',
       foodPortion: 193,
@@ -25,7 +25,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/amaranto.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Arepas',
       foodPortion: 98,
@@ -37,7 +37,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arepas.jpg'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Arroz',
       foodPortion: 158,
@@ -49,7 +49,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arroz-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Arroz integral',
       foodPortion: 195,
@@ -61,7 +61,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/arroz-integral.jpg'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Avena',
       foodPortion: 94,
@@ -73,7 +73,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-avena.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Bagel',
       foodPortion: 98,
@@ -85,7 +85,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/bagel-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Cebada',
       foodPortion: 200,
@@ -97,7 +97,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-cebada.jpg'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Centeno',
       foodPortion: 169,
@@ -109,7 +109,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-centeno.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Copos de avena',
       foodPortion: 81,
@@ -121,7 +121,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/copos-avena.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Espaguetis',
       foodPortion: 140,
@@ -133,7 +133,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/espaguetis-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Espelta',
       foodPortion: 174,
@@ -145,7 +145,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-espelta.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Galletas de arroz',
       foodPortion: 9,
@@ -157,7 +157,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/galletas-de-arroz.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Harina de maiz',
       foodPortion: 122,
@@ -169,7 +169,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/harina-de-maiz.jpg'),
-  Food(
+  FoodModel(
       id: 15,
       foodName: 'Harina de trigo',
       foodPortion: 120,
@@ -181,7 +181,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/harina-trigo.jpg'),
-  Food(
+  FoodModel(
       id: 16,
       foodName: 'Macarrones',
       foodPortion: 105,
@@ -193,7 +193,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/macarrones.jpg'),
-  Food(
+  FoodModel(
       id: 17,
       foodName: 'Maicena',
       foodPortion: 128,
@@ -205,7 +205,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/maicena-755x600.jpg'),
-  Food(
+  FoodModel(
       id: 18,
       foodName: 'Maiz',
       foodPortion: 166,
@@ -217,7 +217,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-maiz.jpg'),
-  Food(
+  FoodModel(
       id: 19,
       foodName: 'Mijo',
       foodPortion: 200,
@@ -229,7 +229,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-mijo.jpg'),
-  Food(
+  FoodModel(
       id: 20,
       foodName: 'Pan',
       foodPortion: 29,
@@ -240,7 +240,7 @@ final allCereals = <Food>[
       foodIcon: 'assets/images/foods/cereals/bread.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/pan.png'),
-  Food(
+  FoodModel(
       id: 21,
       foodName: 'Pan de centeno',
       foodPortion: 28,
@@ -252,7 +252,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/pan-de-centeno.jpg'),
-  Food(
+  FoodModel(
       id: 22,
       foodName: 'Pan de pita',
       foodPortion: 28,
@@ -264,7 +264,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/11/pan-de-pita-.jpg'),
-  Food(
+  FoodModel(
       id: 23,
       foodName: 'Quinoa',
       foodPortion: 170,
@@ -276,7 +276,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/quinoa.jpg'),
-  Food(
+  FoodModel(
       id: 24,
       foodName: 'Salvado',
       foodPortion: 94,
@@ -288,7 +288,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/10/salvado-avena-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 25,
       foodName: 'Seitán',
       foodPortion: 100,
@@ -300,7 +300,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/seitan_1000-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 26,
       foodName: 'Semillas de linaza',
       foodPortion: 10,
@@ -312,7 +312,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/semillas-de-linaza.jpg'),
-  Food(
+  FoodModel(
       id: 27,
       foodName: 'Sorgo',
       foodPortion: 192,
@@ -324,7 +324,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-sorgo.jpg'),
-  Food(
+  FoodModel(
       id: 28,
       foodName: 'Teff',
       foodPortion: 193,
@@ -336,7 +336,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/granos-teff.jpg'),
-  Food(
+  FoodModel(
       id: 29,
       foodName: 'Tortilla de harina de trigo',
       foodPortion: 197,
@@ -348,7 +348,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/tortilla-trigo.jpg'),
-  Food(
+  FoodModel(
       id: 30,
       foodName: 'Tortilla de maíz',
       foodPortion: 28,
@@ -360,7 +360,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/tortilla-maiz.jpg'),
-  Food(
+  FoodModel(
       id: 31,
       foodName: 'Tortitas de maiz',
       foodPortion: 9,
@@ -372,7 +372,7 @@ final allCereals = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/08/tortitas-maiz-928x600.jpg'),
-  Food(
+  FoodModel(
       id: 32,
       foodName: 'Trigo',
       foodPortion: 192,

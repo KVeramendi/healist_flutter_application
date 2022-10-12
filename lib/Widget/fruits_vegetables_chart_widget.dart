@@ -5,7 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class FruitsVegetablesChartWidget extends StatefulWidget {
-  const FruitsVegetablesChartWidget({Key? key}) : super(key: key);
+  final int option;
+  const FruitsVegetablesChartWidget({Key? key, required this.option})
+      : super(key: key);
 
   @override
   State<FruitsVegetablesChartWidget> createState() =>
@@ -14,37 +16,47 @@ class FruitsVegetablesChartWidget extends StatefulWidget {
 
 class _FruitsVegetablesChartWidgetState
     extends State<FruitsVegetablesChartWidget> {
-  late List<FruitsVegetablesChartModel> _fruitsVegetablesChartModelList;
   late TooltipBehavior _tooltipBehavior;
 
   @override
   void initState() {
     super.initState();
-    _fruitsVegetablesChartModelList = data;
     _tooltipBehavior =
         TooltipBehavior(enable: true, color: const Color(0xFF1ECF6C));
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        height: 300.0,
-        child: SfCartesianChart(
-            primaryXAxis:
-                DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
-            primaryYAxis: NumericAxis(
-              labelFormat: '{value} g',
-            ),
-            tooltipBehavior: _tooltipBehavior,
-            series: <CartesianSeries<FruitsVegetablesChartModel, DateTime>>[
-              SplineSeries<FruitsVegetablesChartModel, DateTime>(
-                  dataSource: _fruitsVegetablesChartModelList,
-                  xValueMapper: (FruitsVegetablesChartModel data, _) =>
-                      data.dateTime,
-                  yValueMapper: (FruitsVegetablesChartModel data, _) =>
-                      data.fruitsVegetables,
-                  name: 'Frutas y verduras',
-                  markerSettings: const MarkerSettings(isVisible: true))
-            ]));
+  Widget build(BuildContext context) => SizedBox(
+      height: 300.0,
+      child: SfCartesianChart(
+          primaryXAxis:
+              DateTimeAxis(dateFormat: DateFormat.Md(), desiredIntervals: 6),
+          primaryYAxis: NumericAxis(
+            labelFormat: '{value} g',
+          ),
+          tooltipBehavior: _tooltipBehavior,
+          series: <CartesianSeries<FruitsVegetablesChartModel, DateTime>>[
+            SplineSeries<FruitsVegetablesChartModel, DateTime>(
+                dataSource: dataSourceSelection,
+                xValueMapper: (FruitsVegetablesChartModel data, _) =>
+                    data.dateTime,
+                yValueMapper: (FruitsVegetablesChartModel data, _) =>
+                    data.fruitsVegetables,
+                name: 'Frutas y verduras',
+                markerSettings: const MarkerSettings(isVisible: true))
+          ]));
+
+  List<FruitsVegetablesChartModel> get dataSourceSelection {
+    if (widget.option == 0) {
+      return oneWeekFruitsVegetablesData;
+    } else if (widget.option == 1) {
+      return oneMonthFruitsVegetablesData;
+    } else if (widget.option == 2) {
+      return threeMonthsFruitsVegetablesData;
+    } else if (widget.option == 3) {
+      return sixMonthsFruitsVegetablesData;
+    } else {
+      return oneYearFruitsVegetablesData;
+    }
   }
 }

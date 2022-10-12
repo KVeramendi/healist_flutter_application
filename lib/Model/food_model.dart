@@ -1,4 +1,4 @@
-class Food {
+class FoodModel {
   final int id;
   final String foodName;
   final int foodPortion;
@@ -14,7 +14,7 @@ class Food {
   final bool isDrink;
   final String imageUrl;
 
-  Food({
+  FoodModel({
     required this.id,
     required this.foodName,
     required this.foodPortion,
@@ -31,7 +31,7 @@ class Food {
     required this.imageUrl,
   });
 
-  factory Food.fromJson(Map<String, dynamic> json) => Food(
+  factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
       id: json['id'],
       foodName: json['foodName'],
       foodPortion: json['foodPortion'],

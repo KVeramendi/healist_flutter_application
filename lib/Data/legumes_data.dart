@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allLegumes = <Food>[
-  Food(
+final allLegumes = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Altramuces',
       foodPortion: 180,
@@ -13,7 +13,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/altramuces-800x600.png'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Frijoles blancos',
       foodPortion: 208,
@@ -25,7 +25,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-blancas-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Frijoles negros',
       foodPortion: 184,
@@ -37,7 +37,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-negras-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Frijoles pintos',
       foodPortion: 193,
@@ -49,7 +49,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-pintas-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Frijoles rojos',
       foodPortion: 184,
@@ -61,7 +61,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/frijoles-800x600.png'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Garbanzos',
       foodPortion: 200,
@@ -73,7 +73,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/garbanzos.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Garrofón',
       foodPortion: 188,
@@ -85,7 +85,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/garrofon-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Guisante',
       foodPortion: 145,
@@ -97,7 +97,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/guisante.jpg'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Habas',
       foodPortion: 126,
@@ -108,7 +108,7 @@ final allLegumes = <Food>[
       foodIcon: 'assets/images/foods/legumes/broad_bean.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/habas.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Judías verdes',
       foodPortion: 100,
@@ -120,7 +120,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/judias-verdes.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Lentejas',
       foodPortion: 198,
@@ -132,7 +132,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/lentejas.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Soja',
       foodPortion: 186,
@@ -144,7 +144,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/soja-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Tempeh',
       foodPortion: 166,
@@ -156,7 +156,7 @@ final allLegumes = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/tempeh.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Tofu',
       foodPortion: 124,

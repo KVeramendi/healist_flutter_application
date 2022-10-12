@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     'PORTAL BIOTRENDIES'
   ];
   int _pageIndex = 2;
-  final List<Widget> _pages = const [
+  late final List<Widget> _pages = const [
     FoodCategoryPage(),
     ReportsPage(),
     DailyProgressPage(),

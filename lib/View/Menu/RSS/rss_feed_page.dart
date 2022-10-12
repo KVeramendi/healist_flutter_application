@@ -48,37 +48,32 @@ class _RSSFeedPageState extends State<RSSFeedPage> {
             }));
   }
 
-  Widget buildRSSFeedItems(RSSFeedModel feedItem) {
-    return ListTile(
-        leading: CachedNetworkImage(
-            imageUrl: feedItem.imageUrl,
-            placeholder: (context, url) =>
-                Image.asset('assets/images/no_image.png'),
-            width: 64.0,
-            fit: BoxFit.cover),
-        title: Text(feedItem.title,
-            style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3),
-        subtitle:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Wrap(children: [
-            const Icon(Icons.date_range_rounded,
-                size: 16.0, color: Colors.grey),
-            const Padding(padding: EdgeInsets.symmetric(horizontal: 2.0)),
-            Text(feedItem.pubDate.toString().substring(0, 10),
-                style: const TextStyle(fontSize: 12.0))
-          ]),
-          Wrap(children: [
-            const Icon(Icons.person_rounded, size: 16.0, color: Colors.grey),
-            const Padding(padding: EdgeInsets.symmetric(horizontal: 2.0)),
-            Text(feedItem.author, style: const TextStyle(fontSize: 12.0))
-          ])
+  Widget buildRSSFeedItems(RSSFeedModel feedItem) => ListTile(
+      leading: CachedNetworkImage(
+          imageUrl: feedItem.imageUrl,
+          placeholder: (context, url) =>
+              Image.asset('assets/images/no_image.png'),
+          width: 64.0,
+          fit: BoxFit.cover),
+      title: Text(feedItem.title,
+          style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3),
+      subtitle:
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Wrap(spacing: 3.0, children: [
+          const Icon(Icons.person_rounded, size: 16.0, color: Colors.grey),
+          Text(feedItem.author, style: const TextStyle(fontSize: 12.0))
         ]),
-        trailing: const Icon(Icons.keyboard_arrow_right,
-            size: 28.0, color: Colors.grey),
-        onTap: () => openFeed(feedItem.linkUrl));
-  }
+        Wrap(spacing: 3.0, children: [
+          const Icon(Icons.date_range_rounded, size: 16.0, color: Colors.grey),
+          Text(feedItem.pubDate.toString().substring(0, 10),
+              style: const TextStyle(fontSize: 12.0))
+        ])
+      ]),
+      trailing: const Icon(Icons.keyboard_arrow_right,
+          size: 28.0, color: Colors.grey),
+      onTap: () => openFeed(feedItem.linkUrl));
 
   Future<List<String>> getAuthorAndImageData(String linkUrl) async {
     final responseImage = await http.get(Uri.parse(linkUrl));

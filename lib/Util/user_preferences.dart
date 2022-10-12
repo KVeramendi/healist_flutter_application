@@ -6,27 +6,33 @@ import 'package:shared_preferences/shared_preferences.dart';
 class UserPreferences {
   static late SharedPreferences _sharedPreferences;
   static const _keyUser = 'user';
-  static User myUser = User(
-      fullName: 'Kevin Veramendi',
-      email: 'kveramendi18@gmail.com',
-      password: 'veramendiHealist26/07',
-      weight: 70.0,
-      height: 174.0,
-      age: 28,
-      physicalActivity: 'Regular',
-      gender: 'Masculino',
+  static UserModel myUser = UserModel(
+      fullName: '',
+      email: 'test@test.dev',
+      password: 'test.dev',
+      weight: 0,
+      height: 0,
+      age: 0,
+      physicalActivity: '',
+      gender: '',
+      water: 0,
+      kilocalories: 0,
+      fruitsVegetables: 0,
+      proteins: 0,
+      carbohydrates: 0,
+      fats: 0,
       userImagePath: 'assets/images/user_profile_logo.jpg');
 
   static Future init() async =>
       _sharedPreferences = await SharedPreferences.getInstance();
 
-  static Future setUser(User user) async {
+  static Future setUser(UserModel user) async {
     final json = jsonEncode(user.toJson());
     await _sharedPreferences.setString(_keyUser, json);
   }
 
-  static User getUser() {
+  static UserModel getUser() {
     final json = _sharedPreferences.getString(_keyUser);
-    return json == null ? myUser : User.fromJson(jsonDecode(json));
+    return json == null ? myUser : UserModel.fromJson(jsonDecode(json));
   }
 }

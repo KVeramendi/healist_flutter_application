@@ -13,7 +13,7 @@ class ChangePasswordPage extends StatefulWidget {
 }
 
 class _ChangePasswordPageState extends State<ChangePasswordPage> {
-  late User user, userInitialState;
+  late UserModel user, userInitialState;
   final TextEditingController _currentPasswordController =
       TextEditingController();
   final TextEditingController _newPasswordController1 = TextEditingController();

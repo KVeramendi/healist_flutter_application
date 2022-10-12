@@ -25,13 +25,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) => SafeArea(
       child: Scaffold(
-          resizeToAvoidBottomInset: false,
           body: Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(children: <Widget>[
                 const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
                 Image.asset('assets/images/healist_logo.png', width: 230.0),
-                const Padding(padding: EdgeInsets.symmetric(vertical: 25.0)),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 30.0)),
                 Expanded(
                     child: Form(
                         key: _formKey,
@@ -43,8 +42,6 @@ class _LoginPageState extends State<LoginPage> {
                                   prefixIcon: Icon(Icons.email),
                                   border: OutlineInputBorder()),
                               keyboardType: TextInputType.emailAddress,
-                              onSaved: (value) =>
-                                  setState(() => _emailValidation = false),
                               validator: (value) {
                                 final _isValid =
                                     RegExp(_pattern).hasMatch(value!);
@@ -77,8 +74,6 @@ class _LoginPageState extends State<LoginPage> {
                                   border: const OutlineInputBorder()),
                               keyboardType: TextInputType.visiblePassword,
                               obscureText: _obscureText,
-                              onSaved: (value) =>
-                                  setState(() => _passwordValidation = false),
                               validator: (value) {
                                 if (!_passwordValidation) {
                                   _passwordValidation = true;
@@ -93,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         ]),
                         autovalidateMode: AutovalidateMode.onUserInteraction)),
                 CustomElevateButtonWidget(
-                    onPressed: () {
+                    onPressed: () async {
                       // final _isValid = _formKey.currentState!.validate();
                       // final _isEmailValid = user.email == _emailController.text;
                       // final _isPasswordValid =
@@ -103,7 +98,10 @@ class _LoginPageState extends State<LoginPage> {
                           builder: (context) => const HomePage()));
                       // }
                       // if (!_isEmailValid || !_isPasswordValid) {
-                      //   _formKey.currentState!.save();
+                      //   setState(() {
+                      //     _emailValidation = false;
+                      //     _passwordValidation = false;
+                      //   });
                       // }
                     },
                     text: 'Iniciar sesión'),
@@ -119,5 +117,6 @@ class _LoginPageState extends State<LoginPage> {
                           style: TextStyle(
                               color: Color(0xFF1ECF6C), fontSize: 16.0)))
                 ])
-              ]))));
+              ])),
+          resizeToAvoidBottomInset: false));
 }

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/Widget/custom_appbar_widget.dart';
@@ -16,7 +14,7 @@ class UserProfileEditPage extends StatefulWidget {
 }
 
 class _UserProfileEditPageState extends State<UserProfileEditPage> {
-  late User user, userInitialState;
+  late UserModel user, userInitialState;
   final _physicalActivityItems = [
     'Muy ligera',
     'Ligera',
@@ -84,6 +82,13 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
                 CustomElevateButtonWidget(
                     height: 50,
                     onPressed: () {
+                      user = user.copy(
+                          water: user.recommendedWater,
+                          kilocalories: user.recommendedKilocalories,
+                          fruitsVegetables: user.recommendedFruitsVegetables,
+                          proteins: user.recommendedProteins,
+                          carbohydrates: user.recommendedCarbohydrates,
+                          fats: user.recommendedFats);
                       UserPreferences.setUser(user);
                       buildSnackBar();
                       Navigator.of(context).pop();

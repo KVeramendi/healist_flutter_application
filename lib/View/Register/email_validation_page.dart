@@ -3,15 +3,14 @@ import 'package:healist_flutter_application/View/Form/input_form_page.dart';
 import 'package:healist_flutter_application/Widget/custom_elevatebutton_widget.dart';
 
 class EmailValidationPage extends StatefulWidget {
-  const EmailValidationPage({Key? key}) : super(key: key);
+  final String email;
+  const EmailValidationPage({Key? key, required this.email}) : super(key: key);
 
   @override
   State<EmailValidationPage> createState() => _EmailValidationPageState();
 }
 
 class _EmailValidationPageState extends State<EmailValidationPage> {
-  final String _userEmail = 'user_email@gmail.com';
-
   @override
   Widget build(BuildContext context) => SafeArea(
       child: Scaffold(
@@ -38,7 +37,7 @@ class _EmailValidationPageState extends State<EmailValidationPage> {
                             color: Colors.black87, fontSize: 15.0, height: 1.5),
                         textAlign: TextAlign.center)),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 15.0)),
-                Text(_userEmail,
+                Text(widget.email,
                     style: const TextStyle(
                         color: Color(0xFF1ECF6C),
                         fontSize: 18.0,

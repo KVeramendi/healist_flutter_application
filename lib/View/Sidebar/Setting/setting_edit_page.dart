@@ -19,7 +19,7 @@ class SettingEditPage extends StatefulWidget {
 }
 
 class _SettingEditPageState extends State<SettingEditPage> {
-  late User user, userInitialState;
+  late UserModel user, userInitialState;
   File? image;
 
   @override
@@ -87,13 +87,14 @@ class _SettingEditPageState extends State<SettingEditPage> {
                       height: 50,
                       onPressed: () {
                         UserPreferences.setUser(user);
+                        buildSnackBar();
                         Navigator.of(context).pop();
                       },
                       text: 'Guardar cambios')
                 ])),
         onWillPop: () async {
-          final isEditedPage = user.hashCode != userInitialState.hashCode;
-          if (isEditedPage) {
+          final _pageModified = user.hashCode != userInitialState.hashCode;
+          if (_pageModified) {
             final shoulPop = await showWarning(context);
             return shoulPop ?? false;
           } else {
@@ -123,6 +124,22 @@ class _SettingEditPageState extends State<SettingEditPage> {
     final _newImagePath = File('${_directory.path}/$_imageName');
     return File(imagePath).copy(_newImagePath.path);
   }
+
+  ScaffoldMessengerState buildSnackBar() => ScaffoldMessenger.of(this.context)
+    ..removeCurrentSnackBar()
+    ..showSnackBar(SnackBar(
+        content: Row(children: const [
+          Icon(Icons.check_circle_rounded, color: Colors.white),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 6.0)),
+          Expanded(
+              child: Text('Datos guardados con éxito.',
+                  style: TextStyle(fontSize: 18.0)))
+        ]),
+        backgroundColor: const Color(0xFF1ECF6C),
+        elevation: 0,
+        shape: const StadiumBorder(),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 3)));
 
   Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
       context: context,

@@ -12,7 +12,7 @@ class FoodCategoryPage extends StatefulWidget {
 }
 
 class _FoodCategoryPageState extends State<FoodCategoryPage> {
-  late List<Food> foodsData;
+  late List<FoodModel> foodsData;
   String query = '';
   String? _meals;
   bool isButtonsVisible = true;
@@ -127,7 +127,7 @@ class _FoodCategoryPageState extends State<FoodCategoryPage> {
     }
   }
 
-  Widget buildFood(Food food) {
+  Widget buildFood(FoodModel food) {
     final _kilocaloriesController =
         TextEditingController(text: food.foodPortion.toString());
     return ListTile(

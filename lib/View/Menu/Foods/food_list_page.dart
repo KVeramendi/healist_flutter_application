@@ -6,7 +6,9 @@ import 'package:healist_flutter_application/Data/fruits_data.dart';
 import 'package:healist_flutter_application/Data/legumes_data.dart';
 import 'package:healist_flutter_application/Data/meats_fish_data.dart';
 import 'package:healist_flutter_application/Data/vegetables_data.dart';
+import 'package:healist_flutter_application/Model/daily_nutrition_model.dart';
 import 'package:healist_flutter_application/Model/food_model.dart';
+import 'package:healist_flutter_application/Util/daily_nutrition_preferences.dart';
 import 'package:healist_flutter_application/Widget/search_widget.dart';
 
 class FoodListPage extends StatefulWidget {
@@ -18,10 +20,11 @@ class FoodListPage extends StatefulWidget {
 }
 
 class _FoodListPageState extends State<FoodListPage> {
-  late List<Food> foodsData;
-  late List<Food> foodListSearching;
+  late List<FoodModel> foodsData;
+  late List<FoodModel> foodListSearching;
+  late DailyNutritionModel dailyNutrition;
+  final _formKey = GlobalKey<FormState>();
   String query = '';
-  String? _meals;
 
   @override
   void initState() {
@@ -54,28 +57,27 @@ class _FoodListPageState extends State<FoodListPage> {
       foodsData = allDairies;
       foodListSearching = allDairies;
     }
+    dailyNutrition = DailyNutritionPreferences.getDailyNutrition();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-            appBar: AppBar(
-                centerTitle: true,
-                backgroundColor: const Color(0xFF1ECF6C),
-                title: Text(widget.title)),
-            body: Center(
-                child: Column(children: [
-              buildSearch(),
-              Expanded(
-                  child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        final food = foodsData[index];
-                        return buildFood(food);
-                      },
-                      itemCount: foodsData.length))
-            ]))));
-  }
+  Widget build(BuildContext context) => SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+              centerTitle: true,
+              backgroundColor: const Color(0xFF1ECF6C),
+              title: Text(widget.title)),
+          body: Center(
+              child: Column(children: [
+            buildSearch(),
+            Expanded(
+                child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      final _currentFood = foodsData[index];
+                      return buildFood(_currentFood);
+                    },
+                    itemCount: foodsData.length))
+          ]))));
 
   Widget buildSearch() => SearchWidget(
       text: query, hintText: 'Nombre del alimento', onChanged: searchFood);
@@ -92,59 +94,58 @@ class _FoodListPageState extends State<FoodListPage> {
     });
   }
 
-  Widget buildFood(Food food) {
-    final _kilocaloriesController =
+  Widget buildFood(FoodModel currentFood) => ListTile(
+      leading: Image.asset(currentFood.foodIcon, width: 45.0, height: 45.0),
+      title: Text(currentFood.foodName, style: const TextStyle(fontSize: 22.0)),
+      subtitle:
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text('P: ' + currentFood.proteins.toString() + ' g',
+            style:
+                TextStyle(color: Colors.blueAccent.shade700, fontSize: 13.0)),
+        Text('C: ' + currentFood.carbohydrates.toString() + ' g',
+            style: TextStyle(color: Colors.redAccent.shade700, fontSize: 13.0)),
+        Text('G: ' + currentFood.fats.toString() + ' g',
+            style:
+                TextStyle(color: Colors.orangeAccent.shade400, fontSize: 13.0))
+      ]),
+      trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(currentFood.kilocalories.toString() + ' kcal',
+                style: const TextStyle(fontSize: 17.0)),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
+            currentFood.isDrink
+                ? Text('ración (${currentFood.foodPortion} ml)',
+                    style:
+                        const TextStyle(color: Colors.black45, fontSize: 12.0))
+                : Text('ración (${currentFood.foodPortion} g)',
+                    style:
+                        const TextStyle(color: Colors.black45, fontSize: 12.0))
+          ]),
+      onTap: () => buildShowDialog(currentFood));
+
+  Future<dynamic> buildShowDialog(FoodModel food) {
+    final _foodPortionController =
         TextEditingController(text: food.foodPortion.toString());
-    return ListTile(
-        leading: Image.asset(food.foodIcon, width: 45.0, height: 45.0),
-        title: Text(food.foodName, style: const TextStyle(fontSize: 22.0)),
-        subtitle:
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text('P: ' + food.proteins.toString() + ' g',
-              style:
-                  TextStyle(color: Colors.blueAccent.shade700, fontSize: 13.0)),
-          Text('C: ' + food.carbohydrates.toString() + ' g',
-              style:
-                  TextStyle(color: Colors.redAccent.shade700, fontSize: 13.0)),
-          Text('G: ' + food.fats.toString() + ' g',
-              style: TextStyle(
-                  color: Colors.orangeAccent.shade400, fontSize: 13.0))
-        ]),
-        trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(food.kilocalories.toString() + ' kcal',
-                  style: const TextStyle(fontSize: 17.0)),
-              const Padding(padding: EdgeInsets.symmetric(vertical: 2.0)),
-              food.isDrink
-                  ? Text('ración (${food.foodPortion} ml)',
-                      style: const TextStyle(
-                          color: Colors.black45, fontSize: 12.0))
-                  : Text('ración (${food.foodPortion} g)',
-                      style: const TextStyle(
-                          color: Colors.black45, fontSize: 12.0))
-            ]),
-        onTap: () {
-          showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                  title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(food.foodName,
-                            style: const TextStyle(fontSize: 18.0)),
-                        Image.asset(
-                          food.foodIcon,
-                          width: 20.0,
-                        )
-                      ]),
-                  titlePadding: const EdgeInsets.all(16.0),
-                  content: SizedBox(
-                    width: double.maxFinite,
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+    String? _meals;
+    return showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+            title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(food.foodName, style: const TextStyle(fontSize: 18.0)),
+                  Image.asset(food.foodIcon, width: 20.0)
+                ]),
+            titlePadding: const EdgeInsets.all(16.0),
+            content: SizedBox(
+                width: double.maxFinite,
+                child: Form(
+                    key: _formKey,
+                    child: Wrap(runSpacing: 20.0, children: [
                       TextFormField(
-                          controller: _kilocaloriesController,
+                          controller: _foodPortionController,
                           decoration: InputDecoration(
                               labelText: 'Cantidad',
                               helperText: food.isDrink
@@ -155,43 +156,86 @@ class _FoodListPageState extends State<FoodListPage> {
                                   : '1 porción ≈ 175 g',
                               border: const OutlineInputBorder()),
                           keyboardType: TextInputType.number),
-                      const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10.0)),
                       DropdownButtonFormField(
                           items: const [
                             DropdownMenuItem<String>(
-                                value: 'D', child: Text('Desayuno')),
+                                value: 'Desayuno', child: Text('Desayuno')),
                             DropdownMenuItem<String>(
-                                value: 'A', child: Text('Almuerzo')),
+                                value: 'Almuerzo', child: Text('Almuerzo')),
                             DropdownMenuItem<String>(
-                                value: 'C', child: Text('Cena')),
+                                value: 'Cena', child: Text('Cena')),
                           ].toList(),
                           value: _meals,
-                          onChanged: (String? value) {
-                            setState(() {
-                              _meals = value;
-                            });
-                          },
+                          onChanged: (String? value) =>
+                              setState(() => _meals = value),
                           decoration: const InputDecoration(
                               labelText: 'Comida',
                               helperText:
                                   'Seleccione el tipo de comida del día',
-                              border: OutlineInputBorder()))
+                              border: OutlineInputBorder()),
+                          validator: (value) => _errorPhysicalActivity(value)),
+                      const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10.0)),
                     ]),
-                  ),
-                  contentPadding: const EdgeInsets.all(16.0),
-                  actions: [
-                    TextButton(
-                        onPressed: () => Navigator.pop(context, 'Cancelar'),
-                        child: const Text('Cancelar')),
-                    TextButton(
-                        onPressed: () => Navigator.pop(
-                            context, _kilocaloriesController.text),
-                        child: const Text('Agregar'))
-                  ],
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)))),
-              barrierDismissible: false);
-        });
+                    autovalidateMode: AutovalidateMode.onUserInteraction)),
+            contentPadding: const EdgeInsets.all(16.0),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text('Cancelar',
+                      style: TextStyle(
+                          color: Colors.grey.shade700, fontSize: 18.0))),
+              TextButton(
+                  onPressed: () {
+                    final _isValid = _formKey.currentState!.validate();
+                    if (_isValid) {
+                      dailyNutrition = _copyDailyNutrition(
+                          food, _foodPortionController.text, _meals!);
+                      DailyNutritionPreferences.setDailyNutrition(
+                          dailyNutrition);
+                      Navigator.of(context).pop();
+                    }
+                  },
+                  child: const Text('Agregar',
+                      style:
+                          TextStyle(color: Color(0xFF1ECF6C), fontSize: 18.0)))
+            ],
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)))),
+        barrierDismissible: false);
+  }
+
+  String? _errorPhysicalActivity(Object? text) =>
+      text == null ? 'Debe ingresar el tipo de comida del día' : null;
+
+  DailyNutritionModel _copyDailyNutrition(
+      FoodModel food, String text, String meal) {
+    final DailyNutritionModel lastDailyNutrition =
+        DailyNutritionPreferences.getDailyNutrition();
+    final _currentDailyNutrition = dailyNutrition.copy(
+      dailyWater: food.isDrink
+          ? lastDailyNutrition.dailyWater + (double.parse(text) / 1000)
+          : lastDailyNutrition.dailyWater,
+      dailyKilocalories:
+          lastDailyNutrition.dailyKilocalories + food.kilocalories,
+      dailyFruitsVegetables:
+          widget.title == 'FRUTAS' || widget.title == 'VERDURAS'
+              ? lastDailyNutrition.dailyFruitsVegetables + int.parse(text)
+              : lastDailyNutrition.dailyFruitsVegetables,
+      dailyProteins: lastDailyNutrition.dailyProteins + food.proteins,
+      dailyCarbohydrates:
+          lastDailyNutrition.dailyCarbohydrates + food.carbohydrates,
+      dailyFats: lastDailyNutrition.dailyFats + food.fats,
+      dailyBreakfast: meal == 'Desayuno'
+          ? lastDailyNutrition.dailyBreakfast + food.kilocalories
+          : lastDailyNutrition.dailyBreakfast,
+      dailyLunch: meal == 'Almuerzo'
+          ? lastDailyNutrition.dailyLunch + food.kilocalories
+          : lastDailyNutrition.dailyLunch,
+      dailyDinner: meal == 'Cena'
+          ? lastDailyNutrition.dailyDinner + food.kilocalories
+          : lastDailyNutrition.dailyDinner,
+    );
+    return _currentDailyNutrition;
   }
 }

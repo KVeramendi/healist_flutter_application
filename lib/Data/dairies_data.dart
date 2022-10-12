@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allDairies = <Food>[
-  Food(
+final allDairies = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Dulce de leche',
       foodPortion: 19,
@@ -13,7 +13,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/dulce-de-leche.jpg'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Leche entera',
       foodPortion: 244,
@@ -24,7 +24,7 @@ final allDairies = <Food>[
       foodIcon: 'assets/images/foods/dairies/whole_milk.png',
       isDrink: true,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/leche.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Leche desnatada',
       foodPortion: 245,
@@ -36,7 +36,7 @@ final allDairies = <Food>[
       isDrink: true,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/leche-desnatada.jpg'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Leche semidesnatada',
       foodPortion: 246,
@@ -47,7 +47,7 @@ final allDairies = <Food>[
       foodIcon: 'assets/images/foods/dairies/semiskimmed_milk.png',
       isDrink: true,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/leche.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Leche sin lactosa',
       foodPortion: 240,
@@ -59,7 +59,7 @@ final allDairies = <Food>[
       isDrink: true,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/leche-deslactosada.jpg'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Mantequilla',
       foodPortion: 5,
@@ -71,7 +71,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/mantequilla.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Queso Azul',
       foodPortion: 28,
@@ -83,7 +83,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-azul.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Queso Brie',
       foodPortion: 28,
@@ -95,7 +95,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-brie.jpg'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Queso Camembert',
       foodPortion: 28,
@@ -107,7 +107,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-camembert.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Queso Cheddar',
       foodPortion: 132,
@@ -119,7 +119,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-cheddar-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Queso Crema',
       foodPortion: 14,
@@ -131,7 +131,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/queso-crema-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Queso de cabra',
       foodPortion: 28,
@@ -143,7 +143,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/QUESO-DE-CABRA.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Queso Edam',
       foodPortion: 28,
@@ -155,7 +155,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/queso-edam.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Queso Feta',
       foodPortion: 150,
@@ -167,7 +167,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-feta.jpg'),
-  Food(
+  FoodModel(
       id: 15,
       foodName: 'Queso fresco',
       foodPortion: 122,
@@ -179,7 +179,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/queso-fresco.jpg'),
-  Food(
+  FoodModel(
       id: 16,
       foodName: 'Queso Gouda',
       foodPortion: 28,
@@ -191,7 +191,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-gouda-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 17,
       foodName: 'Queso Gruyère',
       foodPortion: 28,
@@ -203,7 +203,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-gruyere-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 18,
       foodName: 'Queso Mozzarella',
       foodPortion: 112,
@@ -215,7 +215,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-mozzarella.jpg'),
-  Food(
+  FoodModel(
       id: 19,
       foodName: 'Queso Oaxaca',
       foodPortion: 132,
@@ -227,7 +227,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/queso-oaxaca-858x600.jpg'),
-  Food(
+  FoodModel(
       id: 20,
       foodName: 'Queso Parmesano',
       foodPortion: 100,
@@ -239,7 +239,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-parmesano-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 21,
       foodName: 'Queso Provolone',
       foodPortion: 132,
@@ -251,7 +251,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-provolone.jpg'),
-  Food(
+  FoodModel(
       id: 22,
       foodName: 'Queso Ricotta',
       foodPortion: 124,
@@ -263,7 +263,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-ricotta.jpg'),
-  Food(
+  FoodModel(
       id: 23,
       foodName: 'Queso Roquefort',
       foodPortion: 28,
@@ -275,7 +275,7 @@ final allDairies = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/06/queso-roquefort.jpg'),
-  Food(
+  FoodModel(
       id: 24,
       foodName: 'Yogur Natural',
       foodPortion: 170,

@@ -1,7 +1,7 @@
 import 'package:healist_flutter_application/Model/food_model.dart';
 
-final allMeatsFish = <Food>[
-  Food(
+final allMeatsFish = <FoodModel>[
+  FoodModel(
       id: 1,
       foodName: 'Anchoas',
       foodPortion: 28,
@@ -13,7 +13,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/anchoas.jpg'),
-  Food(
+  FoodModel(
       id: 2,
       foodName: 'Atún',
       foodPortion: 85,
@@ -25,7 +25,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/atun-fresco.jpg'),
-  Food(
+  FoodModel(
       id: 3,
       foodName: 'Atún (en conserva)',
       foodPortion: 85,
@@ -37,7 +37,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/atun-en-lata.jpg'),
-  Food(
+  FoodModel(
       id: 4,
       foodName: 'Boquerones',
       foodPortion: 85,
@@ -49,7 +49,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/boquerones.jpg'),
-  Food(
+  FoodModel(
       id: 5,
       foodName: 'Caballa',
       foodPortion: 112,
@@ -61,7 +61,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/caballa-880x600.jpg'),
-  Food(
+  FoodModel(
       id: 6,
       foodName: 'Camarones',
       foodPortion: 5,
@@ -73,7 +73,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/camarones.jpg'),
-  Food(
+  FoodModel(
       id: 7,
       foodName: 'Cerdo',
       foodPortion: 85,
@@ -85,7 +85,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/carne-cerdo.jpg'),
-  Food(
+  FoodModel(
       id: 8,
       foodName: 'Chorizo',
       foodPortion: 28,
@@ -97,7 +97,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/chorizo.jpg'),
-  Food(
+  FoodModel(
       id: 9,
       foodName: 'Cordero',
       foodPortion: 85,
@@ -109,7 +109,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/09/carne-cordero.jpg'),
-  Food(
+  FoodModel(
       id: 10,
       foodName: 'Emperador',
       foodPortion: 146,
@@ -121,7 +121,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/emperador.jpg'),
-  Food(
+  FoodModel(
       id: 11,
       foodName: 'Gambas',
       foodPortion: 6,
@@ -133,7 +133,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Gamba-Salvaje.jpg'),
-  Food(
+  FoodModel(
       id: 12,
       foodName: 'Hígado de pollo',
       foodPortion: 44,
@@ -145,7 +145,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/09/higado-pollo-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 13,
       foodName: 'Hígado de ternera',
       foodPortion: 28,
@@ -157,7 +157,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2016/08/higado-de-ternera.jpg'),
-  Food(
+  FoodModel(
       id: 14,
       foodName: 'Jamón Serrano',
       foodPortion: 84,
@@ -169,7 +169,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/Jamon-iberico.jpg'),
-  Food(
+  FoodModel(
       id: 15,
       foodName: 'Jamón York',
       foodPortion: 28,
@@ -181,7 +181,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/jamon-cocido.jpg'),
-  Food(
+  FoodModel(
       id: 16,
       foodName: 'Langostinos',
       foodPortion: 35,
@@ -193,7 +193,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/langostinos.jpg'),
-  Food(
+  FoodModel(
       id: 17,
       foodName: 'Lomo de cerdo',
       foodPortion: 85,
@@ -205,7 +205,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/lomo-de-cerdo-1000x600.jpg'),
-  Food(
+  FoodModel(
       id: 18,
       foodName: 'Lubina',
       foodPortion: 129,
@@ -217,7 +217,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/lubina.jpg'),
-  Food(
+  FoodModel(
       id: 19,
       foodName: 'Mejillones',
       foodPortion: 85,
@@ -229,7 +229,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/08/mejillones.jpg'),
-  Food(
+  FoodModel(
       id: 20,
       foodName: 'Pavo',
       foodPortion: 85,
@@ -240,7 +240,7 @@ final allMeatsFish = <Food>[
       foodIcon: 'assets/images/foods/meats_fish/turkey.png',
       isDrink: false,
       imageUrl: 'https://biotrendies.com/wp-content/uploads/2015/07/pavo.jpg'),
-  Food(
+  FoodModel(
       id: 21,
       foodName: 'Pollo',
       foodPortion: 140,
@@ -252,7 +252,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/carne-pollo.jpg'),
-  Food(
+  FoodModel(
       id: 22,
       foodName: 'Salchicha de Frankfurt',
       foodPortion: 52,
@@ -264,7 +264,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/salchicha-frankfurt.jpg'),
-  Food(
+  FoodModel(
       id: 23,
       foodName: 'Salmón',
       foodPortion: 85,
@@ -276,7 +276,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/salmon-800x600.jpg'),
-  Food(
+  FoodModel(
       id: 24,
       foodName: 'Salmón ahumado',
       foodPortion: 28,
@@ -288,7 +288,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/salmon-ahumado.jpeg'),
-  Food(
+  FoodModel(
       id: 25,
       foodName: 'Sardinas (en conserva)',
       foodPortion: 149,
@@ -300,7 +300,7 @@ final allMeatsFish = <Food>[
       isDrink: false,
       imageUrl:
           'https://biotrendies.com/wp-content/uploads/2015/07/sardinas-lata.jpg'),
-  Food(
+  FoodModel(
       id: 26,
       foodName: 'Ternera',
       foodPortion: 85,
