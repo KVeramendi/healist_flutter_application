@@ -14,6 +14,7 @@ class UserModel {
   final double carbohydrates;
   final double fats;
   final String userImagePath;
+  final bool closedSession;
 
   UserModel(
       {required this.fullName,
@@ -30,13 +31,14 @@ class UserModel {
       required this.proteins,
       required this.carbohydrates,
       required this.fats,
-      required this.userImagePath});
+      required this.userImagePath,
+      required this.closedSession});
 
   double get recommendedKilocalories => gender == 'Femenino'
-      ? (665.096 + (9.563 * weight) + (1.850 * height) - (4.676 * age)) *
-          physicalActivityValue(physicalActivity)
-      : (66.473 + (13.752 * weight) + (5.003 * height) - (6.776 * age)) *
-          physicalActivityValue(physicalActivity);
+      ? ((665.096 + (9.563 * weight) + (1.850 * height) - (4.676 * age)) *
+          physicalActivityValue(physicalActivity))
+      : ((66.473 + (13.752 * weight) + (5.003 * height) - (6.776 * age)) *
+          physicalActivityValue(physicalActivity));
 
   double get recommendedProteins => (recommendedKilocalories * 0.15) / 4;
 
@@ -77,7 +79,8 @@ class UserModel {
           double? proteins,
           double? carbohydrates,
           double? fats,
-          String? userImagePath}) =>
+          String? userImagePath,
+          bool? closedSession}) =>
       UserModel(
         fullName: fullName ?? this.fullName,
         email: email ?? this.email,
@@ -94,6 +97,7 @@ class UserModel {
         carbohydrates: carbohydrates ?? this.carbohydrates,
         fats: fats ?? this.fats,
         userImagePath: userImagePath ?? this.userImagePath,
+        closedSession: closedSession ?? this.closedSession,
       );
 
   Map<String, dynamic> toJson() => {
@@ -112,23 +116,24 @@ class UserModel {
         'carbohydrates': carbohydrates,
         'fats': fats,
         'userImagePath': userImagePath,
+        'closedSession': closedSession
       };
 
   static UserModel fromJson(Map<String, dynamic> json) => UserModel(
-        fullName: json['fullName'],
-        email: json['email'],
-        password: json['password'],
-        weight: json['weight'],
-        height: json['height'],
-        age: json['age'],
-        physicalActivity: json['physicalActivity'],
-        gender: json['gender'],
-        water: json['water'],
-        kilocalories: json['kilocalories'],
-        fruitsVegetables: json['fruitsVegetables'],
-        proteins: json['proteins'],
-        carbohydrates: json['carbohydrates'],
-        fats: json['fats'],
-        userImagePath: json['userImagePath'],
-      );
+      fullName: json['fullName'],
+      email: json['email'],
+      password: json['password'],
+      weight: json['weight'],
+      height: json['height'],
+      age: json['age'],
+      physicalActivity: json['physicalActivity'],
+      gender: json['gender'],
+      water: json['water'],
+      kilocalories: json['kilocalories'],
+      fruitsVegetables: json['fruitsVegetables'],
+      proteins: json['proteins'],
+      carbohydrates: json['carbohydrates'],
+      fats: json['fats'],
+      userImagePath: json['userImagePath'],
+      closedSession: json['closedSession']);
 }

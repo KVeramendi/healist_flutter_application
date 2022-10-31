@@ -107,7 +107,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               const Padding(padding: EdgeInsets.symmetric(horizontal: 6.0)),
               Expanded(
                   child: Text(
-                      isValid ? 'Contraseña actualizada con éxito.' : text!,
+                      isValid ? 'Contraseña actualizada con éxito' : text!,
                       style: const TextStyle(fontSize: 18.0)))
             ]),
             backgroundColor:

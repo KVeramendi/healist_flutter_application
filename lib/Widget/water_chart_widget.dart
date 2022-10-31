@@ -41,15 +41,15 @@ class _WaterChartWidgetState extends State<WaterChartWidget> {
 
   List<WaterChartModel> get dataSourceSelection {
     if (widget.option == 0) {
-      return oneWeekWaterData;
+      return setWaterDataList(7);
     } else if (widget.option == 1) {
-      return oneMonthWaterData;
+      return setWaterDataList(31);
     } else if (widget.option == 2) {
-      return threeMonthsWaterData;
+      return setWaterDataList(91);
     } else if (widget.option == 3) {
-      return sixMonthsWaterData;
+      return setWaterDataList(182);
     } else {
-      return oneYearWaterData;
+      return setWaterDataList(365);
     }
   }
 }

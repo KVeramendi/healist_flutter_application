@@ -1,14 +1,8 @@
 import 'package:healist_flutter_application/Model/fruits_vegetables_chart_model.dart';
 import 'package:healist_flutter_application/Util/chart_nutrition_preferences.dart';
 
-final _chartNutrition = ChartNutritionPreferences.getChartNutrition();
-final oneWeekFruitsVegetablesData = _setDataList(7);
-final oneMonthFruitsVegetablesData = _setDataList(31);
-final threeMonthsFruitsVegetablesData = _setDataList(91);
-final sixMonthsFruitsVegetablesData = _setDataList(182);
-final oneYearFruitsVegetablesData = _setDataList(365);
-
-List<FruitsVegetablesChartModel> _setDataList(int days) {
+List<FruitsVegetablesChartModel> setFruitsVegetablesDataList(int days) {
+  final _chartNutrition = ChartNutritionPreferences.getChartNutrition();
   final _data = <FruitsVegetablesChartModel>[];
   if (_chartNutrition.length < days) {
     for (int i = 0; i < _chartNutrition.length; i++) {

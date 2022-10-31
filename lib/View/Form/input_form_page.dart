@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Menu/home_page.dart';
@@ -12,9 +13,8 @@ class InputFormPage extends StatefulWidget {
 }
 
 class _InputFormPageState extends State<InputFormPage> {
-  UserModel user = UserPreferences.getUser();
+  UserModel _user = UserPreferences.getUser();
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _weightController = TextEditingController();
   String? _physicalActivity;
   String? _genre;
 
@@ -41,7 +41,6 @@ class _InputFormPageState extends State<InputFormPage> {
                         key: _formKey,
                         child: Wrap(runSpacing: 15.0, children: [
                           TextFormField(
-                              controller: _weightController,
                               decoration: const InputDecoration(
                                   labelText: 'Peso',
                                   helperText:
@@ -54,8 +53,8 @@ class _InputFormPageState extends State<InputFormPage> {
                               keyboardType:
                                   const TextInputType.numberWithOptions(
                                       decimal: true),
-                              onSaved: (newValue) => user =
-                                  user.copy(weight: double.parse(newValue!)),
+                              onSaved: (newValue) => _user =
+                                  _user.copy(weight: double.parse(newValue!)),
                               validator: (value) => _errorWeight(value!)),
                           const Padding(
                               padding: EdgeInsets.symmetric(vertical: 10.0)),
@@ -71,24 +70,26 @@ class _InputFormPageState extends State<InputFormPage> {
                               keyboardType:
                                   const TextInputType.numberWithOptions(
                                       decimal: true),
-                              onSaved: (newValue) => user =
-                                  user.copy(height: double.parse(newValue!)),
+                              onSaved: (newValue) => _user =
+                                  _user.copy(height: double.parse(newValue!)),
                               validator: (value) => _errorHeight(value!)),
                           const Padding(
                               padding: EdgeInsets.symmetric(vertical: 10.0)),
                           TextFormField(
-                            decoration: const InputDecoration(
-                                labelText: 'Edad',
-                                helperText: 'Ingrese su edad',
-                                helperStyle:
-                                    TextStyle(fontStyle: FontStyle.italic),
-                                prefixIcon: Icon(Icons.person_rounded),
-                                border: OutlineInputBorder()),
-                            keyboardType: TextInputType.number,
-                            onSaved: (newValue) =>
-                                user = user.copy(age: int.parse(newValue!)),
-                            validator: (value) => _errorAge(value!),
-                          ),
+                              decoration: const InputDecoration(
+                                  labelText: 'Edad',
+                                  helperText: 'Ingrese su edad',
+                                  helperStyle:
+                                      TextStyle(fontStyle: FontStyle.italic),
+                                  prefixIcon: Icon(Icons.person_rounded),
+                                  border: OutlineInputBorder()),
+                              keyboardType: TextInputType.number,
+                              onSaved: (newValue) =>
+                                  _user = _user.copy(age: int.parse(newValue!)),
+                              validator: (value) => _errorAge(value!),
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ]),
                           const Padding(
                               padding: EdgeInsets.symmetric(vertical: 10.0)),
                           DropdownButtonFormField(
@@ -117,7 +118,7 @@ class _InputFormPageState extends State<InputFormPage> {
                                   prefixIcon:
                                       Icon(Icons.directions_run_rounded),
                                   border: OutlineInputBorder()),
-                              onSaved: (newValue) => user = user.copy(
+                              onSaved: (newValue) => _user = _user.copy(
                                   physicalActivity: newValue as String),
                               validator: (value) =>
                                   _errorPhysicalActivity(value)),
@@ -140,28 +141,29 @@ class _InputFormPageState extends State<InputFormPage> {
                                       TextStyle(fontStyle: FontStyle.italic),
                                   prefixIcon: Icon(Icons.group_rounded),
                                   border: OutlineInputBorder()),
-                              onSaved: (newValue) =>
-                                  user = user.copy(gender: newValue as String),
+                              onSaved: (newValue) => _user =
+                                  _user.copy(gender: newValue as String),
                               validator: (value) => _errorGender(value))
                         ]),
                         autovalidateMode: AutovalidateMode.onUserInteraction)),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),
                 CustomElevateButtonWidget(
                     onPressed: () {
-                      // final _isValid = _formKey.currentState!.validate();
-                      // if (_isValid) {
-                      _formKey.currentState!.save();
-                      user = user.copy(
-                          water: user.recommendedWater,
-                          kilocalories: user.recommendedKilocalories,
-                          fruitsVegetables: user.recommendedFruitsVegetables,
-                          proteins: user.recommendedProteins,
-                          carbohydrates: user.recommendedCarbohydrates,
-                          fats: user.recommendedFats);
-                      UserPreferences.setUser(user);
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomePage()));
-                      // }
+                      final _isValid = _formKey.currentState!.validate();
+                      if (_isValid) {
+                        _formKey.currentState!.save();
+                        _user = _user.copy(
+                            water: _user.recommendedWater,
+                            kilocalories: _user.recommendedKilocalories,
+                            fruitsVegetables: _user.recommendedFruitsVegetables,
+                            proteins: _user.recommendedProteins,
+                            carbohydrates: _user.recommendedCarbohydrates,
+                            fats: _user.recommendedFats,
+                            closedSession: false);
+                        UserPreferences.setUser(_user);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomePage()));
+                      }
                     },
                     text: 'Aceptar')
               ])),
@@ -171,7 +173,7 @@ class _InputFormPageState extends State<InputFormPage> {
     if (text.isEmpty) {
       return 'Debe ingresar su peso';
     }
-    final double _value = double.parse(text);
+    final _value = double.parse(text);
     if (_value < 1) {
       return 'El peso debe ser mayor a cero';
     }
@@ -185,7 +187,7 @@ class _InputFormPageState extends State<InputFormPage> {
     if (text.isEmpty) {
       return 'Debe ingresar su altura';
     }
-    final double _value = double.parse(text);
+    final _value = double.parse(text);
     if (_value < 1) {
       return 'La altura debe ser mayor a cero';
     }
@@ -199,7 +201,7 @@ class _InputFormPageState extends State<InputFormPage> {
     if (text.isEmpty) {
       return 'Debe ingresar su edad';
     }
-    final int _value = int.parse(text);
+    final _value = int.parse(text);
     if (_value < 18) {
       return 'El usuario debe ser mayor de edad';
     }

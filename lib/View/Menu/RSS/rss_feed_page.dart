@@ -110,7 +110,7 @@ class _RSSFeedPageState extends State<RSSFeedPage> {
         _rssFeedItemList.add(RSSFeedModel(
             feed.items![i].title.toString(),
             authorAndImageData[0],
-            feed.items![i].pubDate,
+            feed.items![i].pubDate!,
             authorAndImageData[1],
             feed.items![i].link.toString()));
       }

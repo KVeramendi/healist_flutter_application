@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Menu/home_page.dart';
 import 'package:healist_flutter_application/View/Register/register_page.dart';
@@ -12,7 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final user = UserPreferences.getUser();
+  UserModel _user = UserPreferences.getUser();
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -50,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                                   if (value.isEmpty) {
                                     return 'Ingrese su contraseña';
                                   }
-                                  if (value != user.email) {
+                                  if (value != _user.email) {
                                     return 'Correo electrónico incorrecto';
                                   }
                                 }
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                                   if (value!.isEmpty) {
                                     return 'Ingrese su contraseña';
                                   }
-                                  if (value != user.password) {
+                                  if (value != _user.password) {
                                     return 'Contraseña incorrecta';
                                   }
                                 }
@@ -89,20 +90,23 @@ class _LoginPageState extends State<LoginPage> {
                         autovalidateMode: AutovalidateMode.onUserInteraction)),
                 CustomElevateButtonWidget(
                     onPressed: () async {
-                      // final _isValid = _formKey.currentState!.validate();
-                      // final _isEmailValid = user.email == _emailController.text;
-                      // final _isPasswordValid =
-                      //     user.password == _passwordController.text;
-                      // if (_isValid && _isEmailValid && _isPasswordValid) {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomePage()));
-                      // }
-                      // if (!_isEmailValid || !_isPasswordValid) {
-                      //   setState(() {
-                      //     _emailValidation = false;
-                      //     _passwordValidation = false;
-                      //   });
-                      // }
+                      final _isValid = _formKey.currentState!.validate();
+                      final _isEmailValid =
+                          _user.email == _emailController.text;
+                      final _isPasswordValid =
+                          _user.password == _passwordController.text;
+                      if (_isValid && _isEmailValid && _isPasswordValid) {
+                        _user = _user.copy(closedSession: false);
+                        UserPreferences.setUser(_user);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomePage()));
+                      }
+                      if (!_isEmailValid || !_isPasswordValid) {
+                        setState(() {
+                          _emailValidation = false;
+                          _passwordValidation = false;
+                        });
+                      }
                     },
                     text: 'Iniciar sesión'),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),

@@ -6,30 +6,21 @@ class FoodModel {
   final double proteins;
   final double carbohydrates;
   final double fats;
-  // final String foodSchedule;
-  // final int day;
-  // final int month;
-  // final int year;
   final String foodIcon;
   final bool isDrink;
   final String imageUrl;
 
-  FoodModel({
-    required this.id,
-    required this.foodName,
-    required this.foodPortion,
-    required this.kilocalories,
-    required this.proteins,
-    required this.carbohydrates,
-    required this.fats,
-    // required this.foodSchedule,
-    // required this.day,
-    // required this.month,
-    // required this.year,
-    required this.foodIcon,
-    required this.isDrink,
-    required this.imageUrl,
-  });
+  FoodModel(
+      {required this.id,
+      required this.foodName,
+      required this.foodPortion,
+      required this.kilocalories,
+      required this.proteins,
+      required this.carbohydrates,
+      required this.fats,
+      required this.foodIcon,
+      required this.isDrink,
+      required this.imageUrl});
 
   factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
       id: json['id'],
@@ -39,10 +30,6 @@ class FoodModel {
       proteins: json['proteins'],
       carbohydrates: json['carbohydrates'],
       fats: json['fats'],
-      // foodSchedule: json['foodSchedule'],
-      // day: json['day'],
-      // month: json['month'],
-      // year: json['year'],
       foodIcon: json['foodIcon'],
       isDrink: json['isDrink'],
       imageUrl: json['urlImage']);
@@ -55,10 +42,6 @@ class FoodModel {
         'proteins': proteins,
         'carbohydrates': carbohydrates,
         'fats': fats,
-        // 'foodSchedule': foodSchedule,
-        // 'day': day,
-        // 'month': month,
-        // 'year': year,
         'foodIcon': foodIcon,
         'isDrink': isDrink,
         'urlImage': imageUrl

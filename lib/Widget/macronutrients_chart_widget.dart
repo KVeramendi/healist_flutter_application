@@ -39,36 +39,39 @@ class _MacronutrientsChartWidgetState extends State<MacronutrientsChartWidget> {
                     data.dateTime,
                 yValueMapper: (MacronutrientsChartModel data, _) =>
                     data.proteins,
+                color: Colors.blueAccent.shade700,
                 markerSettings: const MarkerSettings(isVisible: true),
                 name: 'Proteínas'),
             StackedLineSeries<MacronutrientsChartModel, DateTime>(
                 dataSource: dataSourceSelection,
                 xValueMapper: (MacronutrientsChartModel data, _) =>
                     data.dateTime,
-                yValueMapper: (MacronutrientsChartModel data, _) => data.fats,
+                yValueMapper: (MacronutrientsChartModel data, _) =>
+                    data.carbohydrates,
+                color: Colors.redAccent.shade400,
                 markerSettings: const MarkerSettings(isVisible: true),
-                name: 'Grasas'),
+                name: 'Carbohidratos'),
             StackedLineSeries<MacronutrientsChartModel, DateTime>(
                 dataSource: dataSourceSelection,
                 xValueMapper: (MacronutrientsChartModel data, _) =>
                     data.dateTime,
-                yValueMapper: (MacronutrientsChartModel data, _) =>
-                    data.carbohydrates,
+                yValueMapper: (MacronutrientsChartModel data, _) => data.fats,
+                color: Colors.orangeAccent.shade400,
                 markerSettings: const MarkerSettings(isVisible: true),
-                name: 'Carbohidratos')
+                name: 'Grasas'),
           ]));
 
   List<MacronutrientsChartModel> get dataSourceSelection {
     if (widget.option == 0) {
-      return oneWeekMacronutrientsData;
+      return setMacronutrientsDataList(7);
     } else if (widget.option == 1) {
-      return oneMonthMacronutrientsData;
+      return setMacronutrientsDataList(31);
     } else if (widget.option == 2) {
-      return threeMonthsMacronutrientsData;
+      return setMacronutrientsDataList(91);
     } else if (widget.option == 3) {
-      return sixMonthsMacronutrientsData;
+      return setMacronutrientsDataList(182);
     } else {
-      return oneYearMacronutrientsData;
+      return setMacronutrientsDataList(365);
     }
   }
 }

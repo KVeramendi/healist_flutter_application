@@ -31,17 +31,16 @@ class DailyNutritionModel {
           int? dailyLunch,
           int? dailyDinner}) =>
       DailyNutritionModel(
-        dailyWater: dailyWater ?? this.dailyWater,
-        dailyKilocalories: dailyKilocalories ?? this.dailyKilocalories,
-        dailyFruitsVegetables:
-            dailyFruitsVegetables ?? this.dailyFruitsVegetables,
-        dailyProteins: dailyProteins ?? this.dailyProteins,
-        dailyCarbohydrates: dailyCarbohydrates ?? this.dailyCarbohydrates,
-        dailyFats: dailyFats ?? this.dailyFats,
-        dailyBreakfast: dailyBreakfast ?? this.dailyBreakfast,
-        dailyLunch: dailyLunch ?? this.dailyLunch,
-        dailyDinner: dailyDinner ?? this.dailyDinner,
-      );
+          dailyWater: dailyWater ?? this.dailyWater,
+          dailyKilocalories: dailyKilocalories ?? this.dailyKilocalories,
+          dailyFruitsVegetables:
+              dailyFruitsVegetables ?? this.dailyFruitsVegetables,
+          dailyProteins: dailyProteins ?? this.dailyProteins,
+          dailyCarbohydrates: dailyCarbohydrates ?? this.dailyCarbohydrates,
+          dailyFats: dailyFats ?? this.dailyFats,
+          dailyBreakfast: dailyBreakfast ?? this.dailyBreakfast,
+          dailyLunch: dailyLunch ?? this.dailyLunch,
+          dailyDinner: dailyDinner ?? this.dailyDinner);
 
   Map<String, dynamic> toJson() => {
         'dailyWater': dailyWater,
@@ -52,7 +51,7 @@ class DailyNutritionModel {
         'dailyFats': dailyFats,
         'dailyBreakfast': dailyBreakfast,
         'dailyLunch': dailyLunch,
-        'dailyDinner': dailyDinner,
+        'dailyDinner': dailyDinner
       };
 
   static DailyNutritionModel fromJson(Map<String, dynamic> json) =>

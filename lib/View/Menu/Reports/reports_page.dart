@@ -95,10 +95,7 @@ class _ReportsPageState extends State<ReportsPage> {
                           ? const TextStyle(color: Colors.white)
                           : const TextStyle(color: Colors.black45),
                       onSelected: (_) {
-                        setState(() {
-                          _choiceButton = 0;
-                        });
-                        // chartSelection(_initialItem, _choiceButton);
+                        setState(() => _choiceButton = 0);
                       },
                       selected: _choiceButton == 0 ? true : false,
                       selectedColor: const Color(0xFF1ECF6C),

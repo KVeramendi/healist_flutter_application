@@ -21,7 +21,8 @@ class UserPreferences {
       proteins: 0,
       carbohydrates: 0,
       fats: 0,
-      userImagePath: 'assets/images/user_profile_logo.jpg');
+      userImagePath: 'assets/images/user_profile_logo.jpg',
+      closedSession: true);
 
   static Future init() async =>
       _sharedPreferences = await SharedPreferences.getInstance();

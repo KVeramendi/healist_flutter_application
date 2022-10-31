@@ -132,7 +132,7 @@ class _SettingEditPageState extends State<SettingEditPage> {
           Icon(Icons.check_circle_rounded, color: Colors.white),
           Padding(padding: EdgeInsets.symmetric(horizontal: 6.0)),
           Expanded(
-              child: Text('Datos guardados con éxito.',
+              child: Text('Datos guardados con éxito',
                   style: TextStyle(fontSize: 18.0)))
         ]),
         backgroundColor: const Color(0xFF1ECF6C),

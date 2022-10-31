@@ -3,12 +3,7 @@ import 'package:flutter/material.dart';
 class SearchWidget extends StatefulWidget {
   final String text;
   final ValueChanged<String> onChanged;
-  final String hintText;
-  const SearchWidget(
-      {Key? key,
-      required this.text,
-      required this.onChanged,
-      required this.hintText})
+  const SearchWidget({Key? key, required this.text, required this.onChanged})
       : super(key: key);
 
   @override
@@ -20,9 +15,9 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const styleActive = TextStyle(color: Colors.black87);
-    const styleHint = TextStyle(color: Colors.black45);
-    final style = widget.text.isEmpty ? styleHint : styleActive;
+    final style = widget.text.isEmpty
+        ? const TextStyle(color: Colors.black45)
+        : const TextStyle(color: Colors.black87);
 
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -36,7 +31,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             controller: _controller,
             decoration: InputDecoration(
                 icon: Icon(Icons.search, color: style.color),
-                hintText: widget.hintText,
+                hintText: 'Nombre del alimento',
                 hintStyle: style,
                 suffixIcon: widget.text.isNotEmpty
                     ? InkWell(

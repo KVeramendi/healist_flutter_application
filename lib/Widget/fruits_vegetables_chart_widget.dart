@@ -48,15 +48,15 @@ class _FruitsVegetablesChartWidgetState
 
   List<FruitsVegetablesChartModel> get dataSourceSelection {
     if (widget.option == 0) {
-      return oneWeekFruitsVegetablesData;
+      return setFruitsVegetablesDataList(7);
     } else if (widget.option == 1) {
-      return oneMonthFruitsVegetablesData;
+      return setFruitsVegetablesDataList(31);
     } else if (widget.option == 2) {
-      return threeMonthsFruitsVegetablesData;
+      return setFruitsVegetablesDataList(91);
     } else if (widget.option == 3) {
-      return sixMonthsFruitsVegetablesData;
+      return setFruitsVegetablesDataList(182);
     } else {
-      return oneYearFruitsVegetablesData;
+      return setFruitsVegetablesDataList(365);
     }
   }
 }

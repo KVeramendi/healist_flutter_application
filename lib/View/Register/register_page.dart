@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/Model/user_model.dart';
+import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
 import 'package:healist_flutter_application/View/Register/email_validation_page.dart';
 import 'package:healist_flutter_application/Widget/custom_elevatebutton_widget.dart';
@@ -11,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  UserModel _user = UserPreferences.getUser();
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _userEmailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -44,6 +47,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 prefixIcon: Icon(Icons.person),
                                 border: OutlineInputBorder()),
                             keyboardType: TextInputType.name,
+                            onSaved: (newValue) =>
+                                _user = _user.copy(fullName: newValue),
                             validator: (value) => _errorFullName(value!),
                           ),
                           TextFormField(
@@ -53,6 +58,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 prefixIcon: Icon(Icons.email),
                                 border: OutlineInputBorder()),
                             keyboardType: TextInputType.emailAddress,
+                            onSaved: (newValue) =>
+                                _user = _user.copy(email: newValue),
                             validator: (value) => _errorEmail(value!),
                           ),
                           TextFormField(
@@ -86,6 +93,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 border: const OutlineInputBorder()),
                             keyboardType: TextInputType.visiblePassword,
                             obscureText: _obscureText2,
+                            onSaved: (newValue) =>
+                                _user = _user.copy(password: newValue),
                             validator: (value) => _errorConfirmPassword(value!),
                           )
                         ]),
@@ -93,12 +102,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 const Padding(padding: EdgeInsets.symmetric(vertical: 35.0)),
                 CustomElevateButtonWidget(
                     onPressed: () {
-                      // final _isValid = _formKey.currentState!.validate();
-                      // if (_isValid) {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => EmailValidationPage(
-                              email: '_userEmailController.text')));
-                      // }
+                      final _isValid = _formKey.currentState!.validate();
+                      if (_isValid) {
+                        _formKey.currentState!.save();
+                        UserPreferences.setUser(_user);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => EmailValidationPage(
+                                email: _userEmailController.text)));
+                      }
                     },
                     text: 'Registrarse'),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 10.0)),

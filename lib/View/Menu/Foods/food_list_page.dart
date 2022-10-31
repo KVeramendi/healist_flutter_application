@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:healist_flutter_application/Data/cereals_data.dart';
 import 'package:healist_flutter_application/Data/dairies_data.dart';
 import 'package:healist_flutter_application/Data/dried_fruits_data.dart';
+import 'package:healist_flutter_application/Data/drinks_data.dart';
 import 'package:healist_flutter_application/Data/fruits_data.dart';
 import 'package:healist_flutter_application/Data/legumes_data.dart';
 import 'package:healist_flutter_application/Data/meats_fish_data.dart';
+import 'package:healist_flutter_application/Data/other_foods_data.dart';
 import 'package:healist_flutter_application/Data/vegetables_data.dart';
+import 'package:healist_flutter_application/Model/chart_nutrition_model.dart';
 import 'package:healist_flutter_application/Model/daily_nutrition_model.dart';
 import 'package:healist_flutter_application/Model/food_model.dart';
+import 'package:healist_flutter_application/Util/chart_nutrition_preferences.dart';
 import 'package:healist_flutter_application/Util/daily_nutrition_preferences.dart';
 import 'package:healist_flutter_application/Widget/search_widget.dart';
 
@@ -20,8 +25,8 @@ class FoodListPage extends StatefulWidget {
 }
 
 class _FoodListPageState extends State<FoodListPage> {
-  late List<FoodModel> foodsData;
-  late List<FoodModel> foodListSearching;
+  late List<ChartNutritionModel> chartNutritionModelList;
+  late List<FoodModel> foodsData, foodListSearching;
   late DailyNutritionModel dailyNutrition;
   final _formKey = GlobalKey<FormState>();
   String query = '';
@@ -29,6 +34,7 @@ class _FoodListPageState extends State<FoodListPage> {
   @override
   void initState() {
     super.initState();
+    chartNutritionModelList = ChartNutritionPreferences.getChartNutrition();
     if (widget.title == 'FRUTAS') {
       foodsData = allFruits;
       foodListSearching = allFruits;
@@ -51,11 +57,11 @@ class _FoodListPageState extends State<FoodListPage> {
       foodsData = allMeatsFish;
       foodListSearching = allMeatsFish;
     } else if (widget.title == 'BEBIDAS') {
-      foodsData = allDairies;
-      foodListSearching = allDairies;
+      foodsData = allDrinks;
+      foodListSearching = allDrinks;
     } else {
-      foodsData = allDairies;
-      foodListSearching = allDairies;
+      foodsData = allOtherFoods;
+      foodListSearching = allOtherFoods;
     }
     dailyNutrition = DailyNutritionPreferences.getDailyNutrition();
   }
@@ -69,7 +75,7 @@ class _FoodListPageState extends State<FoodListPage> {
               title: Text(widget.title)),
           body: Center(
               child: Column(children: [
-            buildSearch(),
+            SearchWidget(text: query, onChanged: searchFood),
             Expanded(
                 child: ListView.builder(
                     itemBuilder: (context, index) {
@@ -78,9 +84,6 @@ class _FoodListPageState extends State<FoodListPage> {
                     },
                     itemCount: foodsData.length))
           ]))));
-
-  Widget buildSearch() => SearchWidget(
-      text: query, hintText: 'Nombre del alimento', onChanged: searchFood);
 
   void searchFood(String query) {
     final foods = foodListSearching.where((food) {
@@ -128,6 +131,7 @@ class _FoodListPageState extends State<FoodListPage> {
   Future<dynamic> buildShowDialog(FoodModel food) {
     final _foodPortionController =
         TextEditingController(text: food.foodPortion.toString());
+    final _rationController = TextEditingController(text: "1");
     String? _meals;
     return showDialog(
         context: context,
@@ -144,18 +148,6 @@ class _FoodListPageState extends State<FoodListPage> {
                 child: Form(
                     key: _formKey,
                     child: Wrap(runSpacing: 20.0, children: [
-                      TextFormField(
-                          controller: _foodPortionController,
-                          decoration: InputDecoration(
-                              labelText: 'Cantidad',
-                              helperText: food.isDrink
-                                  ? '1 ración = ${food.foodPortion} ml'
-                                  : '1 ración = ${food.foodPortion} g',
-                              counterText: food.isDrink
-                                  ? '1 vaso ≈ 250 ml'
-                                  : '1 porción ≈ 175 g',
-                              border: const OutlineInputBorder()),
-                          keyboardType: TextInputType.number),
                       DropdownButtonFormField(
                           items: const [
                             DropdownMenuItem<String>(
@@ -174,6 +166,32 @@ class _FoodListPageState extends State<FoodListPage> {
                                   'Seleccione el tipo de comida del día',
                               border: OutlineInputBorder()),
                           validator: (value) => _errorPhysicalActivity(value)),
+                      TextFormField(
+                          controller: _rationController,
+                          decoration: InputDecoration(
+                              labelText: 'Ración',
+                              helperText: food.isDrink
+                                  ? '1 ración es equivalente a 1 vaso'
+                                  : '1 ración es equivalente a 1 taza',
+                              border: const OutlineInputBorder()),
+                          keyboardType: TextInputType.number,
+                          validator: (value) => _errorRation(value!),
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ]),
+                      TextFormField(
+                          controller: _foodPortionController,
+                          decoration: InputDecoration(
+                              labelText: 'Cantidad (g)',
+                              helperText: food.isDrink
+                                  ? 'Cant. predeterminada: ${food.foodPortion} ml (1 ración)'
+                                  : 'Cant. predeterminada: ${food.foodPortion} g (1 ración)',
+                              border: const OutlineInputBorder()),
+                          keyboardType: TextInputType.number,
+                          validator: (value) => _errorFoodPortion(value!),
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ]),
                       const Padding(
                           padding: EdgeInsets.symmetric(vertical: 10.0)),
                     ]),
@@ -190,9 +208,18 @@ class _FoodListPageState extends State<FoodListPage> {
                     final _isValid = _formKey.currentState!.validate();
                     if (_isValid) {
                       dailyNutrition = _copyDailyNutrition(
-                          food, _foodPortionController.text, _meals!);
+                          food,
+                          int.parse(_foodPortionController.text),
+                          int.parse(_rationController.text),
+                          _meals!);
                       DailyNutritionPreferences.setDailyNutrition(
                           dailyNutrition);
+                      ChartNutritionPreferences.setChartNutrition(
+                          _copyLastChartNutritionItem(
+                              food,
+                              int.parse(_foodPortionController.text),
+                              int.parse(_rationController.text)));
+                      buildSnackBar();
                       Navigator.of(context).pop();
                     }
                   },
@@ -205,37 +232,126 @@ class _FoodListPageState extends State<FoodListPage> {
         barrierDismissible: false);
   }
 
+  List<ChartNutritionModel> _copyLastChartNutritionItem(
+      FoodModel food, int currentPortion, int ration) {
+    final _lastChartNutrition = chartNutritionModelList.removeLast();
+    chartNutritionModelList.add(ChartNutritionModel(
+        dateTime: _lastChartNutrition.dateTime,
+        kilocaloriesConsumption: _lastChartNutrition.kilocaloriesConsumption +
+            _getKilocaloriesbyPortion(food, currentPortion, ration),
+        proteinsIntake: _lastChartNutrition.proteinsIntake +
+            _getNutrientsbyPortion(
+                food.proteins, food.foodPortion, currentPortion, ration),
+        carbohydratesIntake: _lastChartNutrition.proteinsIntake +
+            _getNutrientsbyPortion(
+                food.carbohydrates, food.foodPortion, currentPortion, ration),
+        fatsIntake: _lastChartNutrition.fatsIntake +
+            _getNutrientsbyPortion(
+                food.fats, food.foodPortion, currentPortion, ration),
+        waterConsumption: food.isDrink && widget.title != 'BEBIDAS'
+            ? _lastChartNutrition.waterConsumption +
+                ((currentPortion / 1000) * ration)
+            : _lastChartNutrition.waterConsumption,
+        fruitsVegetablesIntake:
+            widget.title == 'FRUTAS' || widget.title == 'VERDURAS'
+                ? _lastChartNutrition.fruitsVegetablesIntake +
+                    (currentPortion * ration)
+                : _lastChartNutrition.fruitsVegetablesIntake));
+    return chartNutritionModelList;
+  }
+
+  DailyNutritionModel _copyDailyNutrition(
+      FoodModel food, int currentPortion, int ration, String meal) {
+    final _lastDailyNutrition = DailyNutritionPreferences.getDailyNutrition();
+    final _currentDailyNutrition = dailyNutrition.copy(
+        dailyWater: food.isDrink && widget.title != 'BEBIDAS'
+            ? _lastDailyNutrition.dailyWater +
+                ((currentPortion / 1000) * ration)
+            : _lastDailyNutrition.dailyWater,
+        dailyKilocalories: _lastDailyNutrition.dailyKilocalories +
+            _getKilocaloriesbyPortion(food, currentPortion, ration),
+        dailyFruitsVegetables:
+            widget.title == 'FRUTAS' || widget.title == 'VERDURAS'
+                ? _lastDailyNutrition.dailyFruitsVegetables +
+                    (currentPortion * ration)
+                : _lastDailyNutrition.dailyFruitsVegetables,
+        dailyProteins: _lastDailyNutrition.dailyProteins +
+            _getNutrientsbyPortion(
+                food.proteins, food.foodPortion, currentPortion, ration),
+        dailyCarbohydrates: _lastDailyNutrition.dailyCarbohydrates +
+            _getNutrientsbyPortion(
+                food.carbohydrates, food.foodPortion, currentPortion, ration),
+        dailyFats: _lastDailyNutrition.dailyFats +
+            _getNutrientsbyPortion(
+                food.fats, food.foodPortion, currentPortion, ration),
+        dailyBreakfast: meal == 'Desayuno'
+            ? _lastDailyNutrition.dailyBreakfast +
+                _getKilocaloriesbyPortion(food, currentPortion, ration)
+            : _lastDailyNutrition.dailyBreakfast,
+        dailyLunch: meal == 'Almuerzo'
+            ? _lastDailyNutrition.dailyLunch +
+                _getKilocaloriesbyPortion(food, currentPortion, ration)
+            : _lastDailyNutrition.dailyLunch,
+        dailyDinner: meal == 'Cena'
+            ? _lastDailyNutrition.dailyDinner +
+                _getKilocaloriesbyPortion(food, currentPortion, ration)
+            : _lastDailyNutrition.dailyDinner);
+    return _currentDailyNutrition;
+  }
+
+  int _getKilocaloriesbyPortion(
+          FoodModel food, int currentPortion, int ration) =>
+      ((food.kilocalories * currentPortion) / food.foodPortion).round() *
+      ration;
+
+  double _getNutrientsbyPortion(double foodNutrient, int foodPortion,
+          int currentPortion, int ration) =>
+      ((foodNutrient * currentPortion) / foodPortion) * ration;
+
   String? _errorPhysicalActivity(Object? text) =>
       text == null ? 'Debe ingresar el tipo de comida del día' : null;
 
-  DailyNutritionModel _copyDailyNutrition(
-      FoodModel food, String text, String meal) {
-    final DailyNutritionModel lastDailyNutrition =
-        DailyNutritionPreferences.getDailyNutrition();
-    final _currentDailyNutrition = dailyNutrition.copy(
-      dailyWater: food.isDrink
-          ? lastDailyNutrition.dailyWater + (double.parse(text) / 1000)
-          : lastDailyNutrition.dailyWater,
-      dailyKilocalories:
-          lastDailyNutrition.dailyKilocalories + food.kilocalories,
-      dailyFruitsVegetables:
-          widget.title == 'FRUTAS' || widget.title == 'VERDURAS'
-              ? lastDailyNutrition.dailyFruitsVegetables + int.parse(text)
-              : lastDailyNutrition.dailyFruitsVegetables,
-      dailyProteins: lastDailyNutrition.dailyProteins + food.proteins,
-      dailyCarbohydrates:
-          lastDailyNutrition.dailyCarbohydrates + food.carbohydrates,
-      dailyFats: lastDailyNutrition.dailyFats + food.fats,
-      dailyBreakfast: meal == 'Desayuno'
-          ? lastDailyNutrition.dailyBreakfast + food.kilocalories
-          : lastDailyNutrition.dailyBreakfast,
-      dailyLunch: meal == 'Almuerzo'
-          ? lastDailyNutrition.dailyLunch + food.kilocalories
-          : lastDailyNutrition.dailyLunch,
-      dailyDinner: meal == 'Cena'
-          ? lastDailyNutrition.dailyDinner + food.kilocalories
-          : lastDailyNutrition.dailyDinner,
-    );
-    return _currentDailyNutrition;
+  String? _errorRation(String text) {
+    if (text.isEmpty) {
+      return 'Debe ingresar una cantidad de la ración';
+    }
+    final _value = int.parse(text);
+    if (_value < 1) {
+      return 'La cantidad debe ser mayor a cero';
+    }
+    if (_value > 99) {
+      return 'El valor ingresado no es válido';
+    }
+    return null;
   }
+
+  String? _errorFoodPortion(String text) {
+    if (text.isEmpty) {
+      return 'Debe ingresar una cantidad del alimento';
+    }
+    final _value = int.parse(text);
+    if (_value < 1) {
+      return 'La cantidad debe ser mayor a cero';
+    }
+    if (_value > 9999) {
+      return 'El valor ingresado no es válido';
+    }
+    return null;
+  }
+
+  ScaffoldMessengerState buildSnackBar() => ScaffoldMessenger.of(context)
+    ..removeCurrentSnackBar()
+    ..showSnackBar(SnackBar(
+        content: Row(children: const [
+          Icon(Icons.check_circle_rounded, color: Colors.white),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 6.0)),
+          Expanded(
+              child: Text('Alimento guardado con éxito',
+                  style: TextStyle(fontSize: 18.0)))
+        ]),
+        backgroundColor: const Color(0xFF1ECF6C),
+        elevation: 0,
+        shape: const StadiumBorder(),
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 3)));
 }

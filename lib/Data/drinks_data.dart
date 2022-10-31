@@ -1,0 +1,148 @@
+import 'package:healist_flutter_application/Model/food_model.dart';
+
+final allDrinks = <FoodModel>[
+  FoodModel(
+      id: 1,
+      foodName: 'Café',
+      foodPortion: 30,
+      kilocalories: 0,
+      proteins: 0.04,
+      carbohydrates: 0.00,
+      fats: 0.01,
+      foodIcon: 'assets/images/foods/drinks/coffee.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/cafe-descafeinado.jpg'),
+  FoodModel(
+      id: 2,
+      foodName: 'Café expreso',
+      foodPortion: 30,
+      kilocalories: 3,
+      proteins: 0.04,
+      carbohydrates: 0.50,
+      fats: 0.05,
+      foodIcon: 'assets/images/foods/drinks/coffee_express.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/cafe-expreso.jpg'),
+  FoodModel(
+      id: 3,
+      foodName: 'Cerveza',
+      foodPortion: 30,
+      kilocalories: 13,
+      proteins: 0.14,
+      carbohydrates: 1.05,
+      fats: 0.00,
+      foodIcon: 'assets/images/foods/drinks/beer.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/cervezas.jpeg'),
+  FoodModel(
+      id: 4,
+      foodName: 'Horchata de chufa',
+      foodPortion: 228,
+      kilocalories: 123,
+      proteins: 1.09,
+      carbohydrates: 26.27,
+      fats: 1.62,
+      foodIcon: 'assets/images/foods/drinks/tiger_nut_milkshake.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/horchata-chufa.jpg'),
+  FoodModel(
+      id: 5,
+      foodName: 'Leche de almendras',
+      foodPortion: 240,
+      kilocalories: 91,
+      proteins: 1.01,
+      carbohydrates: 15.82,
+      fats: 2.50,
+      foodIcon: 'assets/images/foods/drinks/almond_milk.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/leche-almendras.jpg'),
+  FoodModel(
+      id: 6,
+      foodName: 'Leche de arroz',
+      foodPortion: 240,
+      kilocalories: 113,
+      proteins: 0.67,
+      carbohydrates: 22.01,
+      fats: 2.33,
+      foodIcon: 'assets/images/foods/drinks/rice_milk.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/leche-arroz.jpg'),
+  FoodModel(
+      id: 7,
+      foodName: 'Leche de coco',
+      foodPortion: 552,
+      kilocalories: 113,
+      proteins: 5.50,
+      carbohydrates: 13.30,
+      fats: 57.22,
+      foodIcon: 'assets/images/foods/drinks/coconut_milk.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/leche-coco.jpg'),
+  FoodModel(
+      id: 8,
+      foodName: 'Leche de soja',
+      foodPortion: 243,
+      kilocalories: 131,
+      proteins: 7.95,
+      carbohydrates: 15.26,
+      fats: 4.25,
+      foodIcon: 'assets/images/foods/drinks/soy_milk.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/leche-de-soja-800x600.jpg'),
+  FoodModel(
+      id: 9,
+      foodName: 'Refresco de cola',
+      foodPortion: 31,
+      kilocalories: 13,
+      proteins: 0.00,
+      carbohydrates: 3.25,
+      fats: 0.00,
+      foodIcon: 'assets/images/foods/drinks/cola_drink.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/08/refresco-de-cola.jpg'),
+  FoodModel(
+      id: 10,
+      foodName: 'Refresco de naranja',
+      foodPortion: 31,
+      kilocalories: 15,
+      proteins: 0.00,
+      carbohydrates: 3.81,
+      fats: 0.00,
+      foodIcon: 'assets/images/foods/drinks/orange_soda.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/08/refresco-naranja.jpg'),
+  FoodModel(
+      id: 11,
+      foodName: 'Vino blanco',
+      foodPortion: 29,
+      kilocalories: 24,
+      proteins: 0.02,
+      carbohydrates: 0.76,
+      fats: 0.00,
+      foodIcon: 'assets/images/foods/drinks/white_wine.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/vino-blanco.jpg'),
+  FoodModel(
+      id: 12,
+      foodName: 'Vino tinto',
+      foodPortion: 25,
+      kilocalories: 24,
+      proteins: 0.02,
+      carbohydrates: 0.77,
+      fats: 0.00,
+      foodIcon: 'assets/images/foods/drinks/red_wine.png',
+      isDrink: true,
+      imageUrl:
+          'https://biotrendies.com/wp-content/uploads/2015/07/vino-tinto.jpg'),
+];

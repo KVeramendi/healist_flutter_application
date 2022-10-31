@@ -25,16 +25,15 @@ class ChartNutritionModel {
           double? waterConsumption,
           int? fruitsVegetablesIntake}) =>
       ChartNutritionModel(
-        dateTime: dateTime ?? this.dateTime,
-        kilocaloriesConsumption:
-            kilocaloriesConsumption ?? this.kilocaloriesConsumption,
-        proteinsIntake: proteinsIntake ?? this.proteinsIntake,
-        carbohydratesIntake: carbohydratesIntake ?? this.carbohydratesIntake,
-        fatsIntake: fatsIntake ?? this.fatsIntake,
-        waterConsumption: waterConsumption ?? this.waterConsumption,
-        fruitsVegetablesIntake:
-            fruitsVegetablesIntake ?? this.fruitsVegetablesIntake,
-      );
+          dateTime: dateTime ?? this.dateTime,
+          kilocaloriesConsumption:
+              kilocaloriesConsumption ?? this.kilocaloriesConsumption,
+          proteinsIntake: proteinsIntake ?? this.proteinsIntake,
+          carbohydratesIntake: carbohydratesIntake ?? this.carbohydratesIntake,
+          fatsIntake: fatsIntake ?? this.fatsIntake,
+          waterConsumption: waterConsumption ?? this.waterConsumption,
+          fruitsVegetablesIntake:
+              fruitsVegetablesIntake ?? this.fruitsVegetablesIntake);
 
   Map<String, dynamic> toJson() => {
         'dateTime': dateTime.toIso8601String(),
@@ -43,7 +42,7 @@ class ChartNutritionModel {
         'carbohydratesIntake': carbohydratesIntake,
         'fatsIntake': fatsIntake,
         'waterConsumption': waterConsumption,
-        'fruitsVegetablesIntake': fruitsVegetablesIntake,
+        'fruitsVegetablesIntake': fruitsVegetablesIntake
       };
 
   static ChartNutritionModel fromJson(Map<String, dynamic> json) =>

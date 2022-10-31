@@ -45,15 +45,15 @@ class _KilocaloriesChartWidgetState extends State<KilocaloriesChartWidget> {
 
   List<KilocaloriesChartModel> get dataSourceSelection {
     if (widget.option == 0) {
-      return oneWeekKilocaloriesData;
+      return setKilocaloriesDataList(7);
     } else if (widget.option == 1) {
-      return oneMonthKilocaloriesData;
+      return setKilocaloriesDataList(31);
     } else if (widget.option == 2) {
-      return threeMonthsKilocaloriesData;
+      return setKilocaloriesDataList(91);
     } else if (widget.option == 3) {
-      return sixMonthsKilocaloriesData;
+      return setKilocaloriesDataList(182);
     } else {
-      return oneYearKilocaloriesData;
+      return setKilocaloriesDataList(365);
     }
   }
 }

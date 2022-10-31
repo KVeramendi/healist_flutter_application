@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
 import 'package:healist_flutter_application/View/Sidebar/About/about_healist_page.dart';
@@ -12,11 +13,11 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.getUser();
+    UserModel _user = UserPreferences.getUser();
     return Drawer(
         child: Column(children: [
-      buildHeader(user.userImagePath, user.fullName, user.email),
-      buildMenuItems(context)
+      buildHeader(_user.userImagePath, _user.fullName, _user.email),
+      buildMenuItems(context, _user)
     ]));
   }
 
@@ -42,7 +43,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         ]));
   }
 
-  Widget buildMenuItems(BuildContext context) => Expanded(
+  Widget buildMenuItems(BuildContext context, UserModel user) => Expanded(
       child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -83,8 +84,12 @@ class NavigationDrawerWidget extends StatelessWidget {
                       leading: const Icon(Icons.logout_rounded),
                       title: const Text('Cerrar sesión',
                           style: TextStyle(fontSize: 16.0)),
-                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LoginPage())))
+                      onTap: () {
+                        user = user.copy(closedSession: true);
+                        UserPreferences.setUser(user);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                      })
                 ])
               ])));
 }

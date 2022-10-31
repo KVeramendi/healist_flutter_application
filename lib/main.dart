@@ -4,17 +4,18 @@ import 'package:healist_flutter_application/Util/chart_nutrition_preferences.dar
 import 'package:healist_flutter_application/Util/daily_nutrition_preferences.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
+import 'package:healist_flutter_application/View/Menu/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await UserPreferences.init();
   await DailyNutritionPreferences.init();
   await ChartNutritionPreferences.init();
-  // await temp();
+  await updateChartNutritionList();
   runApp(const MyApp());
 }
 
-temp() {
+updateChartNutritionList() {
   final _charNutrition = ChartNutritionPreferences.getChartNutrition();
   final _lastDay = _charNutrition.last.dateTime;
   final _today = DateTime.now();
@@ -45,9 +46,14 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) => MaterialApp(
-      home: const LoginPage(),
-      title: 'Healist',
-      theme: ThemeData(fontFamily: 'Mali'),
-      debugShowCheckedModeBanner: false);
+  Widget build(BuildContext context) {
+    final _user = UserPreferences.getUser();
+    return MaterialApp(
+        home: _user.email == 'test@test.dev' || _user.closedSession
+            ? const LoginPage()
+            : const HomePage(),
+        title: 'Healist',
+        theme: ThemeData(fontFamily: 'Mali'),
+        debugShowCheckedModeBanner: false);
+  }
 }

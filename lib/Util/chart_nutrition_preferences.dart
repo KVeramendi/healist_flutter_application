@@ -8,7 +8,7 @@ class ChartNutritionPreferences {
   static const _keyChartNutrition = 'chartNutrition';
   static List<ChartNutritionModel> myChartNutrition = [
     ChartNutritionModel(
-        dateTime: DateTime(2022, 10, 04),
+        dateTime: DateTime.now(),
         kilocaloriesConsumption: 0,
         proteinsIntake: 0,
         carbohydratesIntake: 0,
