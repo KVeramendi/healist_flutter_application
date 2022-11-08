@@ -1,3 +1,4 @@
+import 'package:email_auth/email_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/Model/user_model.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
@@ -15,10 +16,17 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   UserModel _user = UserPreferences.getUser();
   final _formKey = GlobalKey<FormState>();
+  late final EmailAuth _emailAuthentication;
   final TextEditingController _userEmailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _obscureText1 = true;
   bool _obscureText2 = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailAuthentication = EmailAuth(sessionName: 'Healist');
+  }
 
   @override
   Widget build(BuildContext context) => SafeArea(
@@ -106,9 +114,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       if (_isValid) {
                         _formKey.currentState!.save();
                         UserPreferences.setUser(_user);
+                        sendOTP();
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => EmailValidationPage(
-                                email: _userEmailController.text)));
+                                  email: _userEmailController.text,
+                                  emailAuth: _emailAuthentication,
+                                )));
                       }
                     },
                     text: 'Registrarse'),
@@ -126,6 +137,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 ])
               ])),
           resizeToAvoidBottomInset: false));
+
+  void sendOTP() async => await _emailAuthentication.sendOtp(
+      recipientMail: _userEmailController.text);
 
   String? _errorFullName(String text) {
     if (text.isEmpty) {

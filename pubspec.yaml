@@ -58,6 +58,8 @@ dependencies:
   image_picker: ^0.8.5+3
   # Obtiene los directorios de datos temporales y de aplicaciones de los sistemas de archivos del SO
   path_provider: ^2.0.10
+  # Autentificación de correos electrónicos utilizando el método basado en OTP (One Time Password)
+  email_auth: ^1.0.0
   
 dev_dependencies:
   flutter_test:

@@ -18,12 +18,13 @@ void main() async {
 updateChartNutritionList() {
   final _charNutrition = ChartNutritionPreferences.getChartNutrition();
   final _lastDay = _charNutrition.last.dateTime;
-  final _today = DateTime.now();
+  final _today =
+      DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
   final _differenceDays = daysBetween(_lastDay, _today);
   if (_differenceDays > 0) {
     for (int i = 0; i < _differenceDays; i++) {
       _charNutrition.add(ChartNutritionModel(
-          dateTime: _lastDay.add(Duration(days: i)),
+          dateTime: _lastDay.add(Duration(days: (i + 1))),
           kilocaloriesConsumption: 0,
           proteinsIntake: 0,
           carbohydratesIntake: 0,
@@ -32,6 +33,8 @@ updateChartNutritionList() {
           fruitsVegetablesIntake: 0));
     }
     ChartNutritionPreferences.setChartNutrition(_charNutrition);
+    DailyNutritionPreferences.setDailyNutrition(
+        DailyNutritionPreferences.myDailyNutrition);
   }
 }
 

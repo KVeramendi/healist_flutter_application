@@ -67,30 +67,38 @@ class _HomePageState extends State<HomePage> {
           size: _isItemSelected[4] ? 36.0 : 28.0,
           color: _isItemSelected[4] ? const Color(0xFF1ECF6C) : Colors.white)
     ];
-    return SafeArea(
-        child: Scaffold(
-            appBar: AppBar(
-                title: Text(_titlePage[_pageIndex]),
-                backgroundColor: const Color(0xFF1ECF6C),
-                centerTitle: true),
-            body: _pages[_pageIndex],
-            drawer: const NavigationDrawerWidget(),
-            bottomNavigationBar: CurvedNavigationBar(
-                items: _navigationBarItems,
-                index: _pageIndex,
-                color: const Color(0xFF1ECF6C),
-                buttonBackgroundColor: Colors.transparent,
-                backgroundColor: Colors.transparent,
-                onTap: (index) {
-                  for (int i = 0; i < _navigationBarItems.length; i++) {
-                    i == index
-                        ? _isItemSelected[i] = true
-                        : _isItemSelected[i] = false;
-                  }
-                  setState(() => _pageIndex = index);
-                },
-                animationCurve: Curves.linearToEaseOut,
-                animationDuration: const Duration(milliseconds: 325),
-                height: 56.0)));
+    return WillPopScope(
+        child: SafeArea(
+            child: Scaffold(
+                appBar: AppBar(
+                    title: Text(_titlePage[_pageIndex]),
+                    backgroundColor: const Color(0xFF1ECF6C),
+                    centerTitle: true),
+                body: _pages[_pageIndex],
+                drawer: const NavigationDrawerWidget(),
+                bottomNavigationBar: CurvedNavigationBar(
+                    items: _navigationBarItems,
+                    index: _pageIndex,
+                    color: const Color(0xFF1ECF6C),
+                    buttonBackgroundColor: Colors.transparent,
+                    backgroundColor: Colors.transparent,
+                    onTap: (index) {
+                      for (int i = 0; i < _navigationBarItems.length; i++) {
+                        i == index
+                            ? _isItemSelected[i] = true
+                            : _isItemSelected[i] = false;
+                      }
+                      setState(() => _pageIndex = index);
+                    },
+                    animationCurve: Curves.linearToEaseOut,
+                    animationDuration: const Duration(milliseconds: 325),
+                    height: 56.0))),
+        onWillPop: () async {
+          setState(() {
+            _isItemSelected = [false, false, true, false, false];
+            _pageIndex = 2;
+          });
+          return false;
+        });
   }
 }

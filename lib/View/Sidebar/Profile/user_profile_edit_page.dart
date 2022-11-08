@@ -124,7 +124,7 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
   Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-              title: const Text('¿Deseas descartar los cambios realizados?'),
+              title: const Text('¿Desea descartar los cambios realizados?'),
               actions: [
                 TextButton(
                     onPressed: () => Navigator.pop(context, false),
