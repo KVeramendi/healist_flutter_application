@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healist_flutter_application/Model/chart_nutrition_model.dart';
 import 'package:healist_flutter_application/Util/chart_nutrition_preferences.dart';
 import 'package:healist_flutter_application/Util/daily_nutrition_preferences.dart';
+import 'package:healist_flutter_application/Util/reminder_preferences.dart';
 import 'package:healist_flutter_application/Util/user_preferences.dart';
 import 'package:healist_flutter_application/View/Login/login_page.dart';
 import 'package:healist_flutter_application/View/Menu/home_page.dart';
@@ -11,6 +12,7 @@ void main() async {
   await UserPreferences.init();
   await DailyNutritionPreferences.init();
   await ChartNutritionPreferences.init();
+  await ReminderPreferences.init();
   await updateChartNutritionList();
   runApp(const MyApp());
 }

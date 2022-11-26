@@ -60,6 +60,12 @@ dependencies:
   path_provider: ^2.0.10
   # Autentificación de correos electrónicos utilizando el método basado en OTP (One Time Password)
   email_auth: ^1.0.0
+  # Permite personalizar notificaciones programadas en local
+  flutter_local_notifications: ^9.5.3+1
+  # Permite la programación asíncrona y hace uso de la API nativa de Dart Streams
+  rxdart: ^0.27.5
+  # Obtiene la zona horaria local del Sistema Operativo
+  flutter_native_timezone: ^2.0.0
   
 dev_dependencies:
   flutter_test:
